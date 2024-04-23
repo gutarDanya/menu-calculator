@@ -1,0 +1,20 @@
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+}
+
+.container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.name {
+    margin-right: auto;
+    text-wrap: wrap;
+    margin: 0;
+}
+
+.text {
+    margin-left: 40px;
+}
