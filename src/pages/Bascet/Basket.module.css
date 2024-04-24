@@ -1,0 +1,16 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.input {
+    font-size: 18px;
+    line-height: 24px;
+}

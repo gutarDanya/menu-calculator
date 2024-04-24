@@ -5,10 +5,12 @@ import { Tposition } from "../../Utils/Types";
 
 type TinitialState = {
     menu: Array<Tposition>;
+    currentPositions: Array<Tposition>
 }
 
 const initialState: TinitialState = {
-    menu: []
+    menu: [],
+    currentPositions: []
 }
 const MenuSlice = createSlice({
     name: "menu",
@@ -16,8 +18,12 @@ const MenuSlice = createSlice({
     reducers: {
         getAllMenu(state, action: PayloadAction<Array<Tposition>>) {
             state.menu = action.payload
+        },
+        addPosition(state, action: PayloadAction<Tposition>) {
+            state.currentPositions.push(action.payload)
         }
     }
 })
 
+export const {getAllMenu, addPosition} = MenuSlice.actions
 export default MenuSlice.reducer

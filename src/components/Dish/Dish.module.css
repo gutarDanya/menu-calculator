@@ -7,9 +7,12 @@
 .container {
     display: flex;
     margin-bottom: 20px;
+    background-color: rgb(69, 189, 149);
+    width: 100%;
 }
 
 .name {
+    text-align: left;
     margin-right: auto;
     text-wrap: wrap;
     margin: 0;

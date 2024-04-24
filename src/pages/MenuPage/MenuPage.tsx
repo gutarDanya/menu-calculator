@@ -1,15 +1,16 @@
 import React from "react";
 import styles from './MenuPage.module.css';
-import { positions } from "../../Utils/Data";
+
 import DishTypeContainer from "../../components/DishTypeContainer/DishTypeContainer";
-import Dish from "../../components/Dish/Dish";
 import { checkDish } from "../../Utils/scripts";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../services/store";
 
 const MenuPage = () => {
 
     const navigate = useNavigate();
 
+    const positions = useAppSelector(state => state.MenuSlices.menu)
     const chekOrder = () => {
         navigate("/bascket");
     }
