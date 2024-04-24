@@ -6,8 +6,15 @@
 }
 
 .menuContainer {
-    
+    background-color: rgb(169, 248, 222);
     display: flex;
     flex-direction: column;
     width: 60%;
+}
+
+.basketButton {
+    font-size: 30px;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
 }

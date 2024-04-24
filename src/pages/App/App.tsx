@@ -12,6 +12,8 @@ function App() {
       <main className={styles.main}>
         <Routes>
           <Route path='/' element={<MenuPage />} />
+          <Route path='/orders' element={<div></div>} />
+          <Route path='/basket' element={<div></div>} />
         </Routes>
       </main>
     </div>

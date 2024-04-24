@@ -4,8 +4,15 @@ import { positions } from "../../Utils/Data";
 import DishTypeContainer from "../../components/DishTypeContainer/DishTypeContainer";
 import Dish from "../../components/Dish/Dish";
 import { checkDish } from "../../Utils/scripts";
+import { useNavigate } from "react-router-dom";
 
 const MenuPage = () => {
+
+    const navigate = useNavigate();
+
+    const chekOrder = () => {
+        navigate("/bascket");
+    }
 
     return (
         <div className={styles.page}>
@@ -84,6 +91,7 @@ const MenuPage = () => {
                     })}
                 </DishTypeContainer>
             </div>
+            <button className={styles.basketButton} onClick={chekOrder}>Корзина</button>
         </div>
     )
 }

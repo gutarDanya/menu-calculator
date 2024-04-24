@@ -34,6 +34,28 @@
     justify-content: flex-start;
 }
 
+.activeLink {
+    transition: all 250ms ease-in-out;
+    font-size: 24px;
+    line-height: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: rgb(57, 180, 139);
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+
+.inactiveLink {
+    transition: all 250ms ease-in-out;
+    font-size: 24px;
+    line-height: 30px;
+    margin-top: 20px;
+    background-color: rgb(96, 197, 163);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
 .switchShirm {
     background-color: #fddc36;
     border: 0;
@@ -43,4 +65,12 @@
     margin-top: 30px;
     width: 30px;
     height: 30px;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto auto 30px;
+    width: 80%;
+    align-items: flex-start;
 }

@@ -9,9 +9,12 @@ const Shirm = () => {
     return (
         <div className={shirmOpened ? styles.containerOpened : styles.containerClosed}>
             <div className={styles.shirmContainer}>
-                <p className={styles.text}>ПИСЯ ПОПА</p>
+                <nav className={styles.navContainer}>
+                    <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/'}>Меню</NavLink>
+                    <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/orders'}>Заказы</NavLink>
+                </nav>
             </div>
-            <button className={styles.switchShirm} onClick={() => {setShirmOpened(!shirmOpened)}} type='button' >{shirmOpened ? '<' : '>'}</button>
+            <button className={styles.switchShirm} onClick={() => { setShirmOpened(!shirmOpened) }} type='button' >{shirmOpened ? '<' : '>'}</button>
         </div>
     )
 }
