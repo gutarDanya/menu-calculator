@@ -11,4 +11,12 @@ export type TsendedOrder = {
     dishes: Array<string | number>;
     name: string,
     date: string | number;
+    id?: string; 
+}
+
+export type Torder = {
+    date: string;
+    dishes: Array<Tposition>;
+    id: string;
+    name: string
 }

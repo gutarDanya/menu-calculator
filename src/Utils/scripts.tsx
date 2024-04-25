@@ -1,6 +1,7 @@
 import React from "react";
 import { Tposition } from "./Types";
 import Dish from "../components/Dish/Dish";
+import {v4 as uuid4} from 'uuid'
 
 export const checkDish = (type: string, data: Tposition) => {
     if (data.type == type) {
@@ -12,7 +13,7 @@ export const checkDish = (type: string, data: Tposition) => {
 
 export const sendOrder = (array: Array<string | number>, name: string, date: string | number ) => {
 
-    const newOrder = {dishes: array, name: name, date: date};
+    const newOrder = {dishes: array, name: name, date: date, id: uuid4()};
     if (!localStorage.getItem('orders')) {
         localStorage.setItem("orders", JSON.stringify([]))
     }
