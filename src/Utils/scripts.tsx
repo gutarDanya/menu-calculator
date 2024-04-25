@@ -9,3 +9,12 @@ export const checkDish = (type: string, data: Tposition) => {
         return null
     }
 }
+
+export const sendOrder = (array: Array<string | number>, name: string, date: string | number ) => {
+
+    const newOrder = {dishes: array, name: name, date: date};
+    if (!localStorage.getItem('orders')) {
+        localStorage.setItem("orders", JSON.stringify([]))
+    }
+    localStorage.setItem("orders", JSON.stringify([...JSON.parse(localStorage.getItem('orders')!), newOrder]))
+}

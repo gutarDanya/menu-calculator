@@ -10,7 +10,23 @@
     justify-content: space-around;
 }
 
+.positionsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs {
+    width: 100%;
+}
+
 .input {
     font-size: 18px;
     line-height: 24px;
+}
+
+.submitButton{
+    margin: 20px auto auto auto;
+    font-size: 27px;
 }

@@ -6,3 +6,9 @@ export type Tposition = {
     description: string;
     type: string;
 }
+
+export type TsendedOrder = {
+    dishes: Array<string | number>;
+    name: string,
+    date: string | number;
+}
