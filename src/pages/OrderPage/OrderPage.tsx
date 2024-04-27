@@ -28,7 +28,7 @@ const OrderPage = () => {
     return (
         order.name != ""
             ? (<div className={styles.page}>
-                <h1 className={styles.header}>Заказ{order.name}</h1>
+                <h1 className={styles.header}>Заказ: {order.name}</h1>
                 <div className={styles.dishesContainer}>
                     {order.dishes && order.dishes.length > 0 && order.dishes.map((dish) => {
                         return <Dish dish={dish} />

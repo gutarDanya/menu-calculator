@@ -6,12 +6,14 @@ import { sendOrder } from "../../Utils/scripts";
 
 type TinitialState = {
     menu: Array<Tposition>;
-    currentPositions: Array<Tposition>
+    currentPositions: Array<Tposition>;
+    shirmOpened: boolean
 }
 
 const initialState: TinitialState = {
     menu: [],
-    currentPositions: []
+    currentPositions: [],
+    shirmOpened: false
 }
 const MenuSlice = createSlice({
     name: "menu",
@@ -28,9 +30,12 @@ const MenuSlice = createSlice({
 
             const arr = state.currentPositions.map((dish) => {return dish.id})
             sendOrder(arr, name, date)
+        },
+        switchShirm(state) {
+            state.shirmOpened = !state.shirmOpened
         }
     }
 })
 
-export const {getAllMenu, addPosition, saveOrder} = MenuSlice.actions
+export const {getAllMenu, addPosition, saveOrder, switchShirm} = MenuSlice.actions
 export default MenuSlice.reducer
