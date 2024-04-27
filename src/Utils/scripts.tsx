@@ -11,11 +11,17 @@ export const checkDish = (type: string, data: Tposition) => {
     }
 }
 
-export const sendOrder = (array: Array<string | number>, name: string, date: string | number ) => {
+export const sendOrder = (array: Array<string | number>, name: string, date: string | number, description1: string, description2: string ) => {
 
-    const newOrder = {dishes: array, name: name, date: date, id: uuid4()};
+    const newOrder = {dishes: array, name: name, date: date, id: uuid4(), description1, description2};
     if (!localStorage.getItem('orders')) {
         localStorage.setItem("orders", JSON.stringify([]))
     }
     localStorage.setItem("orders", JSON.stringify([...JSON.parse(localStorage.getItem('orders')!), newOrder]))
+}
+
+export const checkSotrage = () => {
+    if (localStorage.getItem("orders") == null) {
+        localStorage.setItem("orders", JSON.stringify([]))
+    }
 }

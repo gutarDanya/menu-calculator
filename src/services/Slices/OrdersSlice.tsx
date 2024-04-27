@@ -4,17 +4,12 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";;
 
 type TinitialState = {
     orders: Array<Torder>;
-    currentOrder: Torder
+    currentOrder: Torder | null
 }
 
 const initialState: TinitialState = {
     orders: [],
-    currentOrder: {
-        date: "",
-        dishes: [],
-        id: "",
-        name: ""
-    }
+    currentOrder: null
 }
 
 const OrdersSlice = createSlice({
@@ -23,14 +18,14 @@ const OrdersSlice = createSlice({
     reducers: {
         getAllOrders(state, action: PayloadAction<Array<Tposition>>) {
             state.orders = JSON.parse(localStorage.getItem("orders")!).map((order: TsendedOrder) => {
-                return {...order, dishes: order.dishes.map((id) => {return action.payload.find((dish) => {return dish.id == id})})}
+                return { ...order, dishes: order.dishes.map((id) => { return action.payload.find((dish) => { return dish.id == id }) }) }
             })
         },
         getCurrentOrder(state, action: PayloadAction<string>) {
-            state.currentOrder = state.orders.find((order) => {return order.id == action.payload}) || state.currentOrder
+            state.currentOrder = state.orders.find((order) => { return order.id == action.payload }) || state.currentOrder
         }
     }
 })
 
-export const {getAllOrders, getCurrentOrder} = OrdersSlice.actions
+export const { getAllOrders, getCurrentOrder } = OrdersSlice.actions
 export default OrdersSlice.reducer

@@ -19,11 +19,35 @@
 
 .inputs {
     width: 100%;
+    display: flex;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.textareaContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
 }
 
 .input {
     font-size: 18px;
     line-height: 24px;
+    height: 24px;
+    width: 150px;
+}
+
+.textarea {
+    height: 75px;
+    width: 350px;
+    text-wrap: wrap;
+    text-align: start;
+    resize: none;
+
 }
 
 .submitButton{

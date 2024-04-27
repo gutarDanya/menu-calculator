@@ -18,5 +18,7 @@ export type Torder = {
     date: string;
     dishes: Array<Tposition>;
     id: string;
-    name: string
+    name: string,
+    description1: string;
+    description2: string;
 }

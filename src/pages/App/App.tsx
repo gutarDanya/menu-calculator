@@ -11,12 +11,16 @@ import { positions } from '../../Utils/Data';
 import OrdersPage from '../OrdersPage/OrdersPage';
 import { getAllOrders } from '../../services/Slices/OrdersSlice';
 import OrderPage from '../OrderPage/OrderPage';
+import { checkSotrage } from '../../Utils/scripts';
 
 function App() {
   const dispatch = useAppDispatch();
 
+  checkSotrage();
+
   useEffect(() => {
-    dispatch(getAllMenu(positions))
+    console.log(localStorage.getItem("orders"))
+    dispatch(getAllMenu(positions));
     dispatch(getAllOrders(positions))
   }, [])
 

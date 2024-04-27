@@ -11,6 +11,16 @@
     width: 60%;
 }
 
+.descriptions {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+}
+
+.description {
+    max-height: 400px;
+}
 .totalPrice{
     font-size: 28px;
 }
