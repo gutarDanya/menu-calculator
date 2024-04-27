@@ -1,0 +1,16 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dishesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.totalPrice{
+    font-size: 28px;
+}
