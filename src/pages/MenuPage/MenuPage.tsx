@@ -22,73 +22,73 @@ const MenuPage = () => {
 
                 <DishTypeContainer title="Холодные закуски">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ХОЛОДНЫЕ ЗАКУСКИ", dish)
+                        return checkDish("ХОЛОДНЫЕ ЗАКУСКИ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="САЛАТЫ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("САЛАТЫ", dish)
+                        return checkDish("САЛАТЫ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГОРЯЧИЕ ЗАКУСКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish)
+                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="Супы">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("СУПЫ", dish)
+                        return checkDish("СУПЫ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГОРЯЧИЕ ЗАКУСКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish)
+                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГОРЯЧИЕ БЛЮДА">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ БЛЮДА", dish)
+                        return checkDish("ГОРЯЧИЕ БЛЮДА", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГРИЛЬ-МЕНЮ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГРИЛЬ-МЕНЮ", dish)
+                        return checkDish("ГРИЛЬ-МЕНЮ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГАРНИРЫ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГАРНИРЫ", dish)
+                        return checkDish("ГАРНИРЫ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ХЛЕБ И ВЫПЕЧКА">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ХЛЕБ И ВЫПЕЧКА", dish)
+                        return checkDish("ХЛЕБ И ВЫПЕЧКА", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="НАПИТКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("НАПИТКИ", dish)
+                        return checkDish("НАПИТКИ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ФУРШЕТНОЕ МЕНЮ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ФУРШЕТНОЕ МЕНЮ", dish)
+                        return checkDish("ФУРШЕТНОЕ МЕНЮ", dish, false)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="НОВИНКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("НОВИНКИ", dish)
+                        return checkDish("НОВИНКИ", dish, false)
                     })}
                 </DishTypeContainer>
             </div>

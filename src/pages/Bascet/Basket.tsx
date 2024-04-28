@@ -33,7 +33,7 @@ const Basket = () => {
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
                     return (
-                        <Dish dish={dish} />
+                        <Dish dish={dish} removed={true}/>
                     )
                 })}
                 <div className={styles.inputs}>
