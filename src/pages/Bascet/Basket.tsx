@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from './Basket.module.css';
 import { useAppDispatch, useAppSelector } from "../../services/store";
 import Dish from "../../components/Dish/Dish";
-import { saveOrder } from "../../services/Slices/MenuSlices";
+import { removePosition, saveOrder } from "../../services/Slices/MenuSlices";
 import { Tposition } from "../../Utils/Types";
 
 const Basket = () => {
@@ -26,6 +26,10 @@ const Basket = () => {
         console.log(JSON.parse(localStorage.getItem('orders') || '{}'))
     }
 
+    const removeFrom = (pos: Tposition) => {
+        dispatch(removePosition(pos))
+    }
+
 
     return (
         <div className={styles.page}>
@@ -33,7 +37,7 @@ const Basket = () => {
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
                     return (
-                        <Dish dish={dish} removed={true}/>
+                        <Dish dish={dish} removed={true} handleClick={removeFrom}/>
                     )
                 })}
                 <div className={styles.inputs}>

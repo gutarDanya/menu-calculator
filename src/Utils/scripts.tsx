@@ -3,9 +3,9 @@ import { Tposition } from "./Types";
 import Dish from "../components/Dish/Dish";
 import {v4 as uuid4} from 'uuid'
 
-export const checkDish = (type: string, data: Tposition, removed: boolean) => {
+export const checkDish = (type: string, data: Tposition, removed: boolean, handleClose: (arg: Tposition) => any) => {
     if (data.type == type) {
-        return <Dish dish={data} removed={removed}/>
+        return <Dish dish={data} removed={removed} handleClick={handleClose}/>
     } else {
         return null
     }

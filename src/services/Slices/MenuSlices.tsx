@@ -25,6 +25,9 @@ const MenuSlice = createSlice({
         addPosition(state, action: PayloadAction<Tposition>) {
             state.currentPositions.push(action.payload)
         },
+        removePosition(state, action: PayloadAction<Tposition>) {
+            state.currentPositions = state.currentPositions.filter((pos) => {return pos.id != action.payload.id})
+        },
         saveOrder(state, action: PayloadAction<any>) {
             const {date, name, description1, description2} = action.payload
 
@@ -37,5 +40,5 @@ const MenuSlice = createSlice({
     }
 })
 
-export const {getAllMenu, addPosition, saveOrder, switchShirm} = MenuSlice.actions
+export const {getAllMenu, addPosition, saveOrder, switchShirm, removePosition} = MenuSlice.actions
 export default MenuSlice.reducer

@@ -4,11 +4,19 @@ import styles from './MenuPage.module.css';
 import DishTypeContainer from "../../components/DishTypeContainer/DishTypeContainer";
 import { checkDish } from "../../Utils/scripts";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../services/store";
+import { useAppDispatch, useAppSelector } from "../../services/store";
+import { Tposition } from "../../Utils/Types";
+import { addPosition } from "../../services/Slices/MenuSlices";
 
 const MenuPage = () => {
 
+    const dispatch = useAppDispatch();
+
     const navigate = useNavigate();
+
+    const CheckPos = (pos: Tposition) => {
+        dispatch(addPosition(pos))
+    }
 
     const positions = useAppSelector(state => state.MenuSlices.menu)
     const chekOrder = () => {
@@ -22,73 +30,73 @@ const MenuPage = () => {
 
                 <DishTypeContainer title="Холодные закуски">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ХОЛОДНЫЕ ЗАКУСКИ", dish, false)
+                        return checkDish("ХОЛОДНЫЕ ЗАКУСКИ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="САЛАТЫ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("САЛАТЫ", dish, false)
+                        return checkDish("САЛАТЫ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГОРЯЧИЕ ЗАКУСКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false)
+                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="Супы">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("СУПЫ", dish, false)
+                        return checkDish("СУПЫ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГОРЯЧИЕ ЗАКУСКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false)
+                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГОРЯЧИЕ БЛЮДА">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ БЛЮДА", dish, false)
+                        return checkDish("ГОРЯЧИЕ БЛЮДА", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГРИЛЬ-МЕНЮ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГРИЛЬ-МЕНЮ", dish, false)
+                        return checkDish("ГРИЛЬ-МЕНЮ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ГАРНИРЫ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГАРНИРЫ", dish, false)
+                        return checkDish("ГАРНИРЫ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ХЛЕБ И ВЫПЕЧКА">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ХЛЕБ И ВЫПЕЧКА", dish, false)
+                        return checkDish("ХЛЕБ И ВЫПЕЧКА", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="НАПИТКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("НАПИТКИ", dish, false)
+                        return checkDish("НАПИТКИ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="ФУРШЕТНОЕ МЕНЮ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ФУРШЕТНОЕ МЕНЮ", dish, false)
+                        return checkDish("ФУРШЕТНОЕ МЕНЮ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
 
                 <DishTypeContainer title="НОВИНКИ">
                     {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("НОВИНКИ", dish, false)
+                        return checkDish("НОВИНКИ", dish, false, CheckPos)
                     })}
                 </DishTypeContainer>
             </div>

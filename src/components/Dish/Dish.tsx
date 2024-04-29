@@ -4,15 +4,11 @@ import { Tposition } from "../../Utils/Types";
 import { useAppDispatch } from "../../services/store";
 import { addPosition } from "../../services/Slices/MenuSlices";
 
-const Dish: React.FC<Props> = ({ dish, removed }) => {
+const Dish: React.FC<Props> = ({ dish, removed, handleClick }) => {
     const dispatch = useAppDispatch();
-
-    const sendPosition = () => {
-        dispatch(addPosition(dish))
-    }
-
+    
     return (
-        <button type='button' className={styles.container} onClick={sendPosition}>
+        <button type='button' className={styles.container} onClick={() => {handleClick(dish)}}>
             <div className={styles.infoContainer}>
                 <h3 className={styles.name}>{dish.name}</h3>
                 <p className={styles.description}>{dish.description}</p>
@@ -26,7 +22,8 @@ const Dish: React.FC<Props> = ({ dish, removed }) => {
 
 type Props = {
     dish: Tposition;
-    removed: boolean
+    removed: boolean;
+    handleClick: (arg: Tposition) => any
 }
 
 export default Dish
