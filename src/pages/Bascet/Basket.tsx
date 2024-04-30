@@ -16,6 +16,13 @@ const Basket = () => {
 
     const [dataOfOrder, setDataOfOrder] = useState({ date: "27.04.08", name: "", description1: "", description2: "" })
 
+    const [newPosition, setNewPosition] = useState({name: "0",
+     description: "",
+    price: 0,
+    id: 0,
+    weight: 0,
+    type: "ДОПОЛНИТЕЛЬНЫЕ"})
+
     const submitForm = (evt: any) => {
         evt.preventDefault();
 
@@ -30,6 +37,10 @@ const Basket = () => {
         dispatch(removePosition(pos))
     }
 
+    const addPosition = () => {
+
+    }
+
 
     return (
         <div className={styles.page}>
@@ -40,6 +51,7 @@ const Basket = () => {
                         <Dish dish={dish} removed={true} handleClick={removeFrom}/>
                     )
                 })}
+                <button type="button" className={styles.addPositionButton}>Добавить заказ</button>
                 <div className={styles.inputs}>
                     <div className={styles.inputsContainer}>
                         <input className={styles.input} value={dataOfOrder.name} onChange={(e) => { setDataOfOrder({ ...dataOfOrder, name: e.target.value })}} type='text' placeholder="ваше имя" />
