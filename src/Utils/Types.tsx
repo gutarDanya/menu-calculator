@@ -5,6 +5,7 @@ export type Tposition = {
     weight: number | string;
     description: string;
     type: string;
+    count?: number;
 }
 
 export type TsendedOrder = {

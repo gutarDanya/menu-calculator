@@ -19,7 +19,15 @@ const OrderPage = () => {
 
     useEffect(() => {
         dispatch(getCurrentOrder(id!))
-    }, [orders])
+    }, [orders]);
+
+    const incrementPosition = (pos: Tposition) => {
+        console.log("написать функцию добавки в localStorage")
+    }
+
+    const decrementPosition = (pos: Tposition) => {
+        console.log("написать уменьшение счётчика в localStorage")
+    }
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
 
@@ -37,7 +45,7 @@ const OrderPage = () => {
                 <h1 className={styles.header}>Заказ: {order.name}</h1>
                 <div className={styles.dishesContainer}>
                     {order.dishes && order.dishes.length > 0 && order.dishes.map((dish) => {
-                        return <Dish dish={dish} removed={true} handleClick={removePosition}/>
+                        return <Dish dish={dish} removedPos={true} handleClick={removePosition} incrementPosition={incrementPosition} decrementPosition={decrementPosition}/>
                     })}
                     <div className={styles.descriptions}>
                         <p className={styles.description}>{order.description1}</p>

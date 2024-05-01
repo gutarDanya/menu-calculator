@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../services/store";
 import Dish from "../../components/Dish/Dish";
 import { removePosition, saveOrder } from "../../services/Slices/MenuSlices";
 import { Tposition } from "../../Utils/Types";
+import { addPosition } from "../../services/Slices/MenuSlices";
+import { decrementPosition } from "../../services/Slices/MenuSlices";
 
 const Basket = () => {
 
@@ -12,7 +14,20 @@ const Basket = () => {
 
     const totalPrice = positions.reduce((acc: any, item:Tposition) => {
         return acc + item.price
-    }, 0)
+    }, 0);
+
+    const removeFromOrder = (pos: Tposition) => {
+        dispatch(removePosition(pos))
+    }
+
+    const decrement = (pos: Tposition) => {
+        dispatch(decrementPosition(pos))
+    }
+
+    const increment = (pos: Tposition) => {
+        dispatch(addPosition(pos))
+        debugger
+    }
 
     const [dataOfOrder, setDataOfOrder] = useState({ date: "27.04.08", name: "", description1: "", description2: "" })
 
@@ -33,13 +48,6 @@ const Basket = () => {
         console.log(JSON.parse(localStorage.getItem('orders') || '{}'))
     }
 
-    const removeFrom = (pos: Tposition) => {
-        dispatch(removePosition(pos))
-    }
-
-    const addPosition = () => {
-
-    }
 
 
     return (
@@ -48,7 +56,7 @@ const Basket = () => {
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
                     return (
-                        <Dish dish={dish} removed={true} handleClick={removeFrom}/>
+                        <Dish dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement}/>
                     )
                 })}
                 <button type="button" className={styles.addPositionButton}>Добавить заказ</button>
@@ -63,7 +71,7 @@ const Basket = () => {
                     </div>
                 </div>
                 <p className={styles.totalKPI}>{totalPrice}</p>
-                <button className={styles.submitButton} type="submit" onClick={submitForm}>Сохранить</button>
+                <button className={styles.submitButton} type="submit" onClick={(e) => {submitForm(e)}}>Сохранить</button>
                 <button onClick={testFunc} type="button">Тест</button>
             </form>
         </div>

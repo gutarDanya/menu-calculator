@@ -7,8 +7,9 @@
 .container {
     display: flex;
     margin-bottom: 20px;
-    background-color: rgb(69, 189, 149);
+    background-color: #a5c1c2;
     width: 100%;
+    padding: 6px;
 }
 
 .name {
@@ -16,6 +17,12 @@
     margin-right: auto;
     text-wrap: wrap;
     margin: 0;
+    color: white;
+}
+
+.description {
+    text-align: start;
+    color: white;
 }
 
 .trash {
@@ -24,6 +31,30 @@
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 15px;
+}
+
+.countContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #90b2b4;
+    min-width: 40px;
+    min-height: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.calculationContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.count {
+    font-size: 27px;
+    font-weight: 700;
+    margin: 0;
 }
 
 .text {

@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-    background-color:aquamarine;
 }
 
 .header{
     width: 100%;
-    background-color: rgb(94, 211, 172);
+    background-color: black;
+    color: white;
 }
