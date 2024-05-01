@@ -56,7 +56,7 @@ const Basket = () => {
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
                     return (
-                        <Dish dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement}/>
+                        <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement}/>
                     )
                 })}
                 <button type="button" className={styles.addPositionButton}>Добавить заказ</button>

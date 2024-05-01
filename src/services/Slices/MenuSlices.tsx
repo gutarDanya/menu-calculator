@@ -46,7 +46,7 @@ const MenuSlice = createSlice({
         saveOrder(state, action: PayloadAction<any>) {
             const {date, name, description1, description2} = action.payload
 
-            const arr = state.currentPositions.map((dish) => {return dish.id})
+            const arr = state.currentPositions.map((dish) => {return {id: dish.id, count: dish.count!}})
             sendOrder(arr, name, date, description1, description2)
         },
         switchShirm(state) {

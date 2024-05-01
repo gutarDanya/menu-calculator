@@ -4,7 +4,7 @@ import { Tposition } from "../../Utils/Types";
 import { useAppDispatch } from "../../services/store";
 import { addPosition } from "../../services/Slices/MenuSlices";
 
-const Dish: React.FC<Props> = ({ dish, removedPos = false , handleClick, incrementPosition, decrementPosition }) => {
+const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition }) => {
     const dispatch = useAppDispatch();
 
     return (
@@ -31,7 +31,7 @@ const Dish: React.FC<Props> = ({ dish, removedPos = false , handleClick, increme
 
 type Props = {
     dish: Tposition;
-    removedPos?: boolean;
+    removedPos: boolean;
     handleClick: (arg: Tposition) => any;
     incrementPosition: (arg: Tposition) => any;
     decrementPosition: (arg: Tposition) => any;
