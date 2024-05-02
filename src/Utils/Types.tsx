@@ -9,7 +9,7 @@ export type Tposition = {
 }
 
 export type TsendedOrder = {
-    dishes: Array<string | number>;
+    dishes: Array<{id: string | number, count: number}>;
     name: string,
     date: string | number;
     id?: string; 

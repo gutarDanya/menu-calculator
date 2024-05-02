@@ -12,6 +12,8 @@ import OrdersPage from '../OrdersPage/OrdersPage';
 import { getAllOrders } from '../../services/Slices/OrdersSlice';
 import OrderPage from '../OrderPage/OrderPage';
 import { checkSotrage } from '../../Utils/scripts';
+import LoginPage from '../LoginPage/LoginPage';
+import { getCookie } from '../../Utils/Cookie';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -24,19 +26,35 @@ function App() {
     dispatch(getAllOrders(positions))
   }, [])
 
-  return (
-    <div className={styles.root}>
-      <Shirm />
-      <main className={styles.main}>
-        <Routes>
-          <Route path='/' element={<MenuPage />} />
-          <Route path='/orders' element={<OrdersPage />} />
-          <Route path="orders/:id" element={<OrderPage />} />
-          <Route path="/bascket" element={<Basket/>} />
-        </Routes>
-      </main>
-    </div>
-  );
+  if (getCookie("logined") === "logined") {
+    return (
+      <div className={styles.root}>
+        <Shirm />
+        <main className={styles.main}>
+          <Routes>
+            <Route path='/' element={<MenuPage />} />
+            <Route path='/orders' element={<OrdersPage />} />
+            <Route path="orders/:id" element={<OrderPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/bascket" element={<Basket/>} />
+          </Routes>
+        </main>
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.root}>
+        <Shirm />
+        <main className={styles.main}>
+          <Routes>
+            <Route path='/' element={<MenuPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/bascket" element={<Basket/>} />
+          </Routes>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;

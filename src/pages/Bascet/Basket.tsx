@@ -13,7 +13,7 @@ const Basket = () => {
     const positions = useAppSelector(state => state.MenuSlices.currentPositions);
 
     const totalPrice = positions.reduce((acc: any, item:Tposition) => {
-        return acc + item.price
+        return acc + item.price * item.count!
     }, 0);
 
     const removeFromOrder = (pos: Tposition) => {

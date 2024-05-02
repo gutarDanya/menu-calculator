@@ -1,5 +1,8 @@
 import { Tposition } from "./Types"
 
+export const currentLogin = "wolkilipki18"
+export const currentPassword = "clubwolki18"
+
 export const positions: Array<Tposition> = [
     {
         name: "МЯСНОЕ АССОРТИ ОТ ШЕФ-ПОВАРА",

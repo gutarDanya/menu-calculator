@@ -4,7 +4,7 @@ import { Tposition } from "../../Utils/Types";
 import { useAppDispatch } from "../../services/store";
 import { addPosition } from "../../services/Slices/MenuSlices";
 
-const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition }) => {
+const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition, counterWork = true}) => {
     const dispatch = useAppDispatch();
 
     return (
@@ -16,10 +16,13 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
             {
                 dish.count && dish.count > 0 ? (<div className={styles.countContainer}>
                     <p className={styles.count}>{dish.count}</p>
-                    <div className={styles.calculationContainer}>
+                    { counterWork 
+                        ? (<div className={styles.calculationContainer}>
                         <button className={styles.calculation} onClick={(e) => {e.preventDefault(); e.stopPropagation(); incrementPosition(dish) }}>▲</button>
                         <button className={styles.calculation} onClick={(e) => {e.preventDefault(); e.stopPropagation(); decrementPosition(dish) }}>▼</button>
-                    </div>
+                        </div>)
+                        : null
+                    }
                 </div>) : null
             }
             <p className={styles.text}>вес:{dish.weight}</p>
@@ -35,6 +38,7 @@ type Props = {
     handleClick: (arg: Tposition) => any;
     incrementPosition: (arg: Tposition) => any;
     decrementPosition: (arg: Tposition) => any;
+    counterWork?: boolean;
 }
 
 export default Dish

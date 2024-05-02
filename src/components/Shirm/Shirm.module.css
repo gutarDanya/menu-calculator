@@ -74,3 +74,12 @@
     width: 80%;
     align-items: flex-start;
 }
+
+.autohorization {
+    margin: auto auto 30px 30px;
+    height: 40px;
+    display: flex;
+    padding: 7px;
+    font-size: 27px;
+    text-align: center;
+}

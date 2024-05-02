@@ -30,11 +30,13 @@ const MenuSlice = createSlice({
             state.currentPositions = state.menu.filter((pos) => {return pos.count})
         },
         removePosition(state, action: PayloadAction<Tposition>) {
+            //unworked
             state.currentPositions = state.currentPositions.filter((pos) => {return pos.id != action.payload.id})
 
             state.menu = state.menu.map((pos) => {return pos.id == action.payload.id ? {...pos, count: 0} : pos})
         },
         decrementPosition (state, action: PayloadAction<Tposition>) {
+            //unworked
             state.menu = state.menu.map((pos) => {
                 return pos.id == action.payload.id ? {...pos, count: pos.count! - 1} : pos
             })

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from './OrderPage.module.css';
 import { useAppDispatch, useAppSelector } from "../../services/store";
 import { useParams } from "react-router-dom";
-import { getCurrentOrder } from "../../services/Slices/OrdersSlice";
+import { decrement, getAllOrders, getCurrentOrder, increment } from "../../services/Slices/OrdersSlice";
 import Dish from "../../components/Dish/Dish";
 import { Tposition } from "../../Utils/Types";
 import { removePosition } from "../../services/Slices/MenuSlices";
+import { positions } from "../../Utils/Data";
 
 const OrderPage = () => {
 
@@ -19,20 +20,20 @@ const OrderPage = () => {
 
     useEffect(() => {
         dispatch(getCurrentOrder(id!))
-    }, [orders]);
+    }, []);
 
-    const incrementPosition = (pos: Tposition) => {
-        console.log("написать функцию добавки в localStorage")
+    const incrementPosition = async(pos: Tposition) => {
+        await dispatch(increment(pos))
     }
 
-    const decrementPosition = (pos: Tposition) => {
-        console.log("написать уменьшение счётчика в localStorage")
+    const decrementPosition = async(pos: Tposition) => {
+        await dispatch(decrement(pos))
     }
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
 
     const totalPrice = order?.dishes.reduce((acc: any, item:Tposition) => {
-        return acc + item.price
+        return acc + item.price * item.count!
     }, 0)
 
     const removePositionFromOrder = (pos: any) => {
@@ -45,7 +46,8 @@ const OrderPage = () => {
                 <h1 className={styles.header}>Заказ: {order.name}</h1>
                 <div className={styles.dishesContainer}>
                     {order.dishes && order.dishes.length > 0 && order.dishes.map((dish) => {
-                        return <Dish dish={dish} removedPos={true} handleClick={removePosition} incrementPosition={incrementPosition} decrementPosition={decrementPosition}/>
+
+                        return  <Dish dish={dish} removedPos={true} handleClick={removePosition} incrementPosition={incrementPosition} decrementPosition={decrementPosition} counterWork={false}/>
                     })}
                     <div className={styles.descriptions}>
                         <p className={styles.description}>{order.description1}</p>
