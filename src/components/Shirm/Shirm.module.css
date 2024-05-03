@@ -4,7 +4,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 100vh;
+    height: 90vh;
     width: 280px;
     transition: all 250ms linear;
     border-radius: 10px 20px 20px 0;
@@ -15,7 +15,7 @@
     position: fixed;
     left: -250px;
     bottom: 0;
-    height: 100vh;
+    height: 90vh;
     width: 280px;
     transition: all 250ms linear;
 }

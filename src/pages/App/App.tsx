@@ -14,6 +14,7 @@ import OrderPage from '../OrderPage/OrderPage';
 import { checkSotrage } from '../../Utils/scripts';
 import LoginPage from '../LoginPage/LoginPage';
 import { getCookie } from '../../Utils/Cookie';
+import Header from '../../components/Header/Header';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -29,6 +30,7 @@ function App() {
   if (getCookie("logined") === "logined") {
     return (
       <div className={styles.root}>
+        <Header />
         <Shirm />
         <main className={styles.main}>
           <Routes>
