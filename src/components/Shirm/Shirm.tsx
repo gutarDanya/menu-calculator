@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import styles from './Shirm.module.css';
 import { NavLink, useNavigate } from "react-router-dom";
-import { getCookie } from "../../Utils/Cookie";
+import { deleteCookie, getCookie } from "../../Utils/Cookie";
 
 const Shirm = () => {
 
     const navigate = useNavigate();
 
     const handleLogin = () => {
+        if (getCookie("logined") != "logined") {
         navigate('/login')
+        } else {
+            deleteCookie("logined")
+        }
     }
 
 

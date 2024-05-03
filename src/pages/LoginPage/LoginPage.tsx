@@ -3,11 +3,13 @@ import styles from './LoginPage.module.css';
 import { currentLogin, currentPassword } from "../../Utils/Data";
 import { useAppDispatch } from "../../services/store";
 import { RightLogin } from "../../services/Slices/LoginSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () => {
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const [password, setPassword] = useState("");
     const [login, setLogin] = useState("");
@@ -15,6 +17,7 @@ const LoginPage = () => {
     const submit = () => {
        if (password == currentPassword && login == currentLogin) {
         dispatch(RightLogin({login: login, password: password}))
+        navigate('/')
        }
     }
     
