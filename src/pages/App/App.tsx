@@ -30,7 +30,6 @@ function App() {
   if (getCookie("logined") === "logined") {
     return (
       <div className={styles.root}>
-        <Header />
         <Shirm />
         <main className={styles.main}>
           <Routes>

@@ -7,6 +7,37 @@
 .ordersContainer{
     display: grid;
     grid-template-columns: repeat(auto-fill, 40%);
-    width: 60%;
+    width: 70%;
     gap:20%;
+}
+
+.formContainer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input {
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+.button {
+    font-size: 27px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .15), inset 0 1px 0 0 hsla(0, 0%, 100%, 0);
+    transition: background-color 150ms linear;
+}
+
+.button:hover {
+    background-color: darkgray;
+}
+
+@media (max-width: 600px) {
+    .ordersContainer {
+        display: flex;
+        flex-direction: column;
+    }
 }

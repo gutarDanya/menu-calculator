@@ -25,7 +25,7 @@ const OrdersPage = () => {
                 })}
             </div>
             <form className={styles.formContainer}>
-                <input className={styles.input} placeholder="строка" value={order} onChange={(e) => {setOrder(e.target.value)}} />
+                <input className={styles.input} placeholder="строка с данными" value={order} onChange={(e) => {setOrder(e.target.value)}} />
                 <button type="submit" className={styles.button} onClick={() => {AddOrder(order)}}>Добавить заказ</button>
             </form>
         </div>

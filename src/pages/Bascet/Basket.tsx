@@ -8,9 +8,10 @@ import { addPosition } from "../../services/Slices/MenuSlices";
 import { decrementPosition } from "../../services/Slices/MenuSlices";
 import { getCookie } from "../../Utils/Cookie";
 import { v4 as uuid4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
 
 const Basket = () => {
-
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const positions = useAppSelector(state => state.MenuSlices.currentPositions);
 
@@ -48,6 +49,7 @@ const Basket = () => {
         evt.preventDefault();
         if (getCookie("logined") == "logined") {
             dispatch(saveOrder(dataOfOrder))
+            navigate('/')
         } else {
             dispatch(createStringOfOrder(dataOfOrder))
         }
@@ -79,10 +81,9 @@ const Basket = () => {
                         <textarea className={styles.textarea} placeholder="описание 2" value={dataOfOrder.description2} onChange={(e) => { setDataOfOrder({ ...dataOfOrder, description2: e.target.value }) }} />
                     </div>
                 </div>
-                <p className={styles.totalKPI}>{totalPrice}</p>
+                <p className={styles.totalKPI}>Общая стоимость: {totalPrice}₽</p>
                 <p className={styles.cipher}>{stirngOfOrder}</p>
                 <button className={styles.submitButton} type="submit" onClick={(e) => { submitForm(e) }}>Сохранить</button>
-                <button onClick={testFunc} type="button">Тест</button>
             </form>
         </div>
     )

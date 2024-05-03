@@ -7,9 +7,11 @@
 .container {
     display: flex;
     margin-bottom: 20px;
-    background-color: #a5c1c2;
+    background-color: #8aa4a5;
     width: 100%;
     padding: 6px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .7);
 }
 
 .name {
@@ -37,12 +39,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #90b2b4;
+    background-color: #779496;
+    padding: 5px;
     min-width: 40px;
     min-height: 40px;
     margin-top: auto;
     margin-bottom: auto;
-    border-radius: 50%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.paramsContainer {
+    display: flex;
+}
+
+.calculation {
+    height: 20px;
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    margin: 0;
+    line-height: 17px;
     text-align: center;
 }
 
@@ -58,5 +75,22 @@
 }
 
 .text {
-    margin-left: 40px;
+    margin: auto 0 auto 40px;
+    color: white;
+    font-size: 14px;
+}
+
+@media (max-width: 500px) {
+    .text {
+        margin-left: 20px;
+    }
+
+    .name {
+        font-size: 14px;
+    }
+
+    .paramsContainer {
+        flex-direction: column;
+        gap: 15px;
+    }
 }

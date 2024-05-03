@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%;
 }
 
 .inputs {
@@ -47,12 +48,18 @@
     text-wrap: wrap;
     text-align: start;
     resize: none;
-
 }
 
 .submitButton{
-    margin: 20px auto auto auto;
+    margin: 20px auto 30px auto;
     font-size: 27px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+}
+
+.totalKPI {
+    font-size: 24px;
 }
 
 .addPositionButton {
@@ -72,4 +79,29 @@
 .cipher {
     font-size: 27px;
     color: black
+}
+
+@media(max-width: 500px) {
+
+    .inputsContainer {
+        width: 100%;
+    }
+
+    .input {
+        width: 100%;
+        font-size: 24px;
+    }
+
+    .inputs {
+        flex-direction: column;
+    }
+
+    .textarea {
+        width: 100%;
+    }
+
+    .textareaContainer {
+        margin-top: 35px;
+        flex-direction: column;
+    }
 }
