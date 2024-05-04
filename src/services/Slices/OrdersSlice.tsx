@@ -53,6 +53,13 @@ const OrdersSlice = createSlice({
                     }
             )))
         },
+        deleteOrder (state, action: PayloadAction<string>) {
+            state.orders = state.orders.filter((order) => {return order.id != action.payload});
+
+            localStorage.setItem("orders", JSON.stringify(JSON.parse(
+                localStorage.getItem("orders")!).filter((order: TsendedOrder) => {return order.id != action.payload})
+            ))
+        },
         getCurrentOrder(state, action: PayloadAction<string>) {
             state.currentOrder = state.orders.find((order) => { return order.id == action.payload }) || state.currentOrder
         }
@@ -61,5 +68,5 @@ const OrdersSlice = createSlice({
 
 // order.dishes.map((id) => { return action.payload.find((dish) => { return dish.id == id.id }) })
 
-export const { getAllOrders, getCurrentOrder, increment, decrement } = OrdersSlice.actions
+export const { getAllOrders, getCurrentOrder, increment, decrement, deleteOrder } = OrdersSlice.actions
 export default OrdersSlice.reducer

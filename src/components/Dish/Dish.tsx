@@ -3,6 +3,7 @@ import styles from './Dish.module.css';
 import { Tposition } from "../../Utils/Types";
 import { useAppDispatch } from "../../services/store";
 import { addPosition } from "../../services/Slices/MenuSlices";
+import trash from '../../Utils/images/Trash_font_awesome.svg.png'
 
 const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition, counterWork = true }) => {
     const dispatch = useAppDispatch();
@@ -28,7 +29,7 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
             <div className={styles.paramsContainer}>
                 <p className={styles.text}>вес: {dish.weight}</p>
                 <p className={styles.text}>цена: {dish.price}</p>
-                {removedPos ? <img src='https://uxwing.com/wp-content/themes/uxwing/download/user-interface/red-trash-can-icon.png' onClick={(e) => { e.preventDefault(); e.stopPropagation(); removedPos ? handleClick(dish) : console.log('') }} alt='удалить' className={styles.trash} /> : null}
+                {removedPos ? <img src={trash} onClick={(e) => { e.preventDefault(); e.stopPropagation(); removedPos ? handleClick(dish) : console.log('') }} alt='удалить' className={styles.trash} /> : null}
             </div>
         </button>
     )

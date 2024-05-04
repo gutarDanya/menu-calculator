@@ -9,6 +9,7 @@ import { decrementPosition } from "../../services/Slices/MenuSlices";
 import { getCookie } from "../../Utils/Cookie";
 import { v4 as uuid4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
+import copy from '../../Utils/images/copy.svg';
 
 const Basket = () => {
     const navigate = useNavigate();
@@ -87,7 +88,7 @@ const Basket = () => {
                 <div className={styles.cipherContainer}>
                     <input className={styles.cipher} value={stirngOfOrder} />
                     <button type="button" className={styles.copyButton} onClick={copyToClipboard}>
-                        <img src="https://www.svgrepo.com/show/3110/copy.svg" className={styles.copyIcon} />
+                        <img src={copy} className={styles.copyIcon} />
                     </button>
                 </div>
                 <button className={styles.submitButton} type="submit" onClick={(e) => { submitForm(e) }}>Сохранить</button>

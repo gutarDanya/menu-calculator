@@ -22,7 +22,6 @@ function App() {
   checkSotrage();
 
   useEffect(() => {
-    console.log(localStorage.getItem("orders"))
     dispatch(getAllMenu(positions));
     dispatch(getAllOrders(positions))
   }, [])
