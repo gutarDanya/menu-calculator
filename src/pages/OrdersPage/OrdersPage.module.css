@@ -36,8 +36,16 @@
 }
 
 @media (max-width: 600px) {
+
+    .input {
+        width: 100%;
+    }
+
     .ordersContainer {
+        width: 85%;
+        align-items: center;
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 }

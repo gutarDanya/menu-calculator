@@ -18,9 +18,30 @@
     justify-content: space-around;
 }
 
+.secondHeader {
+    text-align: center;
+}
+
 .description {
     max-height: 400px;
 }
+
 .totalPrice{
     font-size: 28px;
+}
+
+@media (max-width: 500px) {
+    .dishesContainer {
+        width: 80%
+    }
+
+    .descriptions {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .description {
+        width: 80%;
+    }
 }

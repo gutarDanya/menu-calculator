@@ -28,8 +28,8 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
             <div className={styles.paramsContainer}>
                 <p className={styles.text}>вес: {dish.weight}</p>
                 <p className={styles.text}>цена: {dish.price}</p>
+                {removedPos ? <img src='https://uxwing.com/wp-content/themes/uxwing/download/user-interface/red-trash-can-icon.png' onClick={(e) => { e.preventDefault(); e.stopPropagation(); removedPos ? handleClick(dish) : console.log('') }} alt='удалить' className={styles.trash} /> : null}
             </div>
-            {removedPos ? <img src='https://uxwing.com/wp-content/themes/uxwing/download/user-interface/red-trash-can-icon.png' onClick={(e) => { e.preventDefault(); e.stopPropagation(); removedPos ? handleClick(dish) : console.log('') }} alt='удалить' className={styles.trash} /> : null}
         </button>
     )
 }

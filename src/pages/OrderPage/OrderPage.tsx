@@ -22,17 +22,17 @@ const OrderPage = () => {
         dispatch(getCurrentOrder(id!))
     }, []);
 
-    const incrementPosition = async(pos: Tposition) => {
+    const incrementPosition = async (pos: Tposition) => {
         await dispatch(increment(pos))
     }
 
-    const decrementPosition = async(pos: Tposition) => {
+    const decrementPosition = async (pos: Tposition) => {
         await dispatch(decrement(pos))
     }
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
 
-    const totalPrice = order?.dishes.reduce((acc: any, item:Tposition) => {
+    const totalPrice = order?.dishes.reduce((acc: any, item: Tposition) => {
         return acc + item.price * item.count!
     }, 0)
 
@@ -47,11 +47,17 @@ const OrderPage = () => {
                 <div className={styles.dishesContainer}>
                     {order.dishes && order.dishes.length > 0 && order.dishes.map((dish) => {
 
-                        return  <Dish dish={dish} removedPos={true} handleClick={removePosition} incrementPosition={incrementPosition} decrementPosition={decrementPosition} counterWork={false}/>
+                        return <Dish dish={dish} removedPos={true} handleClick={removePosition} incrementPosition={incrementPosition} decrementPosition={decrementPosition} counterWork={false} />
                     })}
                     <div className={styles.descriptions}>
-                        <p className={styles.description}>{order.description1}</p>
-                        <p className={styles.description}>{order.description2}</p>
+                        <div className={styles.descriptionContainer}>
+                            <h3 className={styles.secondHeader}>Описание 1</h3>
+                            <p className={styles.description}>{order.description1}</p>
+                        </div>
+                        <div className={styles.descriptionContainer}>
+                            <h3 className={styles.secondHeader}>Описание 2</h3>
+                            <p className={styles.description}>{order.description2}</p>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.info}>
