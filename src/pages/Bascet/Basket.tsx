@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from './Basket.module.css';
 import { useAppDispatch, useAppSelector } from "../../services/store";
 import Dish from "../../components/Dish/Dish";
@@ -15,7 +15,7 @@ const Basket = () => {
     const dispatch = useAppDispatch();
     const positions = useAppSelector(state => state.MenuSlices.currentPositions);
 
-    let stirngOfOrder = useAppSelector(state => state.MenuSlices.stringOfOrder);
+    let stirngOfOrder = useAppSelector(state => state.MenuSlices.stringOfOrder) || "";
 
     const totalPrice = positions.reduce((acc: any, item: Tposition) => {
         return acc + item.price * item.count!
@@ -55,11 +55,13 @@ const Basket = () => {
         }
     }
 
-    const testFunc = () => {
-        console.log(JSON.parse(localStorage.getItem('orders') || '{}'))
+    // const testFunc = () => {
+    //     console.log(JSON.parse(localStorage.getItem('orders') || '{}'))
+    // }
+
+    function copyToClipboard() {
+        navigator.clipboard.writeText(stirngOfOrder)
     }
-
-
 
     return (
         <div className={styles.page}>
@@ -82,7 +84,12 @@ const Basket = () => {
                     </div>
                 </div>
                 <p className={styles.totalKPI}>Общая стоимость: {totalPrice}₽</p>
-                <p className={styles.cipher}>{stirngOfOrder}</p>
+                <div className={styles.cipherContainer}>
+                    <input className={styles.cipher} value={stirngOfOrder} />
+                    <button type="button" className={styles.copyButton} onClick={copyToClipboard}>
+                        <img src="https://www.svgrepo.com/show/3110/copy.svg" className={styles.copyIcon} />
+                    </button>
+                </div>
                 <button className={styles.submitButton} type="submit" onClick={(e) => { submitForm(e) }}>Сохранить</button>
             </form>
         </div>
