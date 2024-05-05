@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './Order.module.css';
-import { TsendedOrder } from "../../Utils/Types";
+import { Torder, TsendedOrder } from "../../Utils/Types";
 import { Link, useNavigate } from "react-router-dom";
 import copy from '../../Utils/images/copy.svg';
 import trash from '../../Utils/images/Trash_font_awesome.svg.png'
@@ -24,9 +24,10 @@ const Order: React.FC<Props> = ({order}) => {
         dispatch(deleteOrder(order.id!))
     }
 
-    async function handleNavigate () {
-        await dispatch(getCurrentOrder(order.id!))
-        navigate(`/orders/${order.id}`)
+    async function handleNavigate (evt: any) {
+        evt.preventDefault();
+        await dispatch(getCurrentOrder(order.id!));
+        navigate(`/orders/${order.id}`);
     }
 
     return (
@@ -40,7 +41,7 @@ const Order: React.FC<Props> = ({order}) => {
 }
 
 type Props = {
-    order: TsendedOrder
+    order: Torder
 }
 
 export default Order

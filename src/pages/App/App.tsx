@@ -26,7 +26,9 @@ function App() {
     dispatch(getAllOrders(positions))
   }, [])
 
-  const orders = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")!) : [];
+  // const orders = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")!) : [];
+
+  const orders = useAppSelector(state => state.OrdersSlice.orders);
 
   if (getCookie("logined") === "logined") {
     return (
