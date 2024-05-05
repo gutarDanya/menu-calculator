@@ -10,7 +10,7 @@ const OrdersPage = () => {
 
     const [order, setOrder] = useState("");
 
-    const orders = JSON.stringify("orders") ? JSON.parse(localStorage.getItem("orders")!) : [];
+    const orders = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")!) : [];
 
     function AddOrder (str: string) {
         localStorage.setItem("orders", JSON.stringify([...JSON.parse(localStorage.getItem("orders")!), JSON.parse(str)]))
