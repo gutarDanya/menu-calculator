@@ -26,6 +26,8 @@ function App() {
     dispatch(getAllOrders(positions))
   }, [])
 
+  const orders = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")!) : [];
+
   if (getCookie("logined") === "logined") {
     return (
       <div className={styles.root}>
@@ -33,7 +35,7 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path='/' element={<MenuPage />} />
-            <Route path='/orders' element={<OrdersPage />} />
+            <Route path='/orders' element={<OrdersPage orders={orders}/>} />
             <Route path="orders/:id" element={<OrderPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket/>} />

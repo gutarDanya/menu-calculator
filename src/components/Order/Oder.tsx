@@ -1,15 +1,16 @@
 import React from "react";
 import styles from './Order.module.css';
 import { TsendedOrder } from "../../Utils/Types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import copy from '../../Utils/images/copy.svg';
 import trash from '../../Utils/images/Trash_font_awesome.svg.png'
 import { useAppDispatch } from "../../services/store";
-import { deleteOrder } from "../../services/Slices/OrdersSlice";
+import { deleteOrder, getCurrentOrder } from "../../services/Slices/OrdersSlice";
 
 const Order: React.FC<Props> = ({order}) => {
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const copyOrder = (evt: any) => {
         evt.stopPropagation()
@@ -23,13 +24,18 @@ const Order: React.FC<Props> = ({order}) => {
         dispatch(deleteOrder(order.id!))
     }
 
+    async function handleNavigate () {
+        await dispatch(getCurrentOrder(order.id!))
+        navigate(`/orders/${order.id}`)
+    }
+
     return (
-        <Link to={order.id!}className={styles.container}>
+        <button onClick={handleNavigate} type="button" className={styles.container}>
             <h2 className={styles.name}>{order.name}</h2>
             <p className={styles.date}>{order.date}</p>
             <img className={styles.copy} src={copy} onClick={(e) => {copyOrder(e)}}/>
             <img className={styles.trash} src={trash} onClick={(e) => {handleDelete(e)}}/>
-        </Link>
+        </button>
     )
 }
 

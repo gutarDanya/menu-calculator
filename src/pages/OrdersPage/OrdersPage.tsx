@@ -4,13 +4,12 @@ import Order from "../../components/Order/Oder";
 import { TsendedOrder } from "../../Utils/Types";
 import { useAppDispatch } from "../../services/store";
 
-const OrdersPage = () => {
+const OrdersPage: React.FC<Props> = ({orders}) => {
 
     const dispatch = useAppDispatch();
 
     const [order, setOrder] = useState("");
 
-    const orders = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")!) : [];
 
     function AddOrder (str: string) {
         localStorage.setItem("orders", JSON.stringify([...JSON.parse(localStorage.getItem("orders")!), JSON.parse(str)]))
@@ -30,6 +29,10 @@ const OrdersPage = () => {
             </form>
         </div>
     )
+}
+
+type Props = {
+    orders: Array<TsendedOrder>
 }
 
 export default OrdersPage;
