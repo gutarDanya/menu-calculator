@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/menu-calculator/static/css/main.ba01e7ed.css",
-    "main.js": "/menu-calculator/static/js/main.8ba7664e.js",
+    "main.js": "/menu-calculator/static/js/main.0e55b144.js",
     "static/js/453.ed3810f9.chunk.js": "/menu-calculator/static/js/453.ed3810f9.chunk.js",
     "static/media/Trash_font_awesome.svg.png": "/menu-calculator/static/media/Trash_font_awesome.svg.5267555de5ddc015b9e6.png",
     "static/media/copy.svg": "/menu-calculator/static/media/copy.b2b0ec637a2b0fd4ca405a591c0d076e.svg",
     "index.html": "/menu-calculator/index.html",
     "main.ba01e7ed.css.map": "/menu-calculator/static/css/main.ba01e7ed.css.map",
-    "main.8ba7664e.js.map": "/menu-calculator/static/js/main.8ba7664e.js.map",
+    "main.0e55b144.js.map": "/menu-calculator/static/js/main.0e55b144.js.map",
     "453.ed3810f9.chunk.js.map": "/menu-calculator/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba01e7ed.css",
-    "static/js/main.8ba7664e.js"
+    "static/js/main.0e55b144.js"
   ]
 }
