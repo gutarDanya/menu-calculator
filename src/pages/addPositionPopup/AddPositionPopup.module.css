@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    min-width: 280px;
+    line-height: 21px;
+    background-color: aliceblue;
+    border: 0;
+    border-radius: 5px;
+}
+
+.submitButton {
+    width: 80%;
+    border-radius: 5px;
+    font-size: 24px;
+}
+

@@ -16,6 +16,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import { getCookie } from '../../Utils/Cookie';
 import Modal from '../../components/Modal/Modal';
 import copy from '../../Utils/images/copy.svg'
+import AddPositionPopup from '../addPositionPopup/AddPositionPopup';
 
 function App() {
   const location = useLocation();
@@ -49,13 +50,21 @@ function App() {
       <div className={styles.root}>
         <Shirm />
         <main className={styles.main}>
-          <Routes>
+          <Routes location={backgroundLocation || location}>
             <Route path='/' element={<MenuPage />} />
             <Route path='/orders' element={<OrdersPage orders={orders} />} />
             <Route path="orders/:id" element={<OrderPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
           </Routes>
+
+          {backgroundLocation && <Routes>
+            <Route path='basket/add-position' element={
+              <Modal title='Добавить позицию' handleClose={closePopup}>
+                <AddPositionPopup />
+              </Modal>
+            } />
+          </Routes>}
         </main>
       </div>
     );
@@ -79,6 +88,12 @@ function App() {
                 </button>
               </div>
             </Modal>} />
+
+            <Route path='basket/add-position' element={
+              <Modal title='Добавить позицию' handleClose={closePopup}>
+                <AddPositionPopup />
+              </Modal>
+            } />
           </Routes>}
         </main>
       </div>

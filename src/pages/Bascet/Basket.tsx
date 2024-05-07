@@ -46,6 +46,10 @@ const Basket = () => {
         weight: 0,
         type: "ДОПОЛНИТЕЛЬНЫЕ"
     })
+    
+    function navigateAddPosition () {
+        navigate("/basket/add-position", {state: {background: location}})
+    }
 
     const submitForm = (evt: any) => {
         evt.preventDefault();
@@ -63,10 +67,6 @@ const Basket = () => {
     //     console.log(JSON.parse(localStorage.getItem('orders') || '{}'))
     // }
 
-    // function copyToClipboard() {
-    //     navigator.clipboard.writeText(stirngOfOrder)
-    // }
-
     return (
         <div className={styles.page}>
             <h1 className={styles.header}>Корзина</h1>
@@ -74,7 +74,7 @@ const Basket = () => {
                 {positions && positions.length > 0 && positions.map((dish) => {
                     return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} /> : null
                 })}
-                <button type="button" className={styles.addPositionButton}>Добавить заказ</button>
+                <button type="button" className={styles.addPositionButton} onClick={navigateAddPosition}>Добавить заказ</button>
                 <div className={styles.inputs}>
                     <div className={styles.inputsContainer}>
                         <input className={styles.input} value={dataOfOrder.name} onChange={(e) => { setDataOfOrder({ ...dataOfOrder, name: e.target.value }) }} type='text' placeholder="ваше имя" />
