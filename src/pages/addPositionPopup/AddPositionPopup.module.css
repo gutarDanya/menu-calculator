@@ -6,6 +6,12 @@
     align-items: center;
 }
 
+.labelContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .input {
     min-width: 280px;
     line-height: 21px;

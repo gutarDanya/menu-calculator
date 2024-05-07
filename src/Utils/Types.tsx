@@ -9,10 +9,20 @@ export type Tposition = {
 }
 
 export type TsendedOrder = {
-    dishes: Array<{id: string | number, count: number}>;
+    dishes: | Array<Tposition>;
     name: string,
     date: string | number;
     id?: string; 
+}
+
+type localTorder = {
+    date: string;
+    dishes: Array<Tposition>;
+    id: string;
+    name: string,
+    description1: string;
+    description2: string;
+
 }
 
 export type Torder = {

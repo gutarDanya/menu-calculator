@@ -11,7 +11,7 @@ export const checkDish = (type: string, data: Tposition, removed: boolean, handl
     }
 }
 
-export const sendOrder = (array: Array<{id: string | number; count: number| string}>, name: string, date: string | number, description1: string, description2: string ) => {
+export const sendOrder = (array: Array<{id: string | number; count: number| string} | Tposition>, name: string, date: string | number, description1: string, description2: string ) => {
 
     const newOrder = {dishes: array, name: name, date: date, id: uuid4(), description1, description2};
     if (!localStorage.getItem('orders')) {

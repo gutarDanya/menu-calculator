@@ -32,6 +32,17 @@ const MenuSlice = createSlice({
 
             state.currentPositions = state.menu.filter((pos) => {return pos.count})
         },
+        addExtraPosition(state, action: PayloadAction<{name: string, weight: string | number, id: string, count: number, price: number}>) {
+            state.currentPositions = [...state.currentPositions, {
+                name: action.payload.name,
+                price: action.payload.price,
+                id: action.payload.id,
+                count: action.payload.count,
+                weight: action.payload.weight,
+                description: "",
+                type: "EXTRA POS"
+            }]
+        },
         removePosition(state, action: PayloadAction<Tposition>) {
             //unworked
             state.currentPositions = state.currentPositions.filter((pos) => {return pos.id != action.payload.id})
@@ -51,7 +62,7 @@ const MenuSlice = createSlice({
         saveOrder(state, action: PayloadAction<any>) {
             const {date, name, description1, description2} = action.payload
 
-            const arr = state.currentPositions.map((dish) => {return {id: dish.id, count: dish.count!}})
+            const arr = state.currentPositions.map((dish) => {return dish.type != "EXTRA POS" ? {id: dish.id, count: dish.count!}: dish})
             sendOrder(arr, name, date, description1, description2)
         },
         createStringOfOrder(state,action: PayloadAction<any>) {
@@ -67,5 +78,5 @@ const MenuSlice = createSlice({
     }
 })
 
-export const {getAllMenu, addPosition, saveOrder, switchShirm, removePosition, decrementPosition, createStringOfOrder} = MenuSlice.actions
+export const {getAllMenu, addPosition, saveOrder, switchShirm, removePosition, decrementPosition, createStringOfOrder, addExtraPosition} = MenuSlice.actions
 export default MenuSlice.reducer

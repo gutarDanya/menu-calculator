@@ -20,9 +20,10 @@ const OrdersSlice = createSlice({
             state.orders = JSON.parse(localStorage.getItem("orders")!) != undefined ? JSON.parse(localStorage.getItem("orders")!).map((order: TsendedOrder) => {
                 return {
                     ...order, dishes: order.dishes.map((pos) => {
-                        const dish = action.payload.find((dish) => { return dish.id == pos.id })
 
-                        return { ...dish, count: pos.count }
+                        const dish = pos.type != "EXTRA POS" ? action.payload.find((dish) => { return dish.id == pos.id }) : pos 
+
+                        return pos.type != "EXTRA POS" ? { ...dish, count: pos.count } : pos
                     })
                 }
             }) : []
@@ -35,7 +36,7 @@ const OrdersSlice = createSlice({
             localStorage.setItem("orders", JSON.stringify(JSON.parse(
                 localStorage.getItem("orders")!).map((order: TsendedOrder) => {
                      return order.id == state.currentOrder!.id ? order.dishes.map((dish) => {
-                         return dish.id == action.payload.id ? { ...dish, count: dish.count + 1 } : dish 
+                         return dish.id == action.payload.id ? { ...dish, count: dish.count! + 1 } : dish 
                         }) : order 
                     }
             )))
@@ -48,7 +49,7 @@ const OrdersSlice = createSlice({
             localStorage.setItem("orders", JSON.stringify(JSON.parse(
                 localStorage.getItem("orders")!).map((order: TsendedOrder) => {
                      return order.id == state.currentOrder!.id ? order.dishes.map((dish) => {
-                         return dish.id == action.payload.id ? { ...dish, count: dish.count -1 } : dish 
+                         return dish.id == action.payload.id ? { ...dish, count: dish.count! -1 } : dish 
                         }) : order 
                     }
             )))
