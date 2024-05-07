@@ -9,14 +9,14 @@ type TinitialState = {
     menu: Array<Tposition>;
     currentPositions: Array<Tposition>;
     shirmOpened: boolean;
-    stringOfOrder: string | null
+    stringOfOrder: string
 }
 
 const initialState: TinitialState = {
     menu: [],
     currentPositions: [],
     shirmOpened: false,
-    stringOfOrder: null
+    stringOfOrder: ""
 }
 const MenuSlice = createSlice({
     name: "menu",

@@ -8,15 +8,16 @@ import { addPosition } from "../../services/Slices/MenuSlices";
 import { decrementPosition } from "../../services/Slices/MenuSlices";
 import { getCookie } from "../../Utils/Cookie";
 import { v4 as uuid4 } from 'uuid';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import copy from '../../Utils/images/copy.svg';
+import { addOrder } from "../../services/Slices/OrdersSlice";
 
 const Basket = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const dispatch = useAppDispatch();
     const positions = useAppSelector(state => state.MenuSlices.currentPositions);
 
-    let stirngOfOrder = useAppSelector(state => state.MenuSlices.stringOfOrder) || "";
 
     const totalPrice = positions.reduce((acc: any, item: Tposition) => {
         return acc + item.price * item.count!
@@ -50,9 +51,11 @@ const Basket = () => {
         evt.preventDefault();
         if (getCookie("logined") == "logined") {
             dispatch(saveOrder(dataOfOrder))
+            dispatch(addOrder({data: dataOfOrder, dishes: positions}))
             navigate('/')
         } else {
             dispatch(createStringOfOrder(dataOfOrder))
+            navigate("/basket/shifr", {state: {background: location}})
         }
     }
 
@@ -60,18 +63,16 @@ const Basket = () => {
     //     console.log(JSON.parse(localStorage.getItem('orders') || '{}'))
     // }
 
-    function copyToClipboard() {
-        navigator.clipboard.writeText(stirngOfOrder)
-    }
+    // function copyToClipboard() {
+    //     navigator.clipboard.writeText(stirngOfOrder)
+    // }
 
     return (
         <div className={styles.page}>
             <h1 className={styles.header}>Корзина</h1>
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
-                    return (
-                        <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} />
-                    )
+                    return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} /> : null
                 })}
                 <button type="button" className={styles.addPositionButton}>Добавить заказ</button>
                 <div className={styles.inputs}>
@@ -85,12 +86,12 @@ const Basket = () => {
                     </div>
                 </div>
                 <p className={styles.totalKPI}>Общая стоимость: {totalPrice}₽</p>
-                <div className={styles.cipherContainer}>
+                {/* <div className={styles.cipherContainer}>
                     <input className={styles.cipher} value={stirngOfOrder} />
                     <button type="button" className={styles.copyButton} onClick={copyToClipboard}>
                         <img src={copy} className={styles.copyIcon} />
                     </button>
-                </div>
+                </div> */}
                 <button className={styles.submitButton} type="submit" onClick={(e) => { submitForm(e) }}>Сохранить</button>
             </form>
         </div>

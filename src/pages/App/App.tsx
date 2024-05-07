@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import '../../App.css';
 import MenuPage from '../MenuPage/MenuPage';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import styles from './App.module.css'
 import Shirm from '../../components/Shirm/Shirm';
 import Basket from '../Bascet/Basket';
@@ -14,19 +14,33 @@ import OrderPage from '../OrderPage/OrderPage';
 import { checkSotrage } from '../../Utils/scripts';
 import LoginPage from '../LoginPage/LoginPage';
 import { getCookie } from '../../Utils/Cookie';
-import Header from '../../components/Header/Header';
+import Modal from '../../components/Modal/Modal';
+import copy from '../../Utils/images/copy.svg'
 
 function App() {
+  const location = useLocation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const stirngOfOrder = useAppSelector(state => state.MenuSlices.stringOfOrder);
 
   checkSotrage();
+
+  const backgroundLocation = location.state?.background;
+
+  console.log(backgroundLocation)
+
+  const closePopup = () => {
+    navigate(-1)
+  }
 
   useEffect(() => {
     dispatch(getAllMenu(positions));
     dispatch(getAllOrders(positions))
   }, [])
 
-  // const orders = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")!) : [];
+  function copyToClipboard() {
+    navigator.clipboard.writeText(stirngOfOrder)
+  }
 
   const orders = useAppSelector(state => state.OrdersSlice.orders);
 
@@ -37,10 +51,10 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path='/' element={<MenuPage />} />
-            <Route path='/orders' element={<OrdersPage orders={orders}/>} />
+            <Route path='/orders' element={<OrdersPage orders={orders} />} />
             <Route path="orders/:id" element={<OrderPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/bascket" element={<Basket/>} />
+            <Route path="/bascket" element={<Basket />} />
           </Routes>
         </main>
       </div>
@@ -50,11 +64,22 @@ function App() {
       <div className={styles.root}>
         <Shirm />
         <main className={styles.main}>
-          <Routes>
+          <Routes location={backgroundLocation || location}>
             <Route path='/' element={<MenuPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/bascket" element={<Basket/>} />
+            <Route path="/bascket" element={<Basket />} />
           </Routes>
+
+          {backgroundLocation && <Routes>
+            <Route path="/basket/shifr" element={<Modal title='Скопируйте строку и отправьте администратору' handleClose={closePopup}>
+              <div className={styles.cipherContainer}>
+                <input className={styles.cipher} value={stirngOfOrder} />
+                <button type="button" className={styles.copyButton} onClick={copyToClipboard}>
+                  <img src={copy} className={styles.copyIcon} />
+                </button>
+              </div>
+            </Modal>} />
+          </Routes>}
         </main>
       </div>
     );
