@@ -17,6 +17,7 @@ import { getCookie } from '../../Utils/Cookie';
 import Modal from '../../components/Modal/Modal';
 import copy from '../../Utils/images/copy.svg'
 import AddPositionPopup from '../addPositionPopup/AddPositionPopup';
+import StartAppPage from '../StartAppPage/StartAppPage';
 
 function App() {
   const location = useLocation();
@@ -56,6 +57,7 @@ function App() {
             <Route path="orders/:id" element={<OrderPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
+            <Route path='/menu-calculator' element={<StartAppPage />} />
           </Routes>
 
           {backgroundLocation && <Routes>
@@ -77,6 +79,7 @@ function App() {
             <Route path='/' element={<MenuPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
+            <Route path='/menu-calculator' element={<StartAppPage />} />
           </Routes>
 
           {backgroundLocation && <Routes>
