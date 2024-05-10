@@ -15,9 +15,9 @@ import { checkSotrage } from '../../Utils/scripts';
 import LoginPage from '../LoginPage/LoginPage';
 import { getCookie } from '../../Utils/Cookie';
 import Modal from '../../components/Modal/Modal';
-import copy from '../../Utils/images/copy.svg'
 import AddPositionPopup from '../addPositionPopup/AddPositionPopup';
 import StartAppPage from '../StartAppPage/StartAppPage';
+import ShifrPopup from '../ShifrPopup/ShifrPopup';
 
 function App() {
   const location = useLocation();
@@ -39,10 +39,6 @@ function App() {
     dispatch(getAllMenu(positions));
     dispatch(getAllOrders(positions))
   }, [])
-
-  function copyToClipboard() {
-    navigator.clipboard.writeText(stirngOfOrder)
-  }
 
   const orders = useAppSelector(state => state.OrdersSlice.orders);
 
@@ -83,13 +79,8 @@ function App() {
           </Routes>
 
           {backgroundLocation && <Routes>
-            <Route path="/basket/shifr" element={<Modal title='Скопируйте строку и отправьте администратору' handleClose={closePopup}>
-              <div className={styles.cipherContainer}>
-                <input className={styles.cipher} value={stirngOfOrder} />
-                <button type="button" className={styles.copyButton} onClick={copyToClipboard}>
-                  <img src={copy} className={styles.copyIcon} />
-                </button>
-              </div>
+            <Route path="/basket/shifr" element={<Modal title='строка заказа' handleClose={closePopup}>
+              <ShifrPopup />
             </Modal>} />
 
             <Route path='basket/add-position' element={

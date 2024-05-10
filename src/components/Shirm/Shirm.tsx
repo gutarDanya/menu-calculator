@@ -16,7 +16,7 @@ const Shirm = () => {
     }
 
 
-    const [shirmOpened, setShirmOpened] = useState(true);
+    const [shirmOpened, setShirmOpened] = useState(false);
 
     return (
         <div className={shirmOpened ? styles.containerOpened : styles.containerClosed}>

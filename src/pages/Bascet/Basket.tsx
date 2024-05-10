@@ -74,7 +74,7 @@ const Basket = () => {
                 {positions && positions.length > 0 && positions.map((dish) => {
                     return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} /> : null
                 })}
-                <button type="button" className={styles.addPositionButton} onClick={navigateAddPosition}>Добавить заказ</button>
+                <button type="button" className={styles.addPositionButton} onClick={navigateAddPosition}>Добавить позицию в заказ</button>
                 <div className={styles.inputs}>
                     <div className={styles.inputsContainer}>
                         <input className={styles.input} value={dataOfOrder.name} onChange={(e) => { setDataOfOrder({ ...dataOfOrder, name: e.target.value }) }} type='text' placeholder="ваше имя" />
@@ -86,12 +86,6 @@ const Basket = () => {
                     </div>
                 </div>
                 <p className={styles.totalKPI}>Общая стоимость: {totalPrice}₽</p>
-                {/* <div className={styles.cipherContainer}>
-                    <input className={styles.cipher} value={stirngOfOrder} />
-                    <button type="button" className={styles.copyButton} onClick={copyToClipboard}>
-                        <img src={copy} className={styles.copyIcon} />
-                    </button>
-                </div> */}
                 <button className={styles.submitButton} type="submit" onClick={(e) => { submitForm(e) }}>Сохранить</button>
             </form>
         </div>

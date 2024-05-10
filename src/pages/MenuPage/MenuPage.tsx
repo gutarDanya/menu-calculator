@@ -10,10 +10,9 @@ import { addPosition } from "../../services/Slices/MenuSlices";
 import { decrementPosition as decrement } from "../../services/Slices/MenuSlices";
 
 const MenuPage = () => {
-
     const dispatch = useAppDispatch();
-
     const navigate = useNavigate();
+    const positionsInBusket = useAppSelector(state => state.MenuSlices.currentPositions);
 
     const CheckPos = (pos: Tposition) => {
         dispatch(addPosition(pos))
@@ -109,7 +108,7 @@ const MenuPage = () => {
                     })}
                 </DishTypeContainer>
             </div>
-            <button className={styles.basketButton} type="button" onClick={chekOrder}>Корзина</button>
+            <button className={styles.basketButton} type="button" onClick={chekOrder}>{positionsInBusket.length > 0 ? <p className={styles.count}>{positionsInBusket.length}</p> : null}Корзина</button>
         </div>
     )
 }

@@ -15,7 +15,7 @@ export type TsendedOrder = {
     id?: string; 
 }
 
-type localTorder = {
+type Tlocalorder = {
     date: string;
     dishes: Array<Tposition>;
     id: string;
