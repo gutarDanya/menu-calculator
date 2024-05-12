@@ -17,16 +17,7 @@ const OrdersSlice = createSlice({
     initialState,
     reducers: {
         getAllOrders(state, action: PayloadAction<Array<Tposition>>) {
-            state.orders = JSON.parse(localStorage.getItem("orders")!) != undefined ? JSON.parse(localStorage.getItem("orders")!).map((order: TsendedOrder) => {
-                return {
-                    ...order, dishes: order.dishes.map((pos) => {
-
-                        const dish = pos.type != "EXTRA POS" ? action.payload.find((dish) => { return dish.id == pos.id }) : pos 
-
-                        return pos.type != "EXTRA POS" ? { ...dish, count: pos.count } : pos
-                    })
-                }
-            }) : []
+            
         },
         increment(state, action: PayloadAction<Tposition>) {
             state.currentOrder!.dishes = state.currentOrder!.dishes.map((pos) => {

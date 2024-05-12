@@ -6,6 +6,7 @@ export type Tposition = {
     description: string;
     type: string;
     count?: number;
+    menu: string
 }
 
 export type TsendedOrder = {
@@ -24,6 +25,8 @@ type Tlocalorder = {
     description2: string;
 
 }
+
+export type TMenu = Array<{name: string, positions: Array<Tposition>}>
 
 export type Torder = {
     date: string;

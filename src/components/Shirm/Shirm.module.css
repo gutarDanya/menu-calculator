@@ -76,7 +76,7 @@
 }
 
 .autohorization {
-    margin: auto auto 30px 30px;
+    margin: 20px auto 30px 30px;
     height: 40px;
     display: flex;
     padding: 7px;
@@ -84,4 +84,20 @@
     text-align: center;
     border-radius: 5px;
     border: 0;
+}
+
+.settingsButton {
+    height: 40px;
+    margin: auto auto 0 30px;
+    font-size: 18px;
+    line-height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+    background-color: aliceblue;
 }

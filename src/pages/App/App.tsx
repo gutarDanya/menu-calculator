@@ -7,7 +7,7 @@ import Shirm from '../../components/Shirm/Shirm';
 import Basket from '../Bascet/Basket';
 import { useAppDispatch, useAppSelector } from '../../services/store';
 import { getAllMenu } from '../../services/Slices/MenuSlices';
-import { positions } from '../../Utils/Data';
+import { mainPositions } from '../../Utils/Data';
 import OrdersPage from '../OrdersPage/OrdersPage';
 import { getAllOrders } from '../../services/Slices/OrdersSlice';
 import OrderPage from '../OrderPage/OrderPage';
@@ -18,26 +18,29 @@ import Modal from '../../components/Modal/Modal';
 import AddPositionPopup from '../addPositionPopup/AddPositionPopup';
 import StartAppPage from '../StartAppPage/StartAppPage';
 import ShifrPopup from '../ShifrPopup/ShifrPopup';
+import SettingPage from '../SettingsPage/SettingsPage';
 
 function App() {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const stirngOfOrder = useAppSelector(state => state.MenuSlices.stringOfOrder);
+  const localOrders = localStorage.getItem("orders")
 
   checkSotrage();
 
   const backgroundLocation = location.state?.background;
 
-  console.log(backgroundLocation)
+  useEffect(() => {
+    dispatch(getAllOrders(mainPositions))
+  }, [localOrders])
 
   const closePopup = () => {
     navigate(-1)
   }
-
   useEffect(() => {
-    dispatch(getAllMenu(positions));
-    dispatch(getAllOrders(positions))
+    dispatch(getAllMenu(mainPositions));
+    console.log(localOrders)
   }, [])
 
   const orders = useAppSelector(state => state.OrdersSlice.orders);
@@ -54,6 +57,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
+            <Route path="/settings" element={<SettingPage />} />
           </Routes>
 
           {backgroundLocation && <Routes>
@@ -76,6 +80,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
+            <Route path="/settings" element={<SettingPage />} />
           </Routes>
 
           {backgroundLocation && <Routes>

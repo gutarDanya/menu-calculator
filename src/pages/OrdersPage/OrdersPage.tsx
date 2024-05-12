@@ -4,7 +4,7 @@ import Order from "../../components/Order/Oder";
 import { Torder, TsendedOrder } from "../../Utils/Types";
 import { useAppDispatch } from "../../services/store";
 import { getAllOrders } from "../../services/Slices/OrdersSlice";
-import { positions } from "../../Utils/Data";
+import {  mainPositions } from "../../Utils/Data";
 
 const OrdersPage: React.FC<Props> = ({orders}) => {
 
@@ -14,7 +14,7 @@ const OrdersPage: React.FC<Props> = ({orders}) => {
 
     function AddOrder (str: string) {
         localStorage.setItem("orders", JSON.stringify([...JSON.parse(localStorage.getItem("orders")!), JSON.parse(str)]));
-        dispatch(getAllOrders(positions))
+        dispatch(getAllOrders(mainPositions))
     }
 
     return (

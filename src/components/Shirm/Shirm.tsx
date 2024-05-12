@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from './Shirm.module.css';
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { deleteCookie, getCookie } from "../../Utils/Cookie";
 
 const Shirm = () => {
@@ -25,6 +25,7 @@ const Shirm = () => {
                     <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/'}>Меню</NavLink>
                     {getCookie("logined") == "logined" ? <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/orders'}>Заказы</NavLink> : null}
                 </nav>
+                {getCookie("logined") == "logined" ? <Link to="/settings" className={styles.settingsButton}>Настройки</Link> : null}
                 <button className={styles.autohorization} onClick={handleLogin}>{getCookie("logined") == "logined" ? "выйти" : "войти"}</button>
             </div>
             <button className={styles.switchShirm} onClick={() => { setShirmOpened(!shirmOpened) }} type='button' >{shirmOpened ? '<' : '>'}</button>

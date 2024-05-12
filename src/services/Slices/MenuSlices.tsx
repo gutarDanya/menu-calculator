@@ -1,12 +1,11 @@
 import React from "react";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { positions } from "../../Utils/Data";
 import { Tposition } from "../../Utils/Types";
 import { sendOrder } from "../../Utils/scripts";
 import { v4 as uuid4 } from "uuid";
 
 type TinitialState = {
-    menu: Array<Tposition>;
+    menu: Array<{name: string, positions: Array<Tposition>}>;
     currentPositions: Array<Tposition>;
     shirmOpened: boolean;
     stringOfOrder: string
@@ -51,11 +50,14 @@ const MenuSlice = createSlice({
         },
         decrementPosition (state, action: PayloadAction<Tposition>) {
             //unworked
+
             state.menu = state.menu.map((pos) => {
                 return pos.id == action.payload.id ? {...pos, count: pos.count! - 1} : pos
-            })
+            });
 
-            state.currentPositions = state.currentPositions.map((pos) => {
+            action.payload.count == 1
+             ? state.currentPositions = state.currentPositions.filter((pos) => { return pos.id != action.payload.id})
+            : state.currentPositions = state.currentPositions.map((pos) => {
                 return pos.id == action.payload.id ? {...pos, count: pos.count! - 1} : pos
             })
         },

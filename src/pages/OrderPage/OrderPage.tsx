@@ -6,7 +6,6 @@ import { decrement, getAllOrders, getCurrentOrder, increment } from "../../servi
 import Dish from "../../components/Dish/Dish";
 import { Tposition } from "../../Utils/Types";
 import { removePosition } from "../../services/Slices/MenuSlices";
-import { positions } from "../../Utils/Data";
 
 const OrderPage = () => {
 
@@ -47,7 +46,7 @@ const OrderPage = () => {
                 <div className={styles.dishesContainer}>
                     {order.dishes && order.dishes.length > 0 && order.dishes.map((dish) => {
 
-                        return <Dish dish={dish} removedPos={true} handleClick={removePosition} incrementPosition={incrementPosition} decrementPosition={decrementPosition} counterWork={false} />
+                        return <Dish dish={dish} removedPos={true} handleClick={removePosition} incrementPosition={incrementPosition} decrementPosition={decrementPosition} />
                     })}
                     <div className={styles.descriptions}>
                         <div className={styles.descriptionContainer}>

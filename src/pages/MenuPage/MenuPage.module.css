@@ -36,5 +36,5 @@
     background-color: #fddc36;
     border-radius: 10px;
     border: 0;
-    width: 130px;
+    min-width: 130px;
 }
