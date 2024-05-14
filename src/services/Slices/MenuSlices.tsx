@@ -1,14 +1,14 @@
 import React from "react";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Tposition } from "../../Utils/Types";
-import { sendOrder } from "../../Utils/scripts";
+import { TMenu, Tposition } from "../../Utils/Types";
+import { findNeddenMenuToChangePosition, handleChangeCount, sendOrder } from "../../Utils/scripts";
 import { v4 as uuid4 } from "uuid";
 
 type TinitialState = {
-    menu: Array<{name: string, positions: Array<Tposition>}>;
+    menu: Array<TMenu>;
     currentPositions: Array<Tposition>;
     shirmOpened: boolean;
-    stringOfOrder: string
+    stringOfOrder: string;
 }
 
 const initialState: TinitialState = {
@@ -21,16 +21,22 @@ const MenuSlice = createSlice({
     name: "menu",
     initialState,
     reducers: {
-        getAllMenu(state, action: PayloadAction<Array<Tposition>>) {
-            state.menu = action.payload
+        getAllMenu(state, action: PayloadAction<string>) {
+            state.menu = action.payload != null ? JSON.parse(action.payload) : []
         },
-        addPosition(state, action: PayloadAction<Tposition>) {
-            state.menu = state.menu.map((pos) => {
-                return pos.id == action.payload.id ? {...pos, count: pos.count ? pos.count + 1 : 1} : pos
-            })
 
-            state.currentPositions = state.menu.filter((pos) => {return pos.count})
+        addPosition(state, action: PayloadAction<Tposition>) {
+
+            console.log(state.menu)
+            
+            state.menu = handleChangeCount(state.menu, action.payload, true)
+
+
+
+
+            // state.currentPositions = state.menu.filter((pos) => {return pos.count})
         },
+
         addExtraPosition(state, action: PayloadAction<{name: string, weight: string | number, id: string, count: number, price: number}>) {
             state.currentPositions = [...state.currentPositions, {
                 name: action.payload.name,
@@ -39,27 +45,22 @@ const MenuSlice = createSlice({
                 count: action.payload.count,
                 weight: action.payload.weight,
                 description: "",
-                type: "EXTRA POS"
+                type: "EXTRA POS",
+                menu: "EXTRA MENU"
             }]
         },
         removePosition(state, action: PayloadAction<Tposition>) {
             //unworked
             state.currentPositions = state.currentPositions.filter((pos) => {return pos.id != action.payload.id})
+            console.log(state.menu)
 
-            state.menu = state.menu.map((pos) => {return pos.id == action.payload.id ? {...pos, count: 0} : pos})
+            state.menu = handleChangeCount(state.menu, action.payload, false)
         },
         decrementPosition (state, action: PayloadAction<Tposition>) {
             //unworked
 
-            state.menu = state.menu.map((pos) => {
-                return pos.id == action.payload.id ? {...pos, count: pos.count! - 1} : pos
-            });
+            state.menu = handleChangeCount(state.menu, action.payload, false)
 
-            action.payload.count == 1
-             ? state.currentPositions = state.currentPositions.filter((pos) => { return pos.id != action.payload.id})
-            : state.currentPositions = state.currentPositions.map((pos) => {
-                return pos.id == action.payload.id ? {...pos, count: pos.count! - 1} : pos
-            })
         },
         saveOrder(state, action: PayloadAction<any>) {
             const {date, name, description1, description2} = action.payload

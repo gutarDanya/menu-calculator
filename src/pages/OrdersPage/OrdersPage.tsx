@@ -14,7 +14,6 @@ const OrdersPage: React.FC<Props> = ({orders}) => {
 
     function AddOrder (str: string) {
         localStorage.setItem("orders", JSON.stringify([...JSON.parse(localStorage.getItem("orders")!), JSON.parse(str)]));
-        dispatch(getAllOrders(mainPositions))
     }
 
     return (

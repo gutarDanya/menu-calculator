@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import styles from './Shirm.module.css';
 import { NavLink, useNavigate, Link } from "react-router-dom";
 import { deleteCookie, getCookie } from "../../Utils/Cookie";
+import { useAppSelector } from "../../services/store";
 
 const Shirm = () => {
+
+    const menus = useAppSelector(state => state.MenuSlices.menu);
 
     const navigate = useNavigate();
 
@@ -22,7 +25,9 @@ const Shirm = () => {
         <div className={shirmOpened ? styles.containerOpened : styles.containerClosed}>
             <div className={styles.shirmContainer}>
                 <nav className={styles.navContainer}>
-                    <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/'}>Меню</NavLink>
+                    {menus && menus.length > 0 && menus.map((menu) => {
+                        return <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={`/${menu.routing}`}>{menu.nameMenu}</NavLink>
+                    })}
                     {getCookie("logined") == "logined" ? <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/orders'}>Заказы</NavLink> : null}
                 </nav>
                 {getCookie("logined") == "logined" ? <Link to="/settings" className={styles.settingsButton}>Настройки</Link> : null}

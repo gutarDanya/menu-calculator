@@ -3,20 +3,28 @@ import styles from './MenuPage.module.css';
 
 import DishTypeContainer from "../../components/DishTypeContainer/DishTypeContainer";
 import { checkDish } from "../../Utils/scripts";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../services/store";
-import { Tposition } from "../../Utils/Types";
+import { TMenu, Tposition } from "../../Utils/Types";
 import { addPosition } from "../../services/Slices/MenuSlices";
 import { decrementPosition as decrement } from "../../services/Slices/MenuSlices";
+import Dish from "../../components/Dish/Dish";
 
 const MenuPage = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const {id} = useParams();
+
+    const menus = useAppSelector((state) => state.MenuSlices.menu);
+
+    console.log(menus)
+    const menu = menus.find((menu) => menu.routing == id);
     const positionsInBusket = useAppSelector(state => state.MenuSlices.currentPositions);
 
     const CheckPos = (pos: Tposition) => {
         dispatch(addPosition(pos))
     }
+
 
     const incrementPosition = (pos: Tposition) => {
         dispatch(addPosition(pos))
@@ -33,84 +41,24 @@ const MenuPage = () => {
 
     return (
         <div className={styles.page}>
-            <h1 className={styles.headers}>Меню</h1>
+            <h1 className={styles.headers}>{menu?.nameMenu}</h1>
             <div className={styles.menuContainer}>
+            {menu?.menu && menu?.menu.length > 0 && menu?.menu.map((section) => {
+                return <DishTypeContainer title={section.name}>
+                {section.positions && section.positions.length > 0 && section.positions.map((dish) => {
+                    return <Dish dish={dish} removedPos={false} handleClick={CheckPos} incrementPosition={incrementPosition} decrementPosition={decrementPosition} />
+                })}
+            </DishTypeContainer>
+            })}
 
-                <DishTypeContainer title="Холодные закуски">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ХОЛОДНЫЕ ЗАКУСКИ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="САЛАТЫ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("САЛАТЫ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="ГОРЯЧИЕ ЗАКУСКИ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="Супы">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("СУПЫ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="ГОРЯЧИЕ ЗАКУСКИ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ ЗАКУСКИ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="ГОРЯЧИЕ БЛЮДА">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГОРЯЧИЕ БЛЮДА", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="ГРИЛЬ-МЕНЮ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГРИЛЬ-МЕНЮ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="ГАРНИРЫ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ГАРНИРЫ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="ХЛЕБ И ВЫПЕЧКА">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ХЛЕБ И ВЫПЕЧКА", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="НАПИТКИ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("НАПИТКИ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="ФУРШЕТНОЕ МЕНЮ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("ФУРШЕТНОЕ МЕНЮ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
-
-                <DishTypeContainer title="НОВИНКИ">
-                    {positions && positions.length > 0 && positions.map((dish) => {
-                        return checkDish("НОВИНКИ", dish, false, CheckPos, incrementPosition, decrementPosition)
-                    })}
-                </DishTypeContainer>
             </div>
             <button className={styles.basketButton} type="button" onClick={chekOrder}>{positionsInBusket.length > 0 ? <p className={styles.count}>{positionsInBusket.length}</p> : null}Корзина</button>
         </div>
     )
+}
+
+type Props = {
+    menu: TMenu
 }
 
 export default MenuPage

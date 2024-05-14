@@ -1,7 +1,10 @@
 import React from "react";
-import { Tposition } from "./Types";
+import { TMenu, TSectionMenu, Tposition } from "./Types";
 import Dish from "../components/Dish/Dish";
+import { mainPositions, childMenuGraduates } from "./Data";
+
 import {v4 as uuid4} from 'uuid'
+import { decrement } from "../services/Slices/OrdersSlice";
 
 export const checkDish = (type: string, data: Tposition, removed: boolean, handleClose: (arg: Tposition) => any, incrementPosition: (arg: Tposition) => any, decrementPosition: (arg: Tposition) => any) => {
     if (data.type == type) {
@@ -20,8 +23,30 @@ export const sendOrder = (array: Array<{id: string | number; count: number| stri
     localStorage.setItem("orders", JSON.stringify([...JSON.parse(localStorage.getItem('orders')!), newOrder]))
 }
 
-export const checkSotrage = () => {
+export function checkSotrage () {
     if (localStorage.getItem("orders") == null) {
-        localStorage.setItem("orders", JSON.stringify([]))
+         localStorage.setItem("orders", JSON.stringify([]))
     }
+    if (localStorage.getItem("menu") == null) {
+          localStorage.setItem("menu", JSON.stringify([mainPositions, childMenuGraduates]))
+    }
+}
+
+export function findNeddenMenuToChangePosition (menu: Array<TMenu>, id: string): TMenu {
+    return menu.find((menu) => {return menu.nameMenu == id})!
+}
+
+export function handleChangeCount (menus: Array<TMenu>, position: Tposition, increment: boolean): Array<TMenu> {
+    return menus.map((menui) => {return menui.nameMenu === position.menu ? {...menui, menu: menui.menu.map((section) => {
+        return section.name === position.type ? {...section, positions: section.positions.map((pos) => {return pos.id === position.id && pos.menu === position.menu && pos.type === position.type
+            ? {...pos, count: increment ? pos.count + 1 : pos.count - 1}
+            : pos
+        })}
+    : section
+})}: menui
+})
+}
+
+export function addCountToPos (positions: Array<Tposition>, position: Tposition): Array<Tposition> {
+    return positions.map((pos) => {return pos.id == pos.id && position.type ? {...pos, count: position.count + 1} : pos})
 }

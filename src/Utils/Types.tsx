@@ -5,7 +5,7 @@ export type Tposition = {
     weight: number | string;
     description: string;
     type: string;
-    count?: number;
+    count: number;
     menu: string
 }
 
@@ -25,8 +25,8 @@ type Tlocalorder = {
     description2: string;
 
 }
-
-export type TMenu = Array<{name: string, positions: Array<Tposition>}>
+export type TSectionMenu = {name: string, positions: Array<Tposition>}
+export type TMenu = {nameMenu: string, routing: string, menu: Array<TSectionMenu>}
 
 export type Torder = {
     date: string;
