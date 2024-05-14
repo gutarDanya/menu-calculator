@@ -14,7 +14,7 @@ export const checkDish = (type: string, data: Tposition, removed: boolean, handl
     }
 }
 
-export const sendOrder = (array: Array<{id: string | number; count: number| string} | Tposition>, name: string, date: string | number, description1: string, description2: string ) => {
+export const sendOrder = (array: Array<{id: string | number; count: number| string, menu: string} | Tposition>, name: string, date: string | number, description1: string, description2: string ) => {
 
     const newOrder = {dishes: array, name: name, date: date, id: uuid4(), description1, description2};
     if (!localStorage.getItem('orders')) {
@@ -36,7 +36,7 @@ export function findNeddenMenuToChangePosition (menu: Array<TMenu>, id: string):
     return menu.find((menu) => {return menu.nameMenu == id})!
 }
 
-export function handleChangeCount (menus: Array<TMenu>, position: Tposition, increment: boolean): Array<TMenu> {
+export function handleChangeCountMenu (menus: Array<TMenu>, position: Tposition, increment: boolean): Array<TMenu> {
     return menus.map((menui) => {return menui.nameMenu === position.menu ? {...menui, menu: menui.menu.map((section) => {
         return section.name === position.type ? {...section, positions: section.positions.map((pos) => {return pos.id === position.id && pos.menu === position.menu && pos.type === position.type
             ? {...pos, count: increment ? pos.count + 1 : pos.count - 1}
@@ -47,6 +47,16 @@ export function handleChangeCount (menus: Array<TMenu>, position: Tposition, inc
 })
 }
 
-export function addCountToPos (positions: Array<Tposition>, position: Tposition): Array<Tposition> {
-    return positions.map((pos) => {return pos.id == pos.id && position.type ? {...pos, count: position.count + 1} : pos})
+export function removePosFromMenu (menus: Array<TMenu>, position: Tposition): Array<TMenu> {
+    return menus.map((menui) => {return menui.nameMenu === position.menu ? {...menui, menu: menui.menu.map((section) => {
+        return section.name === position.type ? {...section, positions: section.positions.filter((pos) => {return pos.id != position.id})}
+    : section
+})}: menui
+})
+}
+
+export function handleChangeCountCurrentMenu (positions: Array<Tposition>, position: Tposition, increment: boolean): Array<Tposition> {
+    return positions.some((pos) => {return pos.menu === position.menu && pos.id === position.id})
+    ? positions.map((pos) => {return pos.menu === position.menu && pos.id === position.id ? increment ? {...pos, count: pos.count + 1} : {...pos, count: pos.count - 1} : pos})
+    : [...positions, position]
 }

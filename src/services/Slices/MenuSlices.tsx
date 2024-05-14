@@ -1,7 +1,10 @@
 import React from "react";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { TMenu, Tposition } from "../../Utils/Types";
-import { findNeddenMenuToChangePosition, handleChangeCount, sendOrder } from "../../Utils/scripts";
+import { removePosFromMenu,
+     handleChangeCountCurrentMenu,
+      handleChangeCountMenu,
+       sendOrder } from "../../Utils/scripts";
 import { v4 as uuid4 } from "uuid";
 
 type TinitialState = {
@@ -26,15 +29,8 @@ const MenuSlice = createSlice({
         },
 
         addPosition(state, action: PayloadAction<Tposition>) {
-
-            console.log(state.menu)
-            
-            state.menu = handleChangeCount(state.menu, action.payload, true)
-
-
-
-
-            // state.currentPositions = state.menu.filter((pos) => {return pos.count})
+            state.menu = handleChangeCountMenu(state.menu, action.payload, true)
+            state.currentPositions = handleChangeCountCurrentMenu(state.currentPositions, action.payload, true)
         },
 
         addExtraPosition(state, action: PayloadAction<{name: string, weight: string | number, id: string, count: number, price: number}>) {
@@ -50,22 +46,19 @@ const MenuSlice = createSlice({
             }]
         },
         removePosition(state, action: PayloadAction<Tposition>) {
-            //unworked
-            state.currentPositions = state.currentPositions.filter((pos) => {return pos.id != action.payload.id})
-            console.log(state.menu)
+            state.currentPositions = state.currentPositions.filter((pos) => { return pos.menu === action.payload.menu ? pos.id !== action.payload.id : pos})
 
-            state.menu = handleChangeCount(state.menu, action.payload, false)
+            state.menu = removePosFromMenu(state.menu, action.payload)
         },
         decrementPosition (state, action: PayloadAction<Tposition>) {
-            //unworked
-
-            state.menu = handleChangeCount(state.menu, action.payload, false)
+            state.menu = handleChangeCountMenu(state.menu, action.payload, false);
+            state.currentPositions = handleChangeCountCurrentMenu(state.currentPositions, action.payload, false)
 
         },
         saveOrder(state, action: PayloadAction<any>) {
             const {date, name, description1, description2} = action.payload
 
-            const arr = state.currentPositions.map((dish) => {return dish.type != "EXTRA POS" ? {id: dish.id, count: dish.count!}: dish})
+            const arr = state.currentPositions.map((dish) => {return dish.type != "EXTRA POS" ? {id: dish.id, count: dish.count, menu: dish.menu}: dish})
             sendOrder(arr, name, date, description1, description2)
         },
         createStringOfOrder(state,action: PayloadAction<any>) {
