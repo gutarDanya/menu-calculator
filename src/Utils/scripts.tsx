@@ -1,5 +1,5 @@
 import React from "react";
-import { TMenu, TSectionMenu, Tposition } from "./Types";
+import { TLocalDishes, TMenu, TSectionMenu, Tposition, TsendedOrder } from "./Types";
 import Dish from "../components/Dish/Dish";
 import { mainPositions, childMenuGraduates } from "./Data";
 
@@ -58,5 +58,23 @@ export function removePosFromMenu (menus: Array<TMenu>, position: Tposition): Ar
 export function handleChangeCountCurrentMenu (positions: Array<Tposition>, position: Tposition, increment: boolean): Array<Tposition> {
     return positions.some((pos) => {return pos.menu === position.menu && pos.id === position.id})
     ? positions.map((pos) => {return pos.menu === position.menu && pos.id === position.id ? increment ? {...pos, count: pos.count + 1} : {...pos, count: pos.count - 1} : pos})
-    : [...positions, position]
+    : [...positions, {...position, count: position.count + 1}]
+}
+
+export function changeLocalCountOfOrder (id: string, position: Tposition, increment: boolean) {
+    localStorage.setItem("orders", JSON.stringify(JSON.parse(localStorage.getItem("orders")!).map((order: TsendedOrder) => {
+        return order.id === id ? {...order, dishes: order.dishes.map((dish: TLocalDishes) => {return dish.id === position.id
+            ? {...dish, count: increment ? dish.count + 1 : dish.count === 1 ? null : dish.count - 1}
+            : dish
+        }).filter((dish) => {return dish.count !== null})}: order
+    })))
+}
+
+export function removePosFromOrder (id: string, position: Tposition) {
+    localStorage.setItem("orders", JSON.stringify(JSON.parse(localStorage.getItem("orders")!).map((order: TsendedOrder) => {
+        return order.id === id ? {...order, dishes: order.dishes.map((dish: TLocalDishes) => {return dish.id !== position.id
+            ? dish
+            : null
+        }).filter((dish) => {return dish !== null})}: order
+    })))
 }

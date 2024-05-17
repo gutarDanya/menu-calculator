@@ -56,9 +56,9 @@ const MenuSlice = createSlice({
 
         },
         saveOrder(state, action: PayloadAction<any>) {
-            const {date, name, description1, description2} = action.payload
+            const {date, name, description1, description2} = action.payload;
 
-            const arr = state.currentPositions.map((dish) => {return dish.type != "EXTRA POS" ? {id: dish.id, count: dish.count, menu: dish.menu}: dish})
+            const arr = state.currentPositions.map((dish) => {return dish.type != "EXTRA POS" ? {id: dish.id, count: dish.count, menu: dish.menu, type: dish.type}: dish})
             sendOrder(arr, name, date, description1, description2)
         },
         createStringOfOrder(state,action: PayloadAction<any>) {

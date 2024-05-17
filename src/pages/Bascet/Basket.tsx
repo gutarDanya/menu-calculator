@@ -55,7 +55,7 @@ const Basket = () => {
         evt.preventDefault();
         if (getCookie("logined") == "logined") {
             dispatch(saveOrder(dataOfOrder))
-            dispatch(addOrder({data: dataOfOrder, dishes: positions}))
+            dispatch(addOrder({data: dataOfOrder, dishes: positions, id:uuid4()}))
             navigate('/')
         } else {
             dispatch(createStringOfOrder(dataOfOrder))
@@ -63,16 +63,13 @@ const Basket = () => {
         }
     }
 
-    // const testFunc = () => {
-    //     console.log(JSON.parse(localStorage.getItem('orders') || '{}'))
-    // }
 
     return (
         <div className={styles.page}>
             <h1 className={styles.header}>Корзина</h1>
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
-                    return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} /> : null
+                    return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} removePosition={removeFromOrder}/> : null
                 })}
                 <button type="button" className={styles.addPositionButton} onClick={navigateAddPosition}>Добавить позицию в заказ</button>
                 <div className={styles.inputs}>

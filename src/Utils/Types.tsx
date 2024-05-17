@@ -9,28 +9,25 @@ export type Tposition = {
     menu: string
 }
 
-export type TsendedOrder = {
-    dishes: | Array<Tposition>;
-    name: string,
-    date: string | number;
-    id?: string; 
-}
+export type TLocalDishes = {id: string | number, count: number, menu: string, type: string}
 
-type Tlocalorder = {
-    date: string;
-    dishes: Array<Tposition>;
-    id: string;
+export type TsendedOrder = {
+    dishes: Array<any>;
     name: string,
+    date: string;
+    id: string;
     description1: string;
     description2: string;
-
 }
+
 export type TSectionMenu = {name: string, positions: Array<Tposition>}
 export type TMenu = {nameMenu: string, routing: string, menu: Array<TSectionMenu>}
 
+export type TLocalMenu = {nameMenu: string, sections: Array<TSectionMenu>}
+
 export type Torder = {
     date: string;
-    dishes: Array<Tposition>;
+    dishes: Array<TLocalMenu>;
     id: string;
     name: string,
     description1: string;

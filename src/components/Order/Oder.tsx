@@ -4,18 +4,18 @@ import { Torder, TsendedOrder } from "../../Utils/Types";
 import { Link, useNavigate } from "react-router-dom";
 import copy from '../../Utils/images/copy.svg';
 import trash from '../../Utils/images/Trash_font_awesome.svg.png'
-import { useAppDispatch } from "../../services/store";
+import { useAppDispatch, useAppSelector } from "../../services/store";
 import { deleteOrder, getCurrentOrder } from "../../services/Slices/OrdersSlice";
 
 const Order: React.FC<Props> = ({order}) => {
-
+    const menus = useAppSelector(state => state.MenuSlices.menu)
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const copyOrder = (evt: any) => {
         evt.stopPropagation()
         evt.preventDefault()
-        navigator.clipboard.writeText(JSON.stringify(JSON.parse(localStorage.getItem("orders")!).find((localOrder: TsendedOrder) => {return localOrder.id == order.id})))
+        navigator.clipboard.writeText(JSON.stringify(order))
     }
 
     const handleDelete = (evt: any) => {
@@ -26,7 +26,7 @@ const Order: React.FC<Props> = ({order}) => {
 
     async function handleNavigate (evt: any) {
         evt.preventDefault();
-        await dispatch(getCurrentOrder(order.id!));
+        await dispatch(getCurrentOrder({id: order.id, menu: menus}));
         navigate(`/orders/${order.id}`);
     }
 

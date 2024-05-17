@@ -17,7 +17,6 @@ const MenuPage = () => {
 
     const menus = useAppSelector((state) => state.MenuSlices.menu);
 
-    console.log(menus)
     const menu = menus.find((menu) => menu.routing == id);
     const positionsInBusket = useAppSelector(state => state.MenuSlices.currentPositions);
 

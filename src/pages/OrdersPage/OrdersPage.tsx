@@ -35,7 +35,7 @@ const OrdersPage: React.FC<Props> = ({orders}) => {
 }
 
 type Props = {
-    orders: Array<Torder>
+    orders: Array<TsendedOrder>
 }
 
 export default OrdersPage;

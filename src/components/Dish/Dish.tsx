@@ -5,9 +5,7 @@ import { useAppDispatch } from "../../services/store";
 import { addPosition } from "../../services/Slices/MenuSlices";
 import trash from '../../Utils/images/Trash_font_awesome.svg.png'
 
-const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition, counterWork = true }) => {
-    const dispatch = useAppDispatch();
-
+const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition, removePosition }) => {
     return (
         <button type='button' className={styles.container} onClick={() => { !removedPos ? handleClick(dish) : console.log('') }}>
             <div className={styles.infoContainer}>
@@ -26,7 +24,7 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
             <div className={styles.paramsContainer}>
                 <p className={styles.text}>вес: {dish.weight}</p>
                 <p className={styles.text}>цена: {dish.price}</p>
-                {removedPos ? <img src={trash} onClick={(e) => { e.preventDefault(); e.stopPropagation(); removedPos ? handleClick(dish) : console.log('') }} alt='удалить' className={styles.trash} /> : null}
+                {removedPos ? <img src={trash} onClick={(e) => { e.preventDefault(); e.stopPropagation(); removedPos ? removePosition!(dish) : console.log()}} alt='удалить' className={styles.trash} /> : null}
             </div>
         </button>
     )
@@ -38,7 +36,7 @@ type Props = {
     handleClick: (arg: Tposition) => any;
     incrementPosition: (arg: Tposition) => any;
     decrementPosition: (arg: Tposition) => any;
-    counterWork?: boolean;
+    removePosition?: (arg: Tposition) => any; 
 }
 
 export default Dish

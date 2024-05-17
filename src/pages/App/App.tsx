@@ -26,7 +26,8 @@ function App() {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const stirngOfOrder = useAppSelector(state => state.MenuSlices.stringOfOrder);
+  const menu = useAppSelector(state => state.MenuSlices.menu);
+  const orders = useAppSelector(state => state.OrdersSlice.orders);
 
   const localOrders = localStorage.getItem("orders");
   const localMenu = localStorage.getItem("menu")
@@ -34,8 +35,8 @@ function App() {
   const backgroundLocation = location.state?.background;
 
   useEffect(() => {
-    dispatch(getAllOrders([]))
-  }, [localOrders])
+    dispatch(getAllOrders(localOrders!))
+  }, [])
 
   const closePopup = () => {
     navigate(-1)
@@ -45,8 +46,6 @@ function App() {
     dispatch(getAllMenu(localMenu!));
   }, [])
 
-  const orders = useAppSelector(state => state.OrdersSlice.orders);
-
   if (getCookie("logined") === "logined") {
     return (
       <div className={styles.root}>
@@ -54,7 +53,7 @@ function App() {
         <main className={styles.main}>
           <Routes location={backgroundLocation || location}>
             <Route path='/:id' element={<MenuPage/>} />
-            <Route path='/orders' element={<OrdersPage orders={orders} />} />
+            <Route path='/orders' element={<OrdersPage orders={orders}/>} />
             <Route path="orders/:id" element={<OrderPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />

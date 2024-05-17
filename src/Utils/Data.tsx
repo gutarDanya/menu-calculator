@@ -1935,7 +1935,7 @@ export const childMenuGraduates: TMenu = {
             name: "САЛАТЫ", positions: [{
                 "name": "Салат Оливье с куриным филе",
                 "price": 150,
-                "id": 1,
+                "id": 190,
                 "weight": 120,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -1945,7 +1945,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Салат овощной с сыром фета",
                 "price": 150,
-                "id": 2,
+                "id": 191,
                 "weight": 120,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -1955,7 +1955,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Салат мясной",
                 "price": 180,
-                "id": 3,
+                "id": 192,
                 "weight": 120,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -1968,7 +1968,7 @@ export const childMenuGraduates: TMenu = {
             name: "СУПЫ", positions: [{
                 "name": "Суп-лапша домашняя с цыпленком",
                 "price": 200,
-                "id": 4,
+                "id": 193,
                 "weight": 200,
                 "description": "",
                 "type": "СУПЫ",
@@ -1978,7 +1978,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Суп-пюре из цветной капусты",
                 "price": 200,
-                "id": 5,
+                "id": 194,
                 "weight": 200,
                 "description": "",
                 "type": "СУПЫ",
@@ -1990,7 +1990,7 @@ export const childMenuGraduates: TMenu = {
             name: "ГОРЯЧИЕ БЛЮДА", positions: [{
                 "name": "Шашлычок из куриного филе с овощным салатом",
                 "price": 370,
-                "id": 6,
+                "id": 195,
                 "weight": "120/100/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2000,7 +2000,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Котлеты из щуки с картофельным пюре",
                 "price": 370,
-                "id": 7,
+                "id": 196,
                 "weight": "120/100/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2010,7 +2010,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Котлеты из щуки с картофельным пюре",
                 "price": 420,
-                "id": 8,
+                "id": 197,
                 "weight": "120/100/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2020,7 +2020,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Детская пицца мясная",
                 "price": 400,
-                "id": 9,
+                "id": 198,
                 "weight": 300,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2030,7 +2030,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Детская пицца 4 сыра",
                 "price": 400,
-                "id": 10,
+                "id": 199,
                 "weight": 300,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2040,7 +2040,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Спагетти с колбасками со сливочным соусом",
                 "price": 280,
-                "id": 11,
+                "id": 200,
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2050,7 +2050,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Спагетти с колбасками с томатным соусом",
                 "price": 280,
-                "id": 12,
+                "id": 201,
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2060,7 +2060,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Бургер с котлетой из телятины с беконом и сыром",
                 "price": 370,
-                "id": 13,
+                "id": 202,
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2070,7 +2070,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Бургер с куриной котлетой",
                 "price": 390,
-                "id": 14,
+                "id": 203,
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2080,7 +2080,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Шаурма с куриным филе",
                 "price": 300,
-                "id": 15,
+                "id": 204,
                 "weight": 300,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2095,7 +2095,7 @@ export const childMenuGraduates: TMenu = {
                 {
                     "name": "Картофель фри с кетчупом",
                     "price": 0,
-                    "id": 16,
+                    "id": 205,
                     "weight": 0,
                     "description": "",
                     "type": "ГАРНИРЫ",
@@ -2105,7 +2105,7 @@ export const childMenuGraduates: TMenu = {
                 {
                     "name": "Картофельное пюре",
                     "price": 150,
-                    "id": 17,
+                    "id": 206,
                     "weight": 150,
                     "description": "",
                     "type": "ГАРНИРЫ",
@@ -2115,7 +2115,7 @@ export const childMenuGraduates: TMenu = {
                 {
                     "name": "Спагетти отварные с сыром",
                     "price": 150,
-                    "id": 18,
+                    "id": 207,
                     "weight": 150,
                     "description": "",
                     "type": "ГАРНИРЫ",
@@ -2128,7 +2128,7 @@ export const childMenuGraduates: TMenu = {
             name: "ДЕСЕРТЫ", positions: [{
                 "name": "Блинчики с джемом",
                 "price": 150,
-                "id": 19,
+                "id": 208,
                 "weight": "100/30",
                 "description": "",
                 "type": "ДЕСЕРТЫ",
@@ -2138,7 +2138,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Мороженое с вареньем",
                 "price": 150,
-                "id": 20,
+                "id": 209,
                 "weight": "100/30",
                 "description": "",
                 "type": "ДЕСЕРТЫ",
@@ -2147,7 +2147,7 @@ export const childMenuGraduates: TMenu = {
             }, {
                 "name": "Суп из лесных ягод с мятой и мороженым",
                 "price": 450,
-                "id": 21,
+                "id": 210,
                 "weight": "150/30",
                 "description": "",
                 "type": "ДЕСЕРТЫ",
@@ -2160,7 +2160,7 @@ export const childMenuGraduates: TMenu = {
             name: "НАПИТКИ", positions: [{
                 "name": "Морс клюквеный",
                 "price": 90,
-                "id": 22,
+                "id": 211,
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",
@@ -2170,7 +2170,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Морс облепиховый",
                 "price": 90,
-                "id": 23,
+                "id": 212,
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",
@@ -2180,7 +2180,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Какао с молоком",
                 "price": 150,
-                "id": 24,
+                "id": 213,
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",
@@ -2190,7 +2190,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Молочный коктель",
                 "price": 200,
-                "id": 25,
+                "id": 214,
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",
