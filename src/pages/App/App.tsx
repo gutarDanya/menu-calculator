@@ -19,6 +19,9 @@ import AddPositionPopup from '../addPositionPopup/AddPositionPopup';
 import StartAppPage from '../StartAppPage/StartAppPage';
 import ShifrPopup from '../ShifrPopup/ShifrPopup';
 import SettingPage from '../SettingsPage/SettingsPage';
+import SettingsButtonsMenu from '../../components/SettingsButtonsMenu/SettingsButtonsMenu';
+import SettingsButtonsSection from '../../components/SettingsButtonSection/SettingsButtonSections';
+import SettingsButtonsPositions from '../../components/SettingsButtonsPositions/SettingsButtonsPositions';
 
 checkSotrage();
 
@@ -41,7 +44,7 @@ function App() {
   const closePopup = () => {
     navigate(-1)
   }
-  
+
   useEffect(() => {
     dispatch(getAllMenu(localMenu!));
   }, [])
@@ -52,13 +55,15 @@ function App() {
         <Shirm />
         <main className={styles.main}>
           <Routes location={backgroundLocation || location}>
-            <Route path='/:id' element={<MenuPage/>} />
-            <Route path='/orders' element={<OrdersPage orders={orders}/>} />
+            <Route path='/:id' element={<MenuPage />} />
+            <Route path='/orders' element={<OrdersPage orders={orders} />} />
             <Route path="orders/:id" element={<OrderPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
-            <Route path="/settings" element={<SettingPage />} />
+            <Route path="/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} />
+            <Route path='/settings/:sectionId' element={<SettingPage><SettingsButtonsSection /></SettingPage>} />
+            <Route path="/settings/:sectionId/:id" element={<SettingPage><SettingsButtonsPositions /></SettingPage>} />
           </Routes>
 
           {backgroundLocation && <Routes>
@@ -81,7 +86,11 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
-            <Route path="/settings" element={<SettingPage />} />
+            <Route path="/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} >
+              <Route path=':sectionId' element={<div></div>}>
+                <Route path="positionId" element={<div></div>} />
+              </Route>
+            </Route>
           </Routes>
 
           {backgroundLocation && <Routes>

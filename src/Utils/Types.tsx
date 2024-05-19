@@ -20,7 +20,7 @@ export type TsendedOrder = {
     description2: string;
 }
 
-export type TSectionMenu = {name: string, positions: Array<Tposition>}
+export type TSectionMenu = {name: string, id: string, positions: Array<Tposition>}
 export type TMenu = {nameMenu: string, routing: string, menu: Array<TSectionMenu>}
 
 export type TLocalMenu = {nameMenu: string, sections: Array<TSectionMenu>}

@@ -6,7 +6,7 @@ export const currentPassword = "clubwolki18"
 export const mainPositions: TMenu = {
     nameMenu: "меню", routing: "menu", menu: [
         {
-            name: "ХОЛОДНЫЕ ЗАКУСКИ", positions: [{
+            name: "ХОЛОДНЫЕ ЗАКУСКИ", id: "1", positions: [{
                 name: "МЯСНОЕ АССОРТИ ОТ ШЕФ-ПОВАРА",
                 price: 800,
                 id: 1,
@@ -109,7 +109,7 @@ export const mainPositions: TMenu = {
         },
 
         {
-            name: "САЛАТЫ", positions: [{
+            name: "САЛАТЫ", id: "2", positions: [{
                 name: "МИКС САЛАТ С ТЕЛЯТИНОЙ И ОВОЩАМИ",
                 price: 390,
                 id: 11,
@@ -281,7 +281,7 @@ export const mainPositions: TMenu = {
             }]
         },
         {
-            name: "ГОРЯЧИЕ ЗАКУСКИ", positions: [{
+            name: "ГОРЯЧИЕ ЗАКУСКИ", id: "3", positions: [{
                 "name": "ЖУЛЬЕН с лесными грибами",
                 "price": 310,
                 "id": 28,
@@ -425,7 +425,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "СУПЫ", positions: [{
+            name: "СУПЫ", id: "4", positions: [{
                 "name": "СУП КУРИНЫЙ",
                 "price": 300,
                 "id": 42,
@@ -479,7 +479,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "ГОРЯЧИЕ БЛЮДА", positions: [{
+            name: "ГОРЯЧИЕ БЛЮДА", id: "5", positions: [{
                 "name": "ФИЛЕ ИНДЕЙКИ-ГРИЛЬ",
                 "price": 500,
                 "id": 47,
@@ -733,7 +733,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "ГРИЛЬ МЕНЮ", positions: [{
+            name: "ГРИЛЬ МЕНЮ", id: "6", positions: [{
                 "name": "ШАШЛЫК ИЗ СВИНОЙ ШЕИ С САЛАТОМ И ТОМАТНЫМ СОУСОМ ",
                 "price": 420,
                 "id": 72,
@@ -897,7 +897,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "ГАРНИРЫ", positions: [{
+            name: "ГАРНИРЫ", id: "7", positions: [{
                 "name": "ОВОЩИ ГРИЛЬ",
                 "price": 150,
                 "id": 88,
@@ -1021,7 +1021,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "ХЛЕБ И ВЫПЕЧКА", positions: [{
+            name: "ХЛЕБ И ВЫПЕЧКА", id: "8", positions: [{
                 "name": "БУЛОЧКА",
                 "price": 40,
                 "id": 100,
@@ -1055,7 +1055,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "НАПИТКИ", positions: [{
+            name: "НАПИТКИ", id: "9", positions: [{
                 "name": "МОРС",
                 "price": 450,
                 "id": 103,
@@ -1119,7 +1119,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "ФУРШЕТНОЕ МЕНЮ", positions: [{
+            name: "ФУРШЕТНОЕ МЕНЮ", id: "10", positions: [{
                 "name": "Брускета с ростбифом и соусом гуакомоле",
                 "price": 120,
                 "id": 109,
@@ -1653,7 +1653,7 @@ export const mainPositions: TMenu = {
             ]
         },
         {
-            name: "НОВИНКИ", positions: [{
+            name: "НОВИНКИ", id: "11", positions: [{
                 "name": "Эклер со сливочным сыром и Гравалаксом из форели, и двумя видами икры тобика",
                 "price": 150,
                 "id": 164,
@@ -1932,7 +1932,7 @@ export const mainPositions: TMenu = {
 export const childMenuGraduates: TMenu = {
     nameMenu: "детское меню", routing: "childMenu", menu: [
         {
-            name: "САЛАТЫ", positions: [{
+            name: "САЛАТЫ", id: "12", positions: [{
                 "name": "Салат Оливье с куриным филе",
                 "price": 150,
                 "id": 190,
@@ -1965,7 +1965,7 @@ export const childMenuGraduates: TMenu = {
             ]
         },
         {
-            name: "СУПЫ", positions: [{
+            name: "СУПЫ", id: "14", positions: [{
                 "name": "Суп-лапша домашняя с цыпленком",
                 "price": 200,
                 "id": 193,
@@ -1987,7 +1987,7 @@ export const childMenuGraduates: TMenu = {
             }]
         },
         {
-            name: "ГОРЯЧИЕ БЛЮДА", positions: [{
+            name: "ГОРЯЧИЕ БЛЮДА", id: "15", positions: [{
                 "name": "Шашлычок из куриного филе с овощным салатом",
                 "price": 370,
                 "id": 195,
@@ -2091,7 +2091,7 @@ export const childMenuGraduates: TMenu = {
             ]
         },
         {
-            name: "ГАРНИРЫ", positions: [
+            name: "ГАРНИРЫ", id: "16", positions: [
                 {
                     "name": "Картофель фри с кетчупом",
                     "price": 0,
@@ -2125,7 +2125,7 @@ export const childMenuGraduates: TMenu = {
             ]
         },
         {
-            name: "ДЕСЕРТЫ", positions: [{
+            name: "ДЕСЕРТЫ", id: "17", positions: [{
                 "name": "Блинчики с джемом",
                 "price": 150,
                 "id": 208,
@@ -2157,7 +2157,7 @@ export const childMenuGraduates: TMenu = {
             ]
         },
         {
-            name: "НАПИТКИ", positions: [{
+            name: "НАПИТКИ", id: "18", positions: [{
                 "name": "Морс клюквеный",
                 "price": 90,
                 "id": 211,
