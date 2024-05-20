@@ -22,6 +22,9 @@ import SettingPage from '../SettingsPage/SettingsPage';
 import SettingsButtonsMenu from '../../components/SettingsButtonsMenu/SettingsButtonsMenu';
 import SettingsButtonsSection from '../../components/SettingsButtonSection/SettingsButtonSections';
 import SettingsButtonsPositions from '../../components/SettingsButtonsPositions/SettingsButtonsPositions';
+import AddMenuPopup from '../AddMenuPopup/AddMenuPopup';
+import AddSectionPopup from '../AddSectionPopup/AddSectionPopup';
+import AddPositionToStoragePopup from '../AddPostionToStoragePopup/AddPostionToStoragePopup';
 
 checkSotrage();
 
@@ -72,6 +75,24 @@ function App() {
                 <AddPositionPopup />
               </Modal>
             } />
+
+            <Route path="/settings/add-menu" element={
+              <Modal title="новое меню" handleClose={closePopup}>
+                <AddMenuPopup />
+              </Modal>
+            } />
+
+            <Route path="/settings/:sectionId/add-section" element={
+              <Modal title="новая секция" handleClose={closePopup}>
+                <AddSectionPopup />
+              </Modal>
+            } />
+
+            <Route path="/settings/:sectionId/:id/add-position" element={
+              <Modal title="новая позиция" handleClose={closePopup}>
+                <AddPositionToStoragePopup />
+              </Modal>
+            } />
           </Routes>}
         </main>
       </div>
@@ -86,11 +107,9 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
-            <Route path="/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} >
-              <Route path=':sectionId' element={<div></div>}>
-                <Route path="positionId" element={<div></div>} />
-              </Route>
-            </Route>
+            <Route path="/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} />
+            <Route path='/settings/:sectionId' element={<SettingPage><SettingsButtonsSection /></SettingPage>} />
+            <Route path="/settings/:sectionId/:id" element={<SettingPage><SettingsButtonsPositions /></SettingPage>} />
           </Routes>
 
           {backgroundLocation && <Routes>

@@ -1,0 +1,11 @@
+.container {
+    background-color: #282c34;
+    border-radius: 5px;
+}
+
+.text {
+    line-height: 24px;
+    margin: 0;
+    color: white;
+    font-size: 24px;
+}
