@@ -6,11 +6,11 @@ import { addSectionToStorage } from "../../services/Slices/MenuSlices";
 
 const AddSectionPopup = () => {
     const dispatch = useAppDispatch();
-    const [dataSection, setDataMenu] = useState({name: "", id: uuid4()})
+    const [dataSection, setDataMenu] = useState({name: ""})
 
     function addSection (evt: any) {
         evt.preventDefault()
-        dispatch(addSectionToStorage(dataSection))
+        dispatch(addSectionToStorage({...dataSection, id: uuid4()}))
     }
 
     return (

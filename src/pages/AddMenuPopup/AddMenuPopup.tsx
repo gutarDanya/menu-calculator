@@ -5,11 +5,11 @@ import { useAppDispatch } from "../../services/store";
 import { addMenuToStorage } from "../../services/Slices/MenuSlices";
 const AddMenuPopup = () => {
     const dispatch = useAppDispatch();
-    const [dataMenu, setDataMenu] = useState({name: "", routing: uuid4()})
+    const [dataMenu, setDataMenu] = useState({name: ""})
 
     function sendNewMenu(evt: any) {
         evt.preventDefault()
-        dispatch(addMenuToStorage(dataMenu))
+        dispatch(addMenuToStorage({...dataMenu, routing: uuid4()}))
     }
 
     return (

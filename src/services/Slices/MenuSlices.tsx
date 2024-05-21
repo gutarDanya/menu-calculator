@@ -8,7 +8,8 @@ import {
     sendOrder,
     addNewMenuToStorage,
     addNewSectionToStorage,
-    addNewPositionToStorage
+    addNewPositionToStorage,
+    setNewMenu
 } from "../../Utils/scripts";
 import { v4 as uuid4 } from "uuid";
 
@@ -91,9 +92,15 @@ const MenuSlice = createSlice({
 
             addNewMenuToStorage(action.payload.name, action.payload.routing)
         },
+        removeMenuFromStorage(state, action: PayloadAction<string>) {
+            state.menu = state.menu.filter((menu) => {return menu.routing !== action.payload});
+            
+            setNewMenu(state.menu)
+        },
         getCurrentSection(state, action: PayloadAction<string>) {
             state.currentSection = state.currentMenu!.menu.find((section) => { return section.id === action.payload })!
         },
+
         addSectionToStorage(state, action: PayloadAction<{name: string, id: string}>) {
             state.currentMenu = {...state.currentMenu!, menu: [...state.currentMenu!.menu, {name: action.payload.name, id: action.payload.id, positions: []}]}
 
@@ -102,7 +109,20 @@ const MenuSlice = createSlice({
                 : menu
             })
 
-            addNewSectionToStorage(action.payload.name, state.currentMenu.nameMenu, action.payload.id)
+            // addNewSectionToStorage(action.payload.name, state.currentMenu.nameMenu, action.payload.id)
+            setNewMenu(state.menu)
+        },
+        removeSectionFromStorage (state, action: PayloadAction<string>) {
+            state.menu = state.menu.map((menu) => {return menu.nameMenu === state.currentMenu!.nameMenu
+                ? {...menu, menu: menu.menu.filter((section) => {return section.id !== action.payload})}
+                : menu
+            })
+
+            console.log(state.menu)
+
+            state.currentMenu = {...state.currentMenu!, menu: state.currentMenu!.menu.filter((section) => {return section.id !== action.payload})!}
+
+            setNewMenu(state.menu)
         },
         getSelectedPosition(state, action: PayloadAction<string | number>) {
             state.selectedPosition = state.currentSection!.positions.find((pos) => { return JSON.stringify(pos.id) === JSON.stringify(action.payload) })!
@@ -129,8 +149,23 @@ const MenuSlice = createSlice({
                 })}
                 : menu
             })
+            setNewMenu(state.menu)
+            // addNewPositionToStorage(state.currentMenu!.nameMenu, state.currentSection!.name, newPos)
+        },
+        removePostionFromStorage(state, action: PayloadAction<string>) {
+            state.menu = state.menu.map((menu) => {return menu.nameMenu === state.currentMenu!.nameMenu
+                ? {...menu, menu: menu.menu.map((section) => {return section.id === state.currentSection!.id
+                    ? {...section, positions: section.positions.filter((pos) => {return JSON.stringify(pos.id) != action.payload})}
+                    : section
+                })}
+                : menu
+            })
 
-            addNewPositionToStorage(state.currentMenu!.nameMenu, state.currentSection!.name, newPos)
+            state.currentSection = {...state.currentSection!, positions: state.currentSection!.positions.filter((pos) => {
+                return JSON.stringify(pos.id) !== action.payload
+            })}
+
+            setNewMenu(state.menu)
         }
     }
 })
@@ -145,8 +180,11 @@ export const { getAllMenu,
     addExtraPosition,
     getCurrentMenu,
     addMenuToStorage,
+    removeMenuFromStorage,
     getCurrentSection,
     addSectionToStorage,
+    removeSectionFromStorage,
     getSelectedPosition,
-    addPositionToStorage } = MenuSlice.actions
+    addPositionToStorage,
+    removePostionFromStorage } = MenuSlice.actions
 export default MenuSlice.reducer

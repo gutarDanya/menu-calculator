@@ -116,3 +116,7 @@ export function addNewPositionToStorage(nameMenu: string, nameSection: string, n
         : menu
     })))
 }
+
+export function setNewMenu(currentMenu: Array<TMenu>) {
+    localStorage.setItem("menu", JSON.stringify(currentMenu))
+}
