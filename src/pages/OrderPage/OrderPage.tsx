@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './OrderPage.module.css';
 import { useAppDispatch, useAppSelector } from "../../services/store";
-import { decrement, deletePosFromOrder, increment } from "../../services/Slices/OrdersSlice";
+import { decrement, deletePosFromOrder, getAllDishes, increment } from "../../services/Slices/OrdersSlice";
 import { TLocalMenu, TMenu, Torder, Tposition } from "../../Utils/Types";
 import MenuContainer from "../../components/MenuContainer/MenuContainer";
 import { jsPDF } from 'jspdf';
@@ -10,9 +10,6 @@ import '../../Utils/fonts/Roboto-Regular-normal'
 const OrderPage = () => {
 
     const dispatch = useAppDispatch()
-
-    const header = useAppSelector(state => state.OrdersSlice.currentOrder);
-
 
     const incrementPosition = async (pos: Tposition) => {
         await dispatch(increment(pos))
@@ -23,6 +20,12 @@ const OrderPage = () => {
     }
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
+
+    useEffect(() => {
+        dispatch(getAllDishes())
+    }, [order])
+
+    const testData = [{name: "пивко", price: 1000, count: 4},{name: "шашлычок", price: 500, count: 10}]
 
     const totalPrice = order?.dishes.reduce((acc: any, item: TLocalMenu) => {
         return acc + item.sections.reduce((acc, menu) => {
@@ -35,7 +38,7 @@ const OrderPage = () => {
     function createAndSavePdf() {
         var doc = new jsPDF();
         doc.setFont("Roboto-Regular")
-        doc.text("снова попробую русский", 70, 30);
+        doc.text(`${testData[0].name}    ${JSON.stringify(testData[0].price)} * ${JSON.stringify(testData[0].count)} = ${JSON.stringify(testData[0].price * testData[0].count)}`, 70, 30);
         doc.save("a4.pdf")
     }
 

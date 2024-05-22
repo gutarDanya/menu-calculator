@@ -5,12 +5,14 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";import { changeLoc
 
 type TinitialState = {
     orders: Array<TsendedOrder>;
-    currentOrder: any
+    currentOrder: any;
+    currentDishes: any
 }
 
 const initialState: TinitialState = {
     orders: [],
-    currentOrder: null
+    currentOrder: null,
+    currentDishes: []
 }
 
 const OrdersSlice = createSlice({
@@ -75,6 +77,12 @@ const OrdersSlice = createSlice({
                 description2: data.description2,
             }]
         },
+        getAllDishes (state) {
+            const menu = state.currentOrder.dishes;
+            const arr = [];
+
+            state.currentDishes = menu
+        },
         getCurrentOrder(state, action: PayloadAction<{id: string, menu: Array<TMenu>}>) {
             const {id, menu} = action.payload;
 
@@ -113,5 +121,5 @@ const OrdersSlice = createSlice({
     }
 })
 
-export const { getAllOrders, getCurrentOrder, increment, decrement, deleteOrder, addOrder, deletePosFromOrder } = OrdersSlice.actions
+export const { getAllOrders, getCurrentOrder, increment, decrement, deleteOrder, addOrder, deletePosFromOrder, getAllDishes } = OrdersSlice.actions
 export default OrdersSlice.reducer
