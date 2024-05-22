@@ -79,12 +79,15 @@ const OrdersSlice = createSlice({
         },
         getAllDishes (state) {
             const menu = state.currentOrder.dishes;
-            const arr = [];
+            let arr: any = [];
+            const secondArr = menu.forEach((menu: TMenu) => {menu.menu.forEach((section) => {arr.push(section)})}) 
 
-            state.currentDishes = menu
+            state.currentDishes = arr
         },
         getCurrentOrder(state, action: PayloadAction<{id: string, menu: Array<TMenu>}>) {
             const {id, menu} = action.payload;
+
+            let allDishes: any = [];
 
             const currentOrder = state.orders.find((order) => {return order.id === id})!
             
@@ -101,6 +104,7 @@ const OrdersSlice = createSlice({
                             let currrentPosition = null
                                 if (selectedPosition?.id === position.id) {
                                     currrentPosition = {...position, count: selectedPosition.count}
+                                    allDishes = [...allDishes, currrentPosition]
                                 }
                                 return currrentPosition
                             }).filter((pos) => {return pos !== null})
@@ -114,8 +118,11 @@ const OrdersSlice = createSlice({
 
             if (currentOrder.dishes.some((dish) => {return dish.menu === "EXTRA MENU"})) {
                 currentDishes.push({nameMenu: "Дополнительно", sections: [{name: "дополнительно", positions: currentOrder.dishes.filter((pos) => {return pos.menu === "EXTRA MENU"})}]})
+                currentOrder.dishes.forEach((dish) => dish.menu === "EXTRA MENU" ? allDishes = [...allDishes, dish] : null)
             }
 
+
+            state.currentDishes = allDishes;
             state.currentOrder = {...currentOrder, dishes: currentDishes}
         }
     }

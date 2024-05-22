@@ -5,7 +5,8 @@ import { decrement, deletePosFromOrder, getAllDishes, increment } from "../../se
 import { TLocalMenu, TMenu, Torder, Tposition } from "../../Utils/Types";
 import MenuContainer from "../../components/MenuContainer/MenuContainer";
 import { jsPDF } from 'jspdf';
-import '../../Utils/fonts/Roboto-Regular-normal'
+import '../../Utils/fonts/Roboto-Regular-normal';
+import logo from '../../Utils/images/logo.jpg'
 
 const OrderPage = () => {
 
@@ -19,13 +20,9 @@ const OrderPage = () => {
         await dispatch(decrement(pos))
     }
 
+    const allDishes: Array<Tposition> = useAppSelector(state => state.OrdersSlice.currentDishes);
+
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
-
-    useEffect(() => {
-        dispatch(getAllDishes())
-    }, [order])
-
-    const testData = [{name: "пивко", price: 1000, count: 4},{name: "шашлычок", price: 500, count: 10}]
 
     const totalPrice = order?.dishes.reduce((acc: any, item: TLocalMenu) => {
         return acc + item.sections.reduce((acc, menu) => {
@@ -33,12 +30,26 @@ const OrderPage = () => {
                 return acc + pos.price * pos.count
             }, 0)
         }, 0)
-    }, 0)
+    }, 0);
+
 
     function createAndSavePdf() {
         var doc = new jsPDF();
-        doc.setFont("Roboto-Regular")
-        doc.text(`${testData[0].name}    ${JSON.stringify(testData[0].price)} * ${JSON.stringify(testData[0].count)} = ${JSON.stringify(testData[0].price * testData[0].count)}`, 70, 30);
+        doc.setFont("Roboto-Regular");
+        doc.setFontSize(20);
+        var img = new Image();
+        img.src = logo;
+        doc.addImage(img, "jpg", 80, 0, 50, 50);
+        doc.text("все позиции:", 85, 50);
+        doc.setFontSize(9);
+        for (let i = 0; i < allDishes.length; i++) {
+            doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 60 + 4 * i);
+        }
+        doc.setFontSize(20);
+        doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 70 + 4 * allDishes.length);
+        doc.setFontSize(12)
+        doc.text("Исполнитель________", 10, 290);
+        doc.text("Заказчик________", 130, 290);
         doc.save("a4.pdf")
     }
 
