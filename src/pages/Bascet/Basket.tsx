@@ -46,20 +46,25 @@ const Basket = () => {
         weight: 0,
         type: "ДОПОЛНИТЕЛЬНЫЕ"
     })
-    
-    function navigateAddPosition () {
-        navigate("/basket/add-position", {state: {background: location}})
+
+    function navigateAddPosition() {
+        navigate("/basket/add-position", { state: { background: location } })
     }
+
+    const today = new Date();
+    const numberOfDaysToAdd = 3;
+    const date = today.setDate(today.getDate() + numberOfDaysToAdd);
+    const defaultValue = new Date(date).toISOString().split('T')[0]
 
     const submitForm = (evt: any) => {
         evt.preventDefault();
         if (getCookie("logined") == "logined") {
             dispatch(saveOrder(dataOfOrder))
-            dispatch(addOrder({data: dataOfOrder, dishes: positions, id:uuid4()}))
+            dispatch(addOrder({ data: dataOfOrder, dishes: positions, id: uuid4() }))
             navigate('/')
         } else {
             dispatch(createStringOfOrder(dataOfOrder))
-            navigate("/basket/shifr", {state: {background: location}})
+            navigate("/basket/shifr", { state: { background: location } })
         }
     }
 
@@ -69,13 +74,13 @@ const Basket = () => {
             <h1 className={styles.header}>Корзина</h1>
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
-                    return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} removePosition={removeFromOrder}/> : null
+                    return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} removePosition={removeFromOrder} /> : null
                 })}
                 <button type="button" className={styles.addPositionButton} onClick={navigateAddPosition}>Добавить позицию в заказ</button>
                 <div className={styles.inputs}>
                     <div className={styles.inputsContainer}>
                         <input className={styles.input} value={dataOfOrder.name} onChange={(e) => { setDataOfOrder({ ...dataOfOrder, name: e.target.value }) }} type='text' placeholder="ваше имя" />
-                        <input className={styles.input} type='date' onChange={(e) => { setDataOfOrder({ ...dataOfOrder, date: e.target.value }); console.log(dataOfOrder.date) }} />
+                        <input className={styles.input} type='date' defaultValue={defaultValue} onChange={(e) => { setDataOfOrder({ ...dataOfOrder, date: e.target.value }); console.log(dataOfOrder.date) }} />
                     </div>
                     <div className={styles.textareaContainer}>
                         <textarea className={styles.textarea} placeholder="описание 1" value={dataOfOrder.description1} onChange={(e) => { setDataOfOrder({ ...dataOfOrder, description1: e.target.value }) }} />

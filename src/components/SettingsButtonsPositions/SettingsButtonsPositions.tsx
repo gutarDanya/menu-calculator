@@ -4,14 +4,18 @@ import { useAppDispatch, useAppSelector } from "../../services/store";
 import SettingsButton from "../SetttingsButton/SettingsButton";
 import { getSelectedPosition, removePostionFromStorage } from "../../services/Slices/MenuSlices";
 import AddButton from "../AddButton/AddButton";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SettingsButtonsPositions = () => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
+    const location = useLocation();
 
     const section = useAppSelector(state => state.MenuSlices.currentSection);
 
     function handleClick(id: string) {
         dispatch(getSelectedPosition(id))
+        navigate('/patch-position', {state: {background: location}})
     }
 
     function handleRemove (id: string) {

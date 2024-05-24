@@ -25,6 +25,7 @@ import SettingsButtonsPositions from '../../components/SettingsButtonsPositions/
 import AddMenuPopup from '../AddMenuPopup/AddMenuPopup';
 import AddSectionPopup from '../AddSectionPopup/AddSectionPopup';
 import AddPositionToStoragePopup from '../AddPostionToStoragePopup/AddPostionToStoragePopup';
+import PatchPositionPopup from '../PatchPositionPopup/PatchPositionPopup';
 
 checkSotrage();
 
@@ -91,6 +92,12 @@ function App() {
             <Route path="/settings/:sectionId/:id/add-position" element={
               <Modal title="новая позиция" handleClose={closePopup}>
                 <AddPositionToStoragePopup />
+              </Modal>
+            } />
+
+            <Route path='/settings/:sectionId/:id/patch-position' element={
+              <Modal title="изменить позицию" handleClose={closePopup}>
+                <PatchPositionPopup />
               </Modal>
             } />
           </Routes>}

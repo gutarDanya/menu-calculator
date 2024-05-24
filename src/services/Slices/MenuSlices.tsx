@@ -125,7 +125,33 @@ const MenuSlice = createSlice({
             setNewMenu(state.menu)
         },
         getSelectedPosition(state, action: PayloadAction<string | number>) {
-            state.selectedPosition = state.currentSection!.positions.find((pos) => { return JSON.stringify(pos.id) === JSON.stringify(action.payload) })!
+            state.selectedPosition = state.currentSection!.positions.find((pos) => { return pos.id === action.payload })!
+        },
+        patchPosition(state, action: PayloadAction<{name: string, description: string, price: number, weight: string | number, id: string | number}>) {
+            state.menu = state.menu.map((menu:TMenu) => {return menu.routing === state.currentMenu!.routing
+                ?  {...menu, menu: menu.menu.map((section) => {return section.id === state.currentSection!.id
+                    ? {...section, positions: section.positions.map((pos) => { return pos.id === action.payload.id 
+                        ? {...pos,
+                            name: action.payload.name,
+                            description: action.payload.description,
+                            price: action.payload.price,
+                            weight: action.payload.weight
+                        }
+                        : pos
+                    })}
+                    : section
+                })}
+                : menu
+            })
+            state.currentSection = {...state.currentSection!, positions: state.currentSection!.positions.map((pos) => { return pos.id === action.payload.id
+                ? {...pos,
+                    name: action.payload.name,
+                    description: action.payload.description,
+                    price: action.payload.price,
+                    weight: action.payload.weight
+                }
+                : pos
+            })}
         },
         addPositionToStorage(state, action: PayloadAction<{name: string, description: string, price: number, weigth: string, id: string}>) {
 
@@ -186,5 +212,6 @@ export const { getAllMenu,
     removeSectionFromStorage,
     getSelectedPosition,
     addPositionToStorage,
-    removePostionFromStorage } = MenuSlice.actions
+    removePostionFromStorage,
+    patchPosition } = MenuSlice.actions
 export default MenuSlice.reducer

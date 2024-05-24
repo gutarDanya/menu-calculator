@@ -43,13 +43,29 @@ const OrderPage = () => {
         doc.text("все позиции:", 85, 50);
         doc.setFontSize(9);
         for (let i = 0; i < allDishes.length; i++) {
-            doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 60 + 4 * i);
+            if (i === 50) {
+                doc.text("1/2", 185, 290)
+                doc.addPage()
+            }
+            if ( i < 50) {
+                doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 60 + 4 * i)
+            } else {
+                doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25,  15 + 4 * (i - 50))
+            }
         }
         doc.setFontSize(20);
-        doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 70 + 4 * allDishes.length);
+        if (allDishes.length > 49) {
+            doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 25 + 4 * (allDishes.length - 50));
+        } else {
+            doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 70 + 4 * allDishes.length)
+        }
         doc.setFontSize(12)
-        doc.text("Исполнитель________", 10, 290);
-        doc.text("Заказчик________", 130, 290);
+        doc.text("Исполнитель________", 10, 275);
+        doc.text("Заказчик________", 130, 275);
+        if (allDishes.length > 49) {
+            doc.setFontSize(9)
+            doc.text("2/2", 185, 290)
+        }
         doc.save("a4.pdf")
     }
 

@@ -6,7 +6,7 @@ import { v4 as uuid4 } from "uuid";
 
 const AddPositionPopup = () => {
     const dispatch = useAppDispatch();
-    const [extraPosition, setExtraPosition] = useState({ name: "", weight: "", count: 1, price: 1 });
+    const [extraPosition, setExtraPosition] = useState({ name: "", weight: "", count: 0, price: 0 });
 
     function addPosition(evt: any) {
         evt.preventDefault();
@@ -27,12 +27,12 @@ const AddPositionPopup = () => {
 
             <label className={styles.labelContainer}>
                 колличество
-                <input className={styles.input} type="number" required={true} value={extraPosition.count} onChange={(e) => { setExtraPosition({ ...extraPosition, count: Number(e.target.value) }) }} />
+                <input className={styles.input} defaultValue={0} type="number" required={true} value={extraPosition.count} onChange={(e) => { setExtraPosition({ ...extraPosition, count: Number(e.target.value) }) }} />
             </label>
 
             <label className={styles.labelContainer}>
                 Цена 1 позиции
-                <input className={styles.input} type="number" required={true} value={extraPosition.price} onChange={(e) => { setExtraPosition({ ...extraPosition, price: Number(e.target.value) }) }} />
+                <input className={styles.input} defaultValue={0} type="number" required={true} value={extraPosition.price} onChange={(e) => { setExtraPosition({ ...extraPosition, price: Number(e.target.value) }) }} />
             </label>
             <button className={styles.submitButton} type='submit' onClick={e => addPosition(e)}>Добавить</button>
         </form>
