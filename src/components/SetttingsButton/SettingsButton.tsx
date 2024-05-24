@@ -3,10 +3,12 @@ import styles from './SettingsButton.module.css';
 import { useNavigate } from "react-router-dom";
 import trash from '../../Utils/images/Trash_font_awesome.svg.png'
 
-const SettingsButton: React.FC<Props> = ({name, routing, hadnleClick, handleRemove}) => {
+const SettingsButton: React.FC<Props> = ({name, routing, hadnleClick, handleRemove, thisPosition = false}) => {
     const navigate = useNavigate();
     function openPage () {
-        navigate(routing)
+        if (!thisPosition) {
+            navigate(routing)
+        }
         hadnleClick()
     }
 
@@ -29,4 +31,5 @@ type Props = {
     routing: string;
     hadnleClick: any;
     handleRemove: any;
+    thisPosition?: boolean;
 }

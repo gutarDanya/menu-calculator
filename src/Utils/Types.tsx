@@ -1,7 +1,7 @@
 export type Tposition = {
     name: string;
     price: number;
-    id: number | string;
+    id: string;
     weight: number | string;
     description: string;
     type: string;

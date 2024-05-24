@@ -3,7 +3,7 @@ import styles from './SettingsButtonSection.module.css'
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../services/store";
 import SettingsButton from "../SetttingsButton/SettingsButton";
-import { getCurrentMenu, getCurrentSection, getSelectedPosition, removeSectionFromStorage } from "../../services/Slices/MenuSlices";
+import { getCurrentMenu, getCurrentSection, removeSectionFromStorage } from "../../services/Slices/MenuSlices";
 import AddButton from "../AddButton/AddButton";
 
 const SettingsButtonsSection = () => {

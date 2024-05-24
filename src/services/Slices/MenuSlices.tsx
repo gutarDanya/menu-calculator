@@ -20,7 +20,7 @@ type TinitialState = {
     stringOfOrder: string;
     currentMenu: TMenu | null;
     currentSection: TSectionMenu | null;
-    selectedPosition: Tposition | null;
+    position: Tposition | null
 }
 
 const initialState: TinitialState = {
@@ -30,7 +30,7 @@ const initialState: TinitialState = {
     stringOfOrder: "",
     currentMenu: null,
     currentSection: null,
-    selectedPosition: null
+    position: null
 }
 
 const MenuSlice = createSlice({
@@ -124,8 +124,8 @@ const MenuSlice = createSlice({
 
             setNewMenu(state.menu)
         },
-        getSelectedPosition(state, action: PayloadAction<string | number>) {
-            state.selectedPosition = state.currentSection!.positions.find((pos) => { return pos.id === action.payload })!
+        getcurentPosition (state, action: PayloadAction<string>) {
+            state.position = state.currentSection!.positions.find((pos) => {return pos.id === action.payload})!
         },
         patchPosition(state, action: PayloadAction<{name: string, description: string, price: number, weight: string | number, id: string | number}>) {
             state.menu = state.menu.map((menu:TMenu) => {return menu.routing === state.currentMenu!.routing
@@ -152,6 +152,8 @@ const MenuSlice = createSlice({
                 }
                 : pos
             })}
+
+            setNewMenu(state.menu)
         },
         addPositionToStorage(state, action: PayloadAction<{name: string, description: string, price: number, weigth: string, id: string}>) {
 
@@ -210,7 +212,7 @@ export const { getAllMenu,
     getCurrentSection,
     addSectionToStorage,
     removeSectionFromStorage,
-    getSelectedPosition,
+    getcurentPosition,
     addPositionToStorage,
     removePostionFromStorage,
     patchPosition } = MenuSlice.actions

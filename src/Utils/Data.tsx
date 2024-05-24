@@ -9,7 +9,7 @@ export const mainPositions: TMenu = {
             name: "ХОЛОДНЫЕ ЗАКУСКИ", id: "1", positions: [{
                 name: "МЯСНОЕ АССОРТИ ОТ ШЕФ-ПОВАРА",
                 price: 800,
-                id: 1,
+                id: "1",
                 weight: 310,
                 description: 'Колбаса с/к, буженина, язык телячий подкопченый, запеченое куриное филе, корнишоны и черри маринованные., хрен стол., горчица',
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -19,7 +19,7 @@ export const mainPositions: TMenu = {
             {
                 name: "АССОРТИ МЯСНЫХ СПЕЦИАЛИТЕТОВ",
                 price: 1300,
-                id: 2,
+                id: "2",
                 weight: 250,
                 description: 'Бастурма, Суджук, Пиколини, Пармский окорок,микс салат, оливки',
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -29,7 +29,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ДОМАШНИЕ СОЛЕНЬЯ",
                 price: 550,
-                id: 3,
+                id: "3",
                 weight: 300,
                 description: "Капуста квашеная, огурцы и помидоры маринованные, морковь по-корейски, грибы маринованные, чеснок, лук зелёный",
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -39,7 +39,7 @@ export const mainPositions: TMenu = {
             {
                 name: "АССОРТИ МАРИНОВАНЫХ ГРИБОВ",
                 price: 550,
-                id: 4,
+                id: "4",
                 weight: 250,
                 description: '',
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -49,7 +49,7 @@ export const mainPositions: TMenu = {
             {
                 name: "СЫРНАЯ ТАРЕЛКА",
                 price: 800,
-                id: 5,
+                id: "5",
                 weight: 230,
                 description: 'Фермерский сыр, маасдам, дор блю, камамбер, мёд, виноград, орехи,грисини, крекер.',
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -59,7 +59,7 @@ export const mainPositions: TMenu = {
             {
                 name: "КОРЗИНА СЕЗОННЫХ ФРУКТОВ",
                 price: 600,
-                id: 6,
+                id: "6",
                 weight: 500,
                 description: '',
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -69,7 +69,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ТАРЕЛКА РЫБНЫХ ДЕЛИКАТЕСОВ",
                 price: 4000,
-                id: 7,
+                id: "7",
                 weight: 450,
                 description: "Обоженный тунец, карельская форель слабой соли,брускетта с мясом краба, лангустины гриль, гребешок гриль, лимон ,маслины, руккола.",
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -79,7 +79,7 @@ export const mainPositions: TMenu = {
             {
                 name: "РЫБНОЕ АССОРТИ",
                 price: 1450,
-                id: 8,
+                id: "8",
                 weight: 300,
                 description: "Масляная рыба, лосось с/с, креветки тигровые в тесте фило, копченый кальмар, лимон,оливки, зелень",
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -89,7 +89,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ОВОЩНАЯ ТАРЕЛКА",
                 price: 600,
-                id: 9,
+                id: "9",
                 weight: "300/50",
                 description: 'Огурцы, помидоры, перец болгарский, зелень, соус сметанный',
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -99,7 +99,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ЗАКУСКА ПОД ВОДОЧКУ",
                 price: 550,
-                id: 10,
+                id: "10",
                 weight: 250,
                 description: 'Филе сельди с/с с картофельными дольками и маринованым луком,томатами, черри консер., зеленым луком',
                 type: "ХОЛОДНЫЕ ЗАКУСКИ",
@@ -112,7 +112,7 @@ export const mainPositions: TMenu = {
             name: "САЛАТЫ", id: "2", positions: [{
                 name: "МИКС САЛАТ С ТЕЛЯТИНОЙ И ОВОЩАМИ",
                 price: 390,
-                id: 11,
+                id: "11",
                 weight: 150,
                 description: "Листья салата, телячья вырезка, перец болгарский,свежие огурцы, томаты, маслооливковое",
                 type: "САЛАТЫ",
@@ -122,7 +122,7 @@ export const mainPositions: TMenu = {
             {
                 name: "САЛАТ С РУККЛОЙ ТЕЛЯЧЬИМ ЯЗЫКОМ И ПЕЧЕНЫМ ПЕРЦЕМ",
                 price: 450,
-                id: 12,
+                id: "12",
                 weight: 150,
                 description: 'Руккола, телячий язык отварной, перец болгарский печеный, томаты черри, оливковое масло, крем бальзамик.',
                 type: "САЛАТЫ",
@@ -132,7 +132,7 @@ export const mainPositions: TMenu = {
             {
                 name: "САЛАТ НИСУАЗ С ТУНЦОМ",
                 price: 390,
-                id: 13,
+                id: "13",
                 weight: 150,
                 description: "Микс салат, тунец, фасоль стручковая, томаты свежие, яйцо, масло оливковое, сок лимона.",
                 type: "САЛАТЫ",
@@ -142,7 +142,7 @@ export const mainPositions: TMenu = {
             {
                 name: "САЛАТ С РУККОЛОЙ И ЖАРЕНЫМИ ТИГРОВЫМИ КРЕВЕТКАМИ",
                 price: 550,
-                id: 14,
+                id: "14",
                 weight: 160,
                 description: "Руккола, креветки тигровые, томаты черри, сыр пармезан, оливковое масло, сок лимона, крем бальзамик",
                 type: "САЛАТЫ",
@@ -152,7 +152,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ЦЕЗАРЬ с лососем",
                 price: 580,
-                id: 15,
+                id: "15",
                 weight: 160,
                 description: "Хрустящие листья салата, сочные помидоры,сыр пармезан и классический соус 'Цезарь' в сочетании с лососем и хрустящими сухариками",
                 type: "САЛАТЫ",
@@ -162,7 +162,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ЦЕЗАРЬ с курицей",
                 price: 450,
-                id: 16,
+                id: "16",
                 weight: 160,
                 description: "Хрустящие листья салата, сочные помидоры,сыр пармезан и классический соус 'Цезарь' в сочетании с нежным куриным филе и хрустящими сухариками",
                 type: "САЛАТЫ",
@@ -172,7 +172,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ЦЕЗАРЬ с тигровыми креветками",
                 price: 580,
-                id: 17,
+                id: "17",
                 weight: 160,
                 description: "Хрустящие листья салата, сочные помидоры,сыр пармезан и классический соус 'Цезарь' в сочетании с жареными креветками и хрустящими сухариками",
                 type: "САЛАТЫ",
@@ -182,7 +182,7 @@ export const mainPositions: TMenu = {
             {
                 name: "ГНЕЗДО ГЛУХАРЯ С филе индейки и ПЕРЕПЕЛИНЫМ ЯЙЦОМ",
                 price: 350,
-                id: 18,
+                id: "18",
                 weight: 150,
                 description: '',
                 type: "САЛАТЫ",
@@ -192,7 +192,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "МИКС САЛАТ С МОРЕПРОДУКТАМИ И БАЛЬЗАМИЧЕСКОЙ ЗАПРАВКОЙ",
                 "price": 550,
-                "id": 19,
+                "id": "19",
                 "weight": 150,
                 "description": "Микс салат, мидии, креветки, лосось, оливковое масло, томаты черри, бальзамический уксус",
                 "type": "САЛАТЫ",
@@ -202,7 +202,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "САЛАТ С РУККОЛОЙ И УТИННЫМ ФИЛ",
                 "price": 490,
-                "id": 20,
+                "id": "20",
                 "weight": 150,
                 "description": "Салат руккола, утиное филе жареное, апельсины, томаты черри, соус терияки, семена кунжута",
                 "type": "САЛАТЫ",
@@ -212,7 +212,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "САЛАТ ГРЕЧЕСКИЙ С СЫРОМ ФЕТА ",
                 "price": 380,
-                "id": 21,
+                "id": "21",
                 "weight": 180,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -222,7 +222,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "САЛАТ 'ОЛИВЬЕ' с перепелкой",
                 "price": 390,
-                "id": 22,
+                "id": "22",
                 "weight": 180,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -232,7 +232,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "САЛАТ 'ОЛИВЬЕ' с РОСТБИФОМ",
                 "price": 390,
-                "id": 23,
+                "id": "23",
                 "weight": 180,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -242,7 +242,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "МИКС салат",
                 "price": 330,
-                "id": 24,
+                "id": "24",
                 "weight": 180,
                 "description": "салат с куриным филе и соусом карри, микс салат. Куриное филе, огурцы свежие, редис, соус карри, сметана",
                 "type": "САЛАТЫ",
@@ -252,7 +252,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "САЛАТ с куриной грудкой и соусом РАНЧ",
                 "price": 390,
-                "id": 25,
+                "id": "25",
                 "weight": 180,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -262,7 +262,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "МИКС салат",
                 "price": 390,
-                "id": 26,
+                "id": "26",
                 "weight": 180,
                 "description": "салат с овощами, куриным филе и ананасом",
                 "type": "САЛАТЫ",
@@ -272,7 +272,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Салат с телятиной и грибами",
                 "price": 420,
-                "id": 27,
+                "id": "27",
                 "weight": 180,
                 "description": "Микс салат, телятина отварная, огурцы, грибы шампиньоны",
                 "type": "САЛАТЫ",
@@ -284,7 +284,7 @@ export const mainPositions: TMenu = {
             name: "ГОРЯЧИЕ ЗАКУСКИ", id: "3", positions: [{
                 "name": "ЖУЛЬЕН с лесными грибами",
                 "price": 310,
-                "id": 28,
+                "id": "28",
                 "weight": 130,
                 "description": "",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -294,7 +294,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЖУЛЬЕН с лесными грибами и куриным филе",
                 "price": 370,
-                "id": 29,
+                "id": "29",
                 "weight": 130,
                 "description": "",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -304,7 +304,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЖУЛЬЕН с лесными грибами и копченым телячьим языком",
                 "price": 420,
-                "id": 30,
+                "id": "30",
                 "weight": 130,
                 "description": "",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -314,7 +314,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ШАШЛЫЧОК",
                 "price": 340,
-                "id": 31,
+                "id": "31",
                 "weight": "75/10",
                 "description": "из куриного филе с терияки",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -324,7 +324,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ШАШЛЫЧОК",
                 "price": 540,
-                "id": 32,
+                "id": "32",
                 "weight": "75/10",
                 "description": "из тигровых креветок с соусом чили сладкий",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -334,7 +334,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Креветки в тесте фило с соусом чили сладкий ",
                 "price": 180,
-                "id": 33,
+                "id": "33",
                 "weight": "1шт",
                 "description": "",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -344,7 +344,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Спринг роллы овощные",
                 "price": 100,
-                "id": 34,
+                "id": "34",
                 "weight": "1шт",
                 "description": "",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -354,7 +354,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Спринг роллы овощные",
                 "price": 150,
-                "id": 35,
+                "id": "35",
                 "weight": "1шт",
                 "description": "с копченым телячьим языком",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -364,7 +364,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Митболы",
                 "price": 370,
-                "id": 36,
+                "id": "36",
                 "weight": 130,
                 "description": "из говядины с соусом карри",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -374,7 +374,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Штрудель с филе индейки",
                 "price": 390,
-                "id": 37,
+                "id": "37",
                 "weight": "130/30",
                 "description": "со шпинатом и беконом и сливочным соусом",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -384,7 +384,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Штрудель с куриным филе",
                 "price": 330,
-                "id": 38,
+                "id": "38",
                 "weight": "130/30",
                 "description": "и сливочным соусом",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -394,7 +394,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Шашлычок из семги",
                 "price": 600,
-                "id": 39,
+                "id": "39",
                 "weight": "75/15",
                 "description": "с соусом зеленый карри",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -404,7 +404,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Баклажаны запеченые с рататуем и сыром",
                 "price": 300,
-                "id": 40,
+                "id": "40",
                 "weight": 170,
                 "description": "",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -414,7 +414,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Баклажаны запеченые с соусом болоньез и сыром",
                 "price": 420,
-                "id": 41,
+                "id": "41",
                 "weight": 170,
                 "description": "",
                 "type": "ГОРЯЧИЕ ЗАКУСКИ",
@@ -428,7 +428,7 @@ export const mainPositions: TMenu = {
             name: "СУПЫ", id: "4", positions: [{
                 "name": "СУП КУРИНЫЙ",
                 "price": 300,
-                "id": 42,
+                "id": "42",
                 "weight": 250,
                 "description": "с лапшой домашнего приготовления",
                 "type": "СУПЫ",
@@ -438,7 +438,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "УХА ПО-норвежки",
                 "price": 330,
-                "id": 43,
+                "id": "43",
                 "weight": 250,
                 "description": "со сливками",
                 "type": "СУПЫ",
@@ -448,7 +448,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СУП ШУРПА",
                 "price": 350,
-                "id": 44,
+                "id": "44",
                 "weight": 250,
                 "description": "С говядиной или бараниной",
                 "type": "СУПЫ",
@@ -458,7 +458,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "БОРЩ С ГОВЯДИНОЙ И СМЕТАНОЙ",
                 "price": 350,
-                "id": 45,
+                "id": "45",
                 "weight": 250,
                 "description": "",
                 "type": "СУПЫ",
@@ -468,7 +468,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ТОМ ЯМ С КРЕВЕТКАМИ",
                 "price": 450,
-                "id": 46,
+                "id": "46",
                 "weight": 250,
                 "description": "",
                 "type": "СУПЫ",
@@ -482,7 +482,7 @@ export const mainPositions: TMenu = {
             name: "ГОРЯЧИЕ БЛЮДА", id: "5", positions: [{
                 "name": "ФИЛЕ ИНДЕЙКИ-ГРИЛЬ",
                 "price": 500,
-                "id": 47,
+                "id": "47",
                 "weight": "150/30",
                 "description": "со сливочным соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -492,7 +492,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Медальоны из индейки",
                 "price": 500,
-                "id": 48,
+                "id": "48",
                 "weight": "150/30",
                 "description": "в беконе с ягодным соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -502,7 +502,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Турнедо",
                 "price": 850,
-                "id": 49,
+                "id": "49",
                 "weight": "150/30",
                 "description": "из телятины с грибным соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -512,7 +512,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Стейк из форели",
                 "price": 600,
-                "id": 50,
+                "id": "50",
                 "weight": "100/30",
                 "description": "на кости со сливочным соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -522,7 +522,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ФИЛЕ ГРУДКИ ЦЫПЛЕНКА В БЕКОНЕ С СЫРОМ МОЦАРЕЛЛА",
                 "price": 470,
-                "id": 51,
+                "id": "51",
                 "weight": 150,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -532,7 +532,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Филе грудки цыпленка в медовом соусе",
                 "price": 450,
-                "id": 52,
+                "id": "52",
                 "weight": "150/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -542,7 +542,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "МЕДАЛЬОНЫ ИЗ ГОВЯЖЬЕЙ ВЫРЕЗКИ",
                 "price": 850,
-                "id": 53,
+                "id": "53",
                 "weight": "150/30",
                 "description": "с соусом Деми-Глясс",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -552,7 +552,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "МЕДАЛЬОНЫ ИЗ СВИНОЙ ВЫРЕЗКИ В БЕКОНЕ",
                 "price": 600,
-                "id": 54,
+                "id": "54",
                 "weight": "150/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -562,7 +562,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ПЛОВ С БАРАНИНОЙ",
                 "price": 420,
-                "id": 55,
+                "id": "55",
                 "weight": 250,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -572,7 +572,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ПЛОВ С ГОВЯДИНОЙ",
                 "price": 420,
-                "id": 56,
+                "id": "56",
                 "weight": 250,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -582,7 +582,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ФИЛЕ ЛОСОСЯ",
                 "price": 1000,
-                "id": 57,
+                "id": "57",
                 "weight": "100/15",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -592,7 +592,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЖАРКОЕ ИЗ ТЕЛЯТИНЫ",
                 "price": 540,
-                "id": 58,
+                "id": "58",
                 "weight": 300,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -602,7 +602,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КАРЕ ЯГНЕНКА НА ГРИЛЕ",
                 "price": 900,
-                "id": 59,
+                "id": "59",
                 "weight": "150/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -612,7 +612,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СИБАС ИЛИ ДОРАДО НА ГРИЛЕ",
                 "price": 800,
-                "id": 60,
+                "id": "60",
                 "weight": "1шт/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -622,7 +622,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ФИЛЕ СУДАКА",
                 "price": 490,
-                "id": 61,
+                "id": "61",
                 "weight": "120/30",
                 "description": "с лепестками миндаля и медовым соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -632,7 +632,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ФОРЕЛЬ РАДУЖНАЯ ЗАПЕЧЕНАЯ С ТРАВАМИ",
                 "price": 580,
-                "id": 62,
+                "id": "62",
                 "weight": "1шт",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -642,7 +642,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "УТИНАЯ НОЖКА",
                 "price": 550,
-                "id": 63,
+                "id": "63",
                 "weight": "1шт",
                 "description": "томленая",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -652,7 +652,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "УТИНОЕ ФИЛЕ НА ГРИЛЕ",
                 "price": 600,
-                "id": 64,
+                "id": "64",
                 "weight": "150/30",
                 "description": "с клюквенным соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -662,7 +662,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ФИЛЕ ТРЕСКИ С СОУСОМ БЕРБЛАН",
                 "price": 550,
-                "id": 65,
+                "id": "65",
                 "weight": "150/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -672,7 +672,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СВИНИНА ТОМЛЕНАЯ",
                 "price": 480,
-                "id": 66,
+                "id": "66",
                 "weight": "150/30",
                 "description": "с грибным соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -682,7 +682,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СВИННАЯ ВЫРЕЗКА В ОРЕХОВОЙ КОРОЧКЕ",
                 "price": 550,
-                "id": 67,
+                "id": "67",
                 "weight": "100/30",
                 "description": "и ягодным соусом",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -692,7 +692,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "НОЖКА КРОЛИКА ТОМЛЕНАЯ В СЛИВОЧНОМ СОУСЕ",
                 "price": 550,
-                "id": 68,
+                "id": "68",
                 "weight": "1шт/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -702,7 +702,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "МЕДАЛЬОНЫ ИЗ ИНДЕЙКИ С ЗАПЕЧЕННЫМ КАРТОФЕЛЕМ И СЛИВОЧНЫМ СОУСОМ",
                 "price": 480,
-                "id": 69,
+                "id": "69",
                 "weight": "100/120/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -712,7 +712,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ФРИКАССЕ ИЗ ФИЛЕ ЦЫПЛЕНКА С ОВОЩАМИ И ПЮРЕ ИЗ ЦВЕТНОЙ КАПУСТЫ",
                 "price": 450,
-                "id": 70,
+                "id": "70",
                 "weight": "130/120/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -722,7 +722,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЭСКАЛОП ИЗ СВИНИНЫ С ПАРОВЫМИ ОВОЩАМИ",
                 "price": 480,
-                "id": 71,
+                "id": "71",
                 "weight": "130/120/30",
                 "description": "морковь, цветная капуста, брокколи",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -736,7 +736,7 @@ export const mainPositions: TMenu = {
             name: "ГРИЛЬ МЕНЮ", id: "6", positions: [{
                 "name": "ШАШЛЫК ИЗ СВИНОЙ ШЕИ С САЛАТОМ И ТОМАТНЫМ СОУСОМ ",
                 "price": 420,
-                "id": 72,
+                "id": "72",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -746,7 +746,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ШАШЛЫК ИЗ КУРИНОГО ФИЛЕ С САЛАТОМ И СОУСОМ",
                 "price": 400,
-                "id": 73,
+                "id": "73",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -756,7 +756,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ШАШЛЫК ИЗ КУРИНОГО ФИЛЕ С САЛАТОМ И СОУСОМ ",
                 "price": 400,
-                "id": 74,
+                "id": "74",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -766,7 +766,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "МЕДАЛЬОНЫ ИЗ ТЕЛЯТИНЫ С САЛАТОМ И СОУСОМ",
                 "price": 800,
-                "id": 75,
+                "id": "75",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -776,7 +776,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КУРИНЫЕ КРЫЛЫШКИ ГРИЛЬ С ТАЙСКИМ СОУСОМ ",
                 "price": 370,
-                "id": 76,
+                "id": "76",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -786,7 +786,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СТЕЙК ИЗ СВИНОЙ ШЕИ С САЛАТОМ И ТОМАТНЫМ СОУСОМ ",
                 "price": 420,
-                "id": 77,
+                "id": "77",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -796,7 +796,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СТЕЙК ИЗ ИНДЕЙКИ С САЛАТОМ И ТОМАТНЫМ СОУСОМ",
                 "price": 400,
-                "id": 78,
+                "id": "78",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -806,7 +806,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СВИНЫЕ РЕБРА С СОУСОМ BBQ",
                 "price": 600,
-                "id": 79,
+                "id": "79",
                 "weight": "200/70/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -816,7 +816,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КОЛБАСКИ СВИНЫЕ С ТОМАТНО-ГОРЧИЧНЫМ СОУСОМ ",
                 "price": 420,
-                "id": 80,
+                "id": "80",
                 "weight": "200/70/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -826,7 +826,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КОЛБАСКИ КУРИНЫЕ С СЫРОМ И ШАШЛЫЧНЫМ СОУСОМ",
                 "price": 400,
-                "id": 81,
+                "id": "81",
                 "weight": "200/70/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -836,7 +836,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КАРЕ ЯГНЕНКА НА ГРИЛЕ С ТОМАТНЫМ СОУСОМ",
                 "price": 900,
-                "id": 82,
+                "id": "82",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -846,7 +846,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КОРЕЙКА СВИНАЯ НА КОСТИ С ГОРЧИЧНЫМ СОУСОМ ",
                 "price": 450,
-                "id": 83,
+                "id": "83",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -856,7 +856,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СТЕЙК ИЗ МОРСКОЙ ФОРЕЛИ НА ГРИЛЕ",
                 "price": 1200,
-                "id": 84,
+                "id": "84",
                 "weight": "170/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -866,7 +866,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ФОРЕЛЬ РЕЧНАЯ НА ГРИЛЕ",
                 "price": 600,
-                "id": 85,
+                "id": "85",
                 "weight": "1шт/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -876,7 +876,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "СИБАС ИЛИ ДОРАДО",
                 "price": 800,
-                "id": 86,
+                "id": "86",
                 "weight": "1шт/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -886,7 +886,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ШАШЛЫК ИЗ ФИЛЕ СОМА (СЕЗОН ЛЕТА)",
                 "price": 500,
-                "id": 87,
+                "id": "87",
                 "weight": "150/40/20",
                 "description": "",
                 "type": "ГРИЛЬ МЕНЮ",
@@ -900,7 +900,7 @@ export const mainPositions: TMenu = {
             name: "ГАРНИРЫ", id: "7", positions: [{
                 "name": "ОВОЩИ ГРИЛЬ",
                 "price": 150,
-                "id": 88,
+                "id": "88",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -910,7 +910,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ОВОЩИ НА ПАРУ",
                 "price": 150,
-                "id": 89,
+                "id": "89",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -920,7 +920,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ДОЛЬКИ КАРТОФЕЛЯ ЗАПЕЧЕНОГО",
                 "price": 120,
-                "id": 90,
+                "id": "90",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -930,7 +930,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КАРТОФЕЛЬНОЕ ПЮРЕ С ЖАРЕНЫМ ЛУКОМ",
                 "price": 120,
-                "id": 91,
+                "id": "91",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -940,7 +940,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КАРТОФЕЛЬНЫЙ ГРАТЕН",
                 "price": 150,
-                "id": 92,
+                "id": "92",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -950,7 +950,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "РИС ПРИПУЩЕНЫЙ С ОВОЩАМИ",
                 "price": 100,
-                "id": 93,
+                "id": "93",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -960,7 +960,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ПЮРЕ ИЗ ЦВЕТНОЙ КАПУСТЫ",
                 "price": 150,
-                "id": 94,
+                "id": "94",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -970,7 +970,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ПЮРЕ ИЗ ЗЕЛЕНОГО ГОРОШКА",
                 "price": 150,
-                "id": 95,
+                "id": "95",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -980,7 +980,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ПОЛБА С ВЕШЕНКАМИ",
                 "price": 150,
-                "id": 96,
+                "id": "96",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -990,7 +990,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ГРЕЧКА ТОМЛЕНАЯ С ОВОЩАМИ",
                 "price": 100,
-                "id": 97,
+                "id": "97",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -1000,7 +1000,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ОРЗОТТО",
                 "price": 150,
-                "id": 98,
+                "id": "98",
                 "weight": 100,
                 "description": "ПЕРЛОВКА СО СВЕКЛОЙ, ПАРМЕЗАНОМ И СЛИВКАМИ",
                 "type": "ГАРНИРЫ",
@@ -1010,7 +1010,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "РИС БАСМАТИ С ДИКИМ РИСОМ",
                 "price": 150,
-                "id": 99,
+                "id": "99",
                 "weight": 100,
                 "description": "",
                 "type": "ГАРНИРЫ",
@@ -1024,7 +1024,7 @@ export const mainPositions: TMenu = {
             name: "ХЛЕБ И ВЫПЕЧКА", id: "8", positions: [{
                 "name": "БУЛОЧКА",
                 "price": 40,
-                "id": 100,
+                "id": "100",
                 "weight": 30,
                 "description": "пшеничная/ржаная",
                 "type": "ХЛЕБ И ВЫПЕЧКА",
@@ -1034,7 +1034,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЛАВАШ из тандыра",
                 "price": 70,
-                "id": 101,
+                "id": "101",
                 "weight": "1шт",
                 "description": "",
                 "type": "ХЛЕБ И ВЫПЕЧКА",
@@ -1044,7 +1044,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Хлебная корзина",
                 "price": 180,
-                "id": 102,
+                "id": "102",
                 "weight": " ",
                 "description": "",
                 "type": "ХЛЕБ И ВЫПЕЧКА",
@@ -1058,7 +1058,7 @@ export const mainPositions: TMenu = {
             name: "НАПИТКИ", id: "9", positions: [{
                 "name": "МОРС",
                 "price": 450,
-                "id": 103,
+                "id": "103",
                 "weight": "1л",
                 "description": "смородина, вишня, клюква, облепиха",
                 "type": "НАПИТКИ",
@@ -1068,7 +1068,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЛИМОНАД",
                 "price": 450,
-                "id": 104,
+                "id": "104",
                 "weight": "1л",
                 "description": "",
                 "type": "НАПИТКИ",
@@ -1078,7 +1078,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Сок в асортименте",
                 "price": 300,
-                "id": 105,
+                "id": "105",
                 "weight": "1л",
                 "description": "",
                 "type": "НАПИТКИ",
@@ -1088,7 +1088,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЧАЙ ПАКЕТИРОВАНЫЙ ЧЕРНЫЙ/ЗЕЛЕНЫЙ",
                 "price": 70,
-                "id": 106,
+                "id": "106",
                 "weight": "200мл",
                 "description": "с сахаром и молоком",
                 "type": "НАПИТКИ",
@@ -1098,7 +1098,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "КОФЕ ПАКЕТИРОВАННЫЙ",
                 "price": 70,
-                "id": 107,
+                "id": "107",
                 "weight": "200мл",
                 "description": "с сахаром и молоком",
                 "type": "НАПИТКИ",
@@ -1108,7 +1108,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "ЧАЙ ТРАВЯНОЙ",
                 "price": 400,
-                "id": 108,
+                "id": "108",
                 "weight": "1л",
                 "description": "",
                 "type": "НАПИТКИ",
@@ -1122,7 +1122,7 @@ export const mainPositions: TMenu = {
             name: "ФУРШЕТНОЕ МЕНЮ", id: "10", positions: [{
                 "name": "Брускета с ростбифом и соусом гуакомоле",
                 "price": 120,
-                "id": 109,
+                "id": "109",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1132,7 +1132,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Брускета с творожным сыром и вялеными томатами",
                 "price": 120,
-                "id": 110,
+                "id": "110",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1142,7 +1142,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Брускета с с/с форелью и сливочным сыром",
                 "price": 150,
-                "id": 111,
+                "id": "111",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1152,7 +1152,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Брускета с креветками и сливочным соусом",
                 "price": 150,
-                "id": 112,
+                "id": "112",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1162,7 +1162,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Панини с копченой индейкой",
                 "price": 80,
-                "id": 113,
+                "id": "113",
                 "weight": 50,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1172,7 +1172,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Панини с бужениной",
                 "price": 100,
-                "id": 114,
+                "id": "114",
                 "weight": 50,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1182,7 +1182,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Гриссини с пармским окороком",
                 "price": 100,
-                "id": 115,
+                "id": "115",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1192,7 +1192,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Гаспачо в шоте с креветкой гриль",
                 "price": 120,
-                "id": 116,
+                "id": "116",
                 "weight": 40,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1202,7 +1202,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Креветка гриль на шпажке с ананасом гриль",
                 "price": 100,
-                "id": 117,
+                "id": "117",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1212,7 +1212,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с сыром и беконом на пшеничном тосте",
                 "price": 70,
-                "id": 118,
+                "id": "118",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1222,7 +1222,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с дольками картофеля и сельдью шеф посола",
                 "price": 60,
-                "id": 119,
+                "id": "119",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1232,7 +1232,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Тарталетка с муссом из авокадо и с/с форелью",
                 "price": 120,
-                "id": 120,
+                "id": "120",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1242,7 +1242,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Тарталетка с муссом из копченого лосося",
                 "price": 100,
-                "id": 121,
+                "id": "121",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1252,7 +1252,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с ростбифом и маринованным огурчиком",
                 "price": 80,
-                "id": 123,
+                "id": "123",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1262,7 +1262,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с салом и хреном",
                 "price": 70,
-                "id": 124,
+                "id": "124",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1272,7 +1272,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с сыром и ягодами в ас-те",
                 "price": 90,
-                "id": 125,
+                "id": "125",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1282,7 +1282,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с сыром карбонатом и грушей",
                 "price": 70,
-                "id": 126,
+                "id": "126",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1292,7 +1292,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе сырный шарик с сыром дор-блю и кешью",
                 "price": 70,
-                "id": 127,
+                "id": "127",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1302,7 +1302,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе фруктовое с шоколадом",
                 "price": 80,
-                "id": 128,
+                "id": "128",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1312,7 +1312,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с сыром моцарелла и томатоми черри",
                 "price": 80,
-                "id": 129,
+                "id": "129",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1322,7 +1322,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Клаб сендвич мини с ростбифом",
                 "price": 120,
-                "id": 130,
+                "id": "130",
                 "weight": 70,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1332,7 +1332,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Клаб сендвич мини с куриным филе",
                 "price": 90,
-                "id": 131,
+                "id": "131",
                 "weight": 70,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1342,7 +1342,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Клаб сендвич мини с малосольной семгой",
                 "price": 150,
-                "id": 132,
+                "id": "132",
                 "weight": 70,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1352,7 +1352,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с мусом из лосося",
                 "price": 90,
-                "id": 133,
+                "id": "133",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1362,7 +1362,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с паштетом из куриного филе",
                 "price": 70,
-                "id": 134,
+                "id": "134",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1372,7 +1372,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с креветочным муссом",
                 "price": 90,
-                "id": 135,
+                "id": "135",
                 "weight": 20,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1382,7 +1382,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини жульен с куриным филе в тарталетке",
                 "price": 100,
-                "id": 136,
+                "id": "136",
                 "weight": 45,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1392,7 +1392,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини жульен с языком в тарталетке",
                 "price": 100,
-                "id": 137,
+                "id": "137",
                 "weight": 45,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1402,7 +1402,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Шашлычок из овощей гриль",
                 "price": 100,
-                "id": 138,
+                "id": "138",
                 "weight": 50,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1412,7 +1412,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Микс салат с оливками и сыром фета",
                 "price": 130,
-                "id": 139,
+                "id": "139",
                 "weight": 75,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1422,7 +1422,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Салат из овощей гриль с сыром брынза",
                 "price": 130,
-                "id": 140,
+                "id": "140",
                 "weight": 75,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1432,7 +1432,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Салат овощной с ростбифом",
                 "price": 150,
-                "id": 141,
+                "id": "141",
                 "weight": 75,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1442,7 +1442,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Салат овощной с куриным филе",
                 "price": 130,
-                "id": 142,
+                "id": "142",
                 "weight": 75,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1452,7 +1452,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Салат с индейкой и картофелем пай",
                 "price": 150,
-                "id": 143,
+                "id": "143",
                 "weight": 75,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1462,7 +1462,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Тар-тар из тунца на ржанной брусккете",
                 "price": 150,
-                "id": 144,
+                "id": "144",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1472,7 +1472,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Тар-тар из лосося на чиабатте",
                 "price": 150,
-                "id": 145,
+                "id": "145",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1482,7 +1482,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мидии запеченые с икрой тобика",
                 "price": 130,
-                "id": 146,
+                "id": "146",
                 "weight": "50/10",
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1492,7 +1492,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Рулетики из баклажан с овощным соте",
                 "price": 60,
-                "id": 147,
+                "id": "147",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1502,7 +1502,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Рулетики из цукини с сыром фета",
                 "price": 60,
-                "id": 148,
+                "id": "148",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1512,7 +1512,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Рулетики из баклажан с сырно ореховой начинкой",
                 "price": 70,
-                "id": 149,
+                "id": "149",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1522,7 +1522,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини перепечи с капустой/ с мясом/ с грибами",
                 "price": 75,
-                "id": 150,
+                "id": "150",
                 "weight": 40,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1532,7 +1532,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини пирожки с капустой/с мясом/с яйцом и луком/с рыбой",
                 "price": 75,
-                "id": 151,
+                "id": "151",
                 "weight": 50,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1542,7 +1542,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини круассан с салями",
                 "price": 110,
-                "id": 152,
+                "id": "152",
                 "weight": 35,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1552,7 +1552,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини круассан с лососем слабой соли",
                 "price": 130,
-                "id": 153,
+                "id": "153",
                 "weight": 35,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1562,7 +1562,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Креветка тигровая темпура",
                 "price": 180,
-                "id": 154,
+                "id": "154",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1572,7 +1572,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Креветка тигровая в тесте фило",
                 "price": 180,
-                "id": 155,
+                "id": "155",
                 "weight": "1шт",
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1582,7 +1582,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Сырная корзиночка с салатом из краба",
                 "price": 300,
-                "id": 156,
+                "id": "156",
                 "weight": 50,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1592,7 +1592,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Рулетики из печеного перца с крем чизом",
                 "price": 90,
-                "id": 158,
+                "id": "158",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1602,7 +1602,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе из утиного филе с луковым конфитюром",
                 "price": 100,
-                "id": 159,
+                "id": "159",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1612,7 +1612,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Рулетик из ветчины с сырной начинкой",
                 "price": 90,
-                "id": 160,
+                "id": "160",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1622,7 +1622,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с салями и адыгейским сыром",
                 "price": 100,
-                "id": 161,
+                "id": "161",
                 "weight": 25,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1632,7 +1632,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Канапе с перепелиным яйцом и семгой",
                 "price": 150,
-                "id": 162,
+                "id": "162",
                 "weight": 50,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1642,7 +1642,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Бутерброд со шпротами и соленым огурчиком",
                 "price": 90,
-                "id": 163,
+                "id": "163",
                 "weight": 30,
                 "description": "",
                 "type": "ФУРШЕТНОЕ МЕНЮ",
@@ -1656,7 +1656,7 @@ export const mainPositions: TMenu = {
             name: "НОВИНКИ", id: "11", positions: [{
                 "name": "Эклер со сливочным сыром и Гравалаксом из форели, и двумя видами икры тобика",
                 "price": 150,
-                "id": 164,
+                "id": "164",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1666,7 +1666,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Эклер со сливочным сыром коктельными креветками и перепелиным яйцом",
                 "price": 150,
-                "id": 165,
+                "id": "165",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1676,7 +1676,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Красный эклер с лососем шеф посола и творожным сыром",
                 "price": 150,
-                "id": 166,
+                "id": "166",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1686,7 +1686,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Красный эклер с креветками и икрой тобика",
                 "price": 150,
-                "id": 167,
+                "id": "167",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1696,7 +1696,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Эклер со сливочным сыром и тар таром из лосося с авокадо",
                 "price": 150,
-                "id": 168,
+                "id": "168",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1706,7 +1706,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Эклер со сливочным сыром и свежими ягодами",
                 "price": 150,
-                "id": 169,
+                "id": "169",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1716,7 +1716,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Эклер Бургер с бужениной и паштетом, микс салатом и томатоми ",
                 "price": 100,
-                "id": 170,
+                "id": "170",
                 "weight": 90,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1726,7 +1726,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Эклер Бургер с морской форелью и творожным кремом, микс салатом",
                 "price": 150,
-                "id": 171,
+                "id": "171",
                 "weight": 90,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1736,7 +1736,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с патэ из курицы с вяленой клюквой и свежей голубикой",
                 "price": 80,
-                "id": 171,
+                "id": "171",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1746,7 +1746,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с риэтом(паштет) из лосося и черной икрой(тобика)",
                 "price": 120,
-                "id": 172,
+                "id": "172",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1756,7 +1756,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с риетом из лосося и тар таром",
                 "price": 120,
-                "id": 173,
+                "id": "173",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1766,7 +1766,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с риетом из лосося и форелью шеф посола",
                 "price": 120,
-                "id": 174,
+                "id": "174",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1776,7 +1776,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Слойка с вишней",
                 "price": 80,
-                "id": 175,
+                "id": "175",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1786,7 +1786,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Слойка с яблоками",
                 "price": 80,
-                "id": 176,
+                "id": "176",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1796,7 +1796,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини пирожки из слоего теста мясо-капустные",
                 "price": 80,
-                "id": 177,
+                "id": "177",
                 "weight": 45,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1806,7 +1806,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини пирожки из слоего теста мясные",
                 "price": 100,
-                "id": 178,
+                "id": "178",
                 "weight": 45,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1816,7 +1816,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини пирожки из слоего теста рыбные",
                 "price": 100,
-                "id": 179,
+                "id": "179",
                 "weight": 45,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1826,7 +1826,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини мафин",
                 "price": 40,
-                "id": 180,
+                "id": "180",
                 "weight": 40,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1836,7 +1836,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини капкейк со сливочным кремом и ягодамим",
                 "price": 60,
-                "id": 181,
+                "id": "181",
                 "weight": 60,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1846,7 +1846,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мафин ванильный",
                 "price": 80,
-                "id": 182,
+                "id": "182",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1856,7 +1856,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Капкайк Ванильный со сливочным кремом и ягодами",
                 "price": 100,
-                "id": 183,
+                "id": "183",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1866,7 +1866,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини мафин шоколадный",
                 "price": 40,
-                "id": 184,
+                "id": "184",
                 "weight": 40,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1876,7 +1876,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мини капкейк шоколадный со сливочным кремом и ягодамим",
                 "price": 60,
-                "id": 185,
+                "id": "185",
                 "weight": 60,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1886,7 +1886,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Мафин шоколадный",
                 "price": 80,
-                "id": 186,
+                "id": "186",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1896,7 +1896,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Капкайк Шоколыдный со сливочным кремом и ягодами",
                 "price": 100,
-                "id": 187,
+                "id": "187",
                 "weight": 70,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1906,7 +1906,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "НАБОР ЭКЛЕРОВ 6ШТ",
                 "price": 720,
-                "id": 188,
+                "id": "188",
                 "weight": 420,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1916,7 +1916,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "НАБОР ПРОФИТРОЛЕЙ 4ШТ",
                 "price": 350,
-                "id": 189,
+                "id": "189",
                 "weight": 200,
                 "description": "",
                 "type": "НОВИНКИ",
@@ -1935,7 +1935,7 @@ export const childMenuGraduates: TMenu = {
             name: "САЛАТЫ", id: "12", positions: [{
                 "name": "Салат Оливье с куриным филе",
                 "price": 150,
-                "id": 190,
+                "id": "190",
                 "weight": 120,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -1945,7 +1945,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Салат овощной с сыром фета",
                 "price": 150,
-                "id": 191,
+                "id": "191",
                 "weight": 120,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -1955,7 +1955,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Салат мясной",
                 "price": 180,
-                "id": 192,
+                "id": "192",
                 "weight": 120,
                 "description": "",
                 "type": "САЛАТЫ",
@@ -1968,7 +1968,7 @@ export const childMenuGraduates: TMenu = {
             name: "СУПЫ", id: "14", positions: [{
                 "name": "Суп-лапша домашняя с цыпленком",
                 "price": 200,
-                "id": 193,
+                "id": "193",
                 "weight": 200,
                 "description": "",
                 "type": "СУПЫ",
@@ -1978,7 +1978,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Суп-пюре из цветной капусты",
                 "price": 200,
-                "id": 194,
+                "id": "194",
                 "weight": 200,
                 "description": "",
                 "type": "СУПЫ",
@@ -1990,7 +1990,7 @@ export const childMenuGraduates: TMenu = {
             name: "ГОРЯЧИЕ БЛЮДА", id: "15", positions: [{
                 "name": "Шашлычок из куриного филе с овощным салатом",
                 "price": 370,
-                "id": 195,
+                "id": "195",
                 "weight": "120/100/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2000,7 +2000,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Котлеты из щуки с картофельным пюре",
                 "price": 370,
-                "id": 196,
+                "id": "196",
                 "weight": "120/100/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2010,7 +2010,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Котлеты из щуки с картофельным пюре",
                 "price": 420,
-                "id": 197,
+                "id": "197",
                 "weight": "120/100/30",
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2020,7 +2020,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Детская пицца мясная",
                 "price": 400,
-                "id": 198,
+                "id": "198",
                 "weight": 300,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2030,7 +2030,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Детская пицца 4 сыра",
                 "price": 400,
-                "id": 199,
+                "id": "199",
                 "weight": 300,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2040,7 +2040,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Спагетти с колбасками со сливочным соусом",
                 "price": 280,
-                "id": 200,
+                "id": "200",
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2050,7 +2050,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Спагетти с колбасками с томатным соусом",
                 "price": 280,
-                "id": 201,
+                "id": "201",
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2060,7 +2060,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Бургер с котлетой из телятины с беконом и сыром",
                 "price": 370,
-                "id": 202,
+                "id": "202",
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2070,7 +2070,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Бургер с куриной котлетой",
                 "price": 390,
-                "id": 203,
+                "id": "203",
                 "weight": 270,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2080,7 +2080,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Шаурма с куриным филе",
                 "price": 300,
-                "id": 204,
+                "id": "204",
                 "weight": 300,
                 "description": "",
                 "type": "ГОРЯЧИЕ БЛЮДА",
@@ -2095,7 +2095,7 @@ export const childMenuGraduates: TMenu = {
                 {
                     "name": "Картофель фри с кетчупом",
                     "price": 0,
-                    "id": 205,
+                    "id": "205",
                     "weight": 0,
                     "description": "",
                     "type": "ГАРНИРЫ",
@@ -2105,7 +2105,7 @@ export const childMenuGraduates: TMenu = {
                 {
                     "name": "Картофельное пюре",
                     "price": 150,
-                    "id": 206,
+                    "id": "206",
                     "weight": 150,
                     "description": "",
                     "type": "ГАРНИРЫ",
@@ -2115,7 +2115,7 @@ export const childMenuGraduates: TMenu = {
                 {
                     "name": "Спагетти отварные с сыром",
                     "price": 150,
-                    "id": 207,
+                    "id": "207",
                     "weight": 150,
                     "description": "",
                     "type": "ГАРНИРЫ",
@@ -2128,7 +2128,7 @@ export const childMenuGraduates: TMenu = {
             name: "ДЕСЕРТЫ", id: "17", positions: [{
                 "name": "Блинчики с джемом",
                 "price": 150,
-                "id": 208,
+                "id": "208",
                 "weight": "100/30",
                 "description": "",
                 "type": "ДЕСЕРТЫ",
@@ -2138,7 +2138,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Мороженое с вареньем",
                 "price": 150,
-                "id": 209,
+                "id": "209",
                 "weight": "100/30",
                 "description": "",
                 "type": "ДЕСЕРТЫ",
@@ -2147,7 +2147,7 @@ export const childMenuGraduates: TMenu = {
             }, {
                 "name": "Суп из лесных ягод с мятой и мороженым",
                 "price": 450,
-                "id": 210,
+                "id": "210",
                 "weight": "150/30",
                 "description": "",
                 "type": "ДЕСЕРТЫ",
@@ -2160,7 +2160,7 @@ export const childMenuGraduates: TMenu = {
             name: "НАПИТКИ", id: "18", positions: [{
                 "name": "Морс клюквеный",
                 "price": 90,
-                "id": 211,
+                "id": "211",
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",
@@ -2170,7 +2170,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Морс облепиховый",
                 "price": 90,
-                "id": 212,
+                "id": "212",
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",
@@ -2180,7 +2180,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Какао с молоком",
                 "price": 150,
-                "id": 213,
+                "id": "213",
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",
@@ -2190,7 +2190,7 @@ export const childMenuGraduates: TMenu = {
             {
                 "name": "Молочный коктель",
                 "price": 200,
-                "id": 214,
+                "id": "214",
                 "weight": 200,
                 "description": "",
                 "type": "НАПИТКИ",

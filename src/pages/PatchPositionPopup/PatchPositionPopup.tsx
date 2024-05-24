@@ -7,12 +7,11 @@ import { useNavigate } from "react-router-dom";
 const PatchPositionPopup = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const curretPosition = useAppSelector(state => state.MenuSlices.selectedPosition);
-    console.log(curretPosition)
-    const [namePosition, setNamePosition] = useState("");
-    const [weightPosition, setWeightPosition] = useState("");
-    const [descriptionPosition, setDescriptionPosition] = useState("");
-    const [pricePosition, setPricePosition] = useState(0);
+    const curretPosition = useAppSelector(state => state.MenuSlices.position);
+    const [namePosition, setNamePosition] = useState(curretPosition!.name);
+    const [weightPosition, setWeightPosition] = useState(curretPosition!.weight);
+    const [descriptionPosition, setDescriptionPosition] = useState(curretPosition!.description);
+    const [pricePosition, setPricePosition] = useState(curretPosition!.price);
     
 
     function patchPos (evt: any) {
