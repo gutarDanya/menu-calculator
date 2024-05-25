@@ -3,43 +3,45 @@ import styles from './AddPositionPopup.module.css';
 import { useAppDispatch } from "../../services/store";
 import { addExtraPosition } from "../../services/Slices/MenuSlices";
 import { v4 as uuid4 } from "uuid";
+import { useInput } from "../../Utils/hooks";
 
 const AddPositionPopup = () => {
     const dispatch = useAppDispatch();
 
-    const [namePosition, setNamePosition] = useState("");
-    const [weightPosition, setWeightPosition] = useState("");
-    const [countPosition, setCountPosition] = useState(0);
-    const [pricePosition, setPricePosition] = useState(0);
+    const name = useInput("", {isEmpty: true})
+    const weight = useInput("", {isEmpty: false})
+    const count = useInput("", {isEmpty: true, isNumber: true})
+    const price = useInput("", {isEmpty: true, isNumber: true})
 
 
     function addPosition(evt: any) {
         evt.preventDefault();
-        dispatch(addExtraPosition({ name: namePosition, weight: weightPosition, count: countPosition, price: pricePosition, id: uuid4() }))
+        dispatch(addExtraPosition({ name: name.value, weight: weight.value, count: Number(count.value), price: Number(price.value), id: uuid4() }))
     }
 
     return (
         <form className={styles.container} noValidate={false}>
             <label className={styles.labelContainer}>
                 название позиции
-                <input className={styles.input} name="name" placeholder="наименование" required={true} minLength={3} value={namePosition} onChange={(e) => { setNamePosition(e.target.value)}} />
+                <input className={styles.input} name="name" placeholder="наименование" onBlur={e => name.onBlur(e)} value={name.value} onChange={e => name.onChange(e)} />
+                {(name.isDirty && name.isEmpty) && <p className={styles.errorText}>Поле не должно быть пустым</p>}
             </label>
 
             <label className={styles.labelContainer}>
                 вес
-                <input className={styles.input} name="weigth" placeholder="1 позиции" value={weightPosition} onChange={(e) => { setWeightPosition(e.target.value)}} />
+                <input className={styles.input} name="weigth" placeholder="1 позиции" onBlur={e => weight.onBlur(e)} value={weight.value} onChange={e => weight.onChange(e)} />
             </label>
 
             <label className={styles.labelContainer}>
                 колличество
-                <input className={styles.input} name="count" defaultValue={0} type="number" required={true} value={countPosition} onChange={(e) => { setCountPosition(Number(e.target.value)) }} />
+                <input className={styles.input} name="count" placeholder="количество/шт" onBlur={e => count.onBlur(e)} value={count.value} onChange={e => count.onChange(e)} />
             </label>
 
             <label className={styles.labelContainer}>
                 Цена 1 позиции
-                <input className={styles.input} name="price" defaultValue={0} type="number" required={true} value={pricePosition} onChange={(e) => { setPricePosition(Number(e.target.value)) }} />
+                <input className={styles.input} name="price" placeholder="цена/руб" onBlur={e => price.onBlur(e)} value={price.value} onChange={e => price.onChange(e)} />
             </label>
-            <button className={styles.submitButton} type='submit' onClick={e => addPosition(e)}>Добавить</button>
+            <button className={styles.submitButton} type='submit' disabled={!name.inputValid || !count.inputValid || !price.inputValid} onClick={e => addPosition(e)}>Добавить</button>
         </form>
     )
 }
