@@ -20,7 +20,9 @@ const ShifrPopup = () => {
           <img src={copy} className={styles.copyIcon} />
         </button>
       </div>
-      {textOpened ? <p className={styles.text}>Скопируйте эту и вставьте в сообщение администратору</p> : null}
+      {textOpened
+       ? <p className={styles.text}>строка скопирована, отправьте её адимнистратору</p>
+        : <p className={styles.text}>скопируйте содержимое строки и отправьте администратору</p>}
     </div>
   )
 }

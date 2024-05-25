@@ -17,7 +17,7 @@ const Basket = () => {
     const location = useLocation();
     const dispatch = useAppDispatch();
     const positions = useAppSelector(state => state.MenuSlices.currentPositions);
-
+    const menus = useAppSelector(state => state.MenuSlices.menu);
 
     const totalPrice = positions.reduce((acc: any, item: Tposition) => {
         return acc + item.price * item.count!
@@ -38,14 +38,6 @@ const Basket = () => {
 
     const [dataOfOrder, setDataOfOrder] = useState({ date: "27.04.08", name: "", description1: "", description2: "" })
 
-    const [newPosition, setNewPosition] = useState({
-        name: "0",
-        description: "",
-        price: 0,
-        id: 0,
-        weight: 0,
-        type: "ДОПОЛНИТЕЛЬНЫЕ"
-    })
 
     function navigateAddPosition() {
         navigate("/basket/add-position", { state: { background: location } })
@@ -61,7 +53,7 @@ const Basket = () => {
         if (getCookie("logined") == "logined") {
             dispatch(saveOrder(dataOfOrder))
             dispatch(addOrder({ data: dataOfOrder, dishes: positions, id: uuid4() }))
-            navigate('/')
+            navigate(`/${menus[0].routing}`)
         } else {
             dispatch(createStringOfOrder(dataOfOrder))
             navigate("/basket/shifr", { state: { background: location } })

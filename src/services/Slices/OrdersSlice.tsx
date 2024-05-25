@@ -68,9 +68,11 @@ const OrdersSlice = createSlice({
 
             const {data, dishes, id} = action.payload;
 
+            const arr = dishes.map((dish) => { return dish.type != "EXTRA POS" ? { id: dish.id, count: dish.count, menu: dish.menu, type: dish.type } : dish })
+
             state.orders = [...state.orders, {
                 date: data.date,
-                dishes: dishes,
+                dishes: arr,
                 id: id,
                 name: data.name,
                 description1: data.description1,
