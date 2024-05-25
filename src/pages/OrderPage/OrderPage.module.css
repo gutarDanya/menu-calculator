@@ -27,6 +27,17 @@
     max-height: 400px;
 }
 
+.button {
+    width: 280px;
+    height: 40px;
+    font-size: 27px;
+    text-align: center;
+    margin: 20px auto 40px auto;
+    background-color: #fddc36;
+    border-radius: 10px;
+    border: 0;
+}
+
 .totalPrice{
     font-size: 28px;
 }

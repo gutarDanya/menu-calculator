@@ -95,7 +95,7 @@ const OrderPage = () => {
                 <div className={styles.info}>
                     <p className={styles.totalPrice}>итоговая цена: {totalPrice}</p>
                 </div>
-                <button type="button" onClick={createAndSavePdf}>Сохранить документ</button>
+                <button type="button" className={styles.button} onClick={createAndSavePdf}>Сохранить документ</button>
             </div>
             )
             : null

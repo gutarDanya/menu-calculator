@@ -77,7 +77,7 @@ const MenuSlice = createSlice({
         createStringOfOrder(state, action: PayloadAction<any>) {
             const { date, name, description1, description2 } = action.payload
 
-            const arr = state.currentPositions.map((dish) => { return dish.type == "EXTRA POS" ? dish : { id: dish.id, count: dish.count! } })
+            const arr = state.currentPositions.map((dish) => { return dish.type != "EXTRA POS" ? { id: dish.id, count: dish.count, menu: dish.menu, type: dish.type } : dish })
 
             state.stringOfOrder = JSON.stringify({ dishes: arr, date: date, name: name, description1: description1, description2: description2, id: uuid4() })
         },

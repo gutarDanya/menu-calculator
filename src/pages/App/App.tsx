@@ -110,7 +110,7 @@ function App() {
         <Shirm />
         <main className={styles.main}>
           <Routes location={backgroundLocation || location}>
-            <Route path='/' element={<MenuPage />} />
+            <Route path='/:id' element={<MenuPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
