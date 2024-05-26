@@ -24,8 +24,8 @@ const OrderPage = () => {
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
 
-    const totalPrice = order?.dishes.reduce((acc: any, item: TLocalMenu) => {
-        return acc + item.sections.reduce((acc, menu) => {
+    const totalPrice = order?.dishes.reduce((acc: any, item: TMenu) => {
+        return acc + item.menu.reduce((acc, menu) => {
             return acc + menu.positions.reduce((acc, pos) => {
                 return acc + pos.price * pos.count
             }, 0)
@@ -78,7 +78,7 @@ const OrderPage = () => {
             ? (<div className={styles.page}>
                 <h1 className={styles.header}>Заказ: {order.name}</h1>
                 <div className={styles.dishesContainer}>
-                    {order.dishes && order.dishes.length > 0 && order.dishes.map((menu: any) => {
+                    {order.dishes && order.dishes.length > 0 && order.dishes.map((menu: TMenu) => {
                         return <MenuContainer menu={menu} removedPos={true} incrementPos={incrementPosition} decrementPos={decrementPosition} handleClick={incrementPosition} removePosition={removePositionFromOrder} />
                     })}
                     <div className={styles.descriptions}>

@@ -92,34 +92,40 @@ const OrdersSlice = createSlice({
             let allDishes: any = [];
 
             const currentOrder = state.orders.find((order) => {return order.id === id})!
+
+            const {dishes} : {dishes: Array<TLocalDishes>} = currentOrder
             
-            const currentDishes = menu.map((menu) => {
-                const arr = currentOrder.dishes.find((dish) => {return dish.menu === menu.nameMenu})
+            const currentDishes = menu.map((menu: TMenu) => {
+                if (dishes.some((dish) => {return dish.menu === menu.nameMenu})) {
+                    const dishesInThisMenu = dishes.filter((dish) => {return dish.menu === menu.nameMenu})
 
-                let newSections = null
-                if (arr?.menu === menu.nameMenu) {
-                    newSections = menu.menu.map((section) => {
-                        const menus = currentOrder.dishes.find((dish) => {return dish.type === section.name})
+                    return {...menu, menu: menu.menu.map((section) => {
+                        if (dishes.some((dish) => {return dish.menu == menu.nameMenu && dish.type === section.name})) {
+                            const dishesInThisSection = dishesInThisMenu.filter((dish) => {return dish.type === section.name})
 
-                        const newPositions = section.positions.map((position) => {
-                            const selectedPosition = currentOrder.dishes.find((pos) => {return pos.id === position.id})
-                            let currrentPosition = null
-                                if (selectedPosition?.id === position.id) {
-                                    currrentPosition = {...position, count: selectedPosition.count}
-                                    allDishes = [...allDishes, currrentPosition]
+                            return {...section, positions: section.positions.map((pos) => {
+                                if (dishesInThisSection.some((dish) => {return dish.id === pos.id})) {
+                                    const needenDish = dishesInThisSection.find((dish) => {return dish.id === pos.id})!
+                                    allDishes = [...allDishes, {...pos, count: needenDish.count}]
+                                    return {
+                                        ...pos,
+                                        count: needenDish.count
+                                    }
                                 }
-                                return currrentPosition
-                            }).filter((pos) => {return pos !== null})
 
-                        return menus?.type === section.name && menus.menu === menu.nameMenu ? {name: section.name, positions: newPositions} : null
-                    }).filter((section) => {return section !== null})
+                                return null
+                            }).filter((pos) => {return pos !== null})}
+                        }
+
+                        return null
+                    }).filter((section) => {return section !== null})}
                 }
 
-                return arr?.menu === menu.nameMenu ? {nameMenu: menu.nameMenu, sections: newSections} : null
-            }).filter((menu) => {return menu != null})
+                return null
+            }).filter((menu) => {return menu !== null})
 
             if (currentOrder.dishes.some((dish) => {return dish.menu === "EXTRA MENU"})) {
-                currentDishes.push({nameMenu: "Дополнительно", sections: [{name: "дополнительно", positions: currentOrder.dishes.filter((pos) => {return pos.menu === "EXTRA MENU"})}]})
+                currentDishes.push({nameMenu: "Дополнительно", routing: "", menu: [{name: "дополнительно", id: "", positions: currentOrder.dishes.filter((pos) => {return pos.menu === "EXTRA MENU"})}]})
                 currentOrder.dishes.forEach((dish) => dish.menu === "EXTRA MENU" ? allDishes = [...allDishes, dish] : null)
             }
 

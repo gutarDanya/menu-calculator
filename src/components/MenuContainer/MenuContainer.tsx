@@ -8,7 +8,7 @@ const MenuContainer: React.FC<Props> = ({menu, removedPos, handleClick, decremen
     return (
         <div className={styles.container}>
             <h2 className={styles.menuHeader}>{menu.nameMenu}</h2>
-            {menu.sections && menu.sections.length > 0 && menu.sections.map((sections) => {
+            {menu.menu && menu.menu.length > 0 && menu.menu.map((sections) => {
                 return <DishTypeContainer title={sections.name}>
                     {sections.positions && sections.positions.length > 0 && sections.positions.map((position: Tposition) => {
                         return <Dish dish={position} removedPos={removedPos} handleClick={handleClick} incrementPosition={incrementPos} decrementPosition={decrementPos} removePosition={removePosition}/>
@@ -22,7 +22,7 @@ const MenuContainer: React.FC<Props> = ({menu, removedPos, handleClick, decremen
 export default MenuContainer
 
 type Props = {
-    menu: TLocalMenu;
+    menu: TMenu;
     removedPos: boolean;
     handleClick: any;
     decrementPos: any;
