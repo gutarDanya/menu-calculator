@@ -43,7 +43,7 @@
     background-color: rgb(57, 180, 139);
     border-radius: 5px;
     text-decoration: none;
-
+    color: black
 }
 
 .inactiveLink {
@@ -54,6 +54,7 @@
     background-color: rgb(96, 197, 163);
     border-radius: 5px;
     text-decoration: none;
+    color:rgba(0, 0, 0, .7)
 }
 
 .switchShirm {

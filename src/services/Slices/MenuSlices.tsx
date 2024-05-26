@@ -183,14 +183,14 @@ const MenuSlice = createSlice({
         removePostionFromStorage(state, action: PayloadAction<string>) {
             state.menu = state.menu.map((menu) => {return menu.nameMenu === state.currentMenu!.nameMenu
                 ? {...menu, menu: menu.menu.map((section) => {return section.id === state.currentSection!.id
-                    ? {...section, positions: section.positions.filter((pos) => {return JSON.stringify(pos.id) != action.payload})}
+                    ? {...section, positions: section.positions.filter((pos) => {return pos.id != action.payload})}
                     : section
                 })}
                 : menu
             })
 
             state.currentSection = {...state.currentSection!, positions: state.currentSection!.positions.filter((pos) => {
-                return JSON.stringify(pos.id) !== action.payload
+                return pos.id !== action.payload
             })}
 
             setNewMenu(state.menu)

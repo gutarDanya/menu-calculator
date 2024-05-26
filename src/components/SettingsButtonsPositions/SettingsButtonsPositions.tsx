@@ -26,7 +26,7 @@ const SettingsButtonsPositions = () => {
     return (
         <div className={styles.container}>
             {section?.positions && section.positions.length > 0 && section.positions.map((position) => {
-                return <SettingsButton name={position.name} routing={""} handleRemove={handleRemove} hadnleClick={() => { handleClick(position.id) }} thisPosition={true}/>
+                return <SettingsButton name={position.name} routing={""} handleRemove={() => {handleRemove(position.id)}} hadnleClick={() => { handleClick(position.id) }} thisPosition={true}/>
             })}
             <AddButton text="добавить позицию" routing="add-position"/>
         </div>)
