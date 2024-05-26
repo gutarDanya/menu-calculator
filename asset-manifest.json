@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/menu-calculator/static/css/main.bf40c348.css",
-    "main.js": "/menu-calculator/static/js/main.15164a3f.js",
+    "main.js": "/menu-calculator/static/js/main.f747a5a6.js",
     "static/js/239.2b17afd9.chunk.js": "/menu-calculator/static/js/239.2b17afd9.chunk.js",
     "static/js/213.1a2833b2.chunk.js": "/menu-calculator/static/js/213.1a2833b2.chunk.js",
     "static/js/455.bfc69c61.chunk.js": "/menu-calculator/static/js/455.bfc69c61.chunk.js",
@@ -11,7 +11,7 @@
     "static/media/copy.svg": "/menu-calculator/static/media/copy.b2b0ec637a2b0fd4ca405a591c0d076e.svg",
     "index.html": "/menu-calculator/index.html",
     "main.bf40c348.css.map": "/menu-calculator/static/css/main.bf40c348.css.map",
-    "main.15164a3f.js.map": "/menu-calculator/static/js/main.15164a3f.js.map",
+    "main.f747a5a6.js.map": "/menu-calculator/static/js/main.f747a5a6.js.map",
     "239.2b17afd9.chunk.js.map": "/menu-calculator/static/js/239.2b17afd9.chunk.js.map",
     "213.1a2833b2.chunk.js.map": "/menu-calculator/static/js/213.1a2833b2.chunk.js.map",
     "455.bfc69c61.chunk.js.map": "/menu-calculator/static/js/455.bfc69c61.chunk.js.map",
@@ -19,6 +19,6 @@
   },
   "entrypoints": [
     "static/css/main.bf40c348.css",
-    "static/js/main.15164a3f.js"
+    "static/js/main.f747a5a6.js"
   ]
 }
