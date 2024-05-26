@@ -15,10 +15,10 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
             {
                 dish.count && dish.count > 0 ? (<div className={styles.countContainer}>
                     <p className={styles.count}>{dish.count}</p>
-                    (<div className={styles.calculationContainer}>
+                    <div className={styles.calculationContainer}>
                         <button className={styles.calculation} onClick={(e) => { e.preventDefault(); e.stopPropagation(); incrementPosition(dish) }}>▲</button>
                         <button className={styles.calculation} onClick={(e) => { e.preventDefault(); e.stopPropagation(); decrementPosition(dish) }}>▼</button>
-                    </div>)
+                    </div>
                 </div>) : null
             }
             <div className={styles.paramsContainer}>

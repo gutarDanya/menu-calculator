@@ -2094,9 +2094,9 @@ export const childMenuGraduates: TMenu = {
             name: "ГАРНИРЫ", id: "16", positions: [
                 {
                     "name": "Картофель фри с кетчупом",
-                    "price": 0,
+                    "price": 250,
                     "id": "205",
-                    "weight": 0,
+                    "weight": "150/30",
                     "description": "",
                     "type": "ГАРНИРЫ",
                     "menu": "детское меню",

@@ -11,10 +11,13 @@
 
 .closeButton {
     font-size: 40px;
-    rotate: 45deg;
     height: 40px;
     width: 40px;
     background-color: transparent;
     border: 0;
     margin-left: auto;
+}
+
+.icon {
+    width: 100%;
 }
