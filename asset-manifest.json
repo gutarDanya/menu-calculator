@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/menu-calculator/static/css/main.f91a88b3.css",
-    "main.js": "/menu-calculator/static/js/main.bf2086c4.js",
+    "main.css": "/menu-calculator/static/css/main.e302ab46.css",
+    "main.js": "/menu-calculator/static/js/main.79ea765c.js",
     "static/js/239.2b17afd9.chunk.js": "/menu-calculator/static/js/239.2b17afd9.chunk.js",
     "static/js/213.1a2833b2.chunk.js": "/menu-calculator/static/js/213.1a2833b2.chunk.js",
     "static/js/455.bfc69c61.chunk.js": "/menu-calculator/static/js/455.bfc69c61.chunk.js",
@@ -9,15 +9,15 @@
     "static/media/Trash_font_awesome.svg.png": "/menu-calculator/static/media/Trash_font_awesome.svg.5267555de5ddc015b9e6.png",
     "static/media/copy.svg": "/menu-calculator/static/media/copy.b2b0ec637a2b0fd4ca405a591c0d076e.svg",
     "index.html": "/menu-calculator/index.html",
-    "main.f91a88b3.css.map": "/menu-calculator/static/css/main.f91a88b3.css.map",
-    "main.bf2086c4.js.map": "/menu-calculator/static/js/main.bf2086c4.js.map",
+    "main.e302ab46.css.map": "/menu-calculator/static/css/main.e302ab46.css.map",
+    "main.79ea765c.js.map": "/menu-calculator/static/js/main.79ea765c.js.map",
     "239.2b17afd9.chunk.js.map": "/menu-calculator/static/js/239.2b17afd9.chunk.js.map",
     "213.1a2833b2.chunk.js.map": "/menu-calculator/static/js/213.1a2833b2.chunk.js.map",
     "455.bfc69c61.chunk.js.map": "/menu-calculator/static/js/455.bfc69c61.chunk.js.map",
     "453.68693753.chunk.js.map": "/menu-calculator/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f91a88b3.css",
-    "static/js/main.bf2086c4.js"
+    "static/css/main.e302ab46.css",
+    "static/js/main.79ea765c.js"
   ]
 }
