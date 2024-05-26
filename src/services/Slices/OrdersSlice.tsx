@@ -6,8 +6,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";import { changeLoc
 type TinitialState = {
     orders: Array<TsendedOrder>;
     currentOrder: any;
-    currentDishes: any
-}
+    currentDishes: Array<Tposition>}
 
 const initialState: TinitialState = {
     orders: [],

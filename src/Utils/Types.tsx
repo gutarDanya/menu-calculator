@@ -27,7 +27,7 @@ export type TLocalMenu = {nameMenu: string, sections: Array<TSectionMenu>}
 
 export type Torder = {
     date: string;
-    dishes: Array<TLocalMenu>;
+    dishes: Array<TMenu>;
     id: string;
     name: string,
     description1: string;
