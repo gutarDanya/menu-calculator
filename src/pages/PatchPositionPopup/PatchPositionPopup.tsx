@@ -3,45 +3,51 @@ import styles from './PatchPositionPopup.module.css';
 import { useAppDispatch, useAppSelector } from "../../services/store";
 import { patchPosition } from "../../services/Slices/MenuSlices";
 import { useNavigate } from "react-router-dom";
+import { useInput } from "../../Utils/hooks";
 
 const PatchPositionPopup = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const curretPosition = useAppSelector(state => state.MenuSlices.position);
-    const [namePosition, setNamePosition] = useState(curretPosition!.name);
-    const [weightPosition, setWeightPosition] = useState(curretPosition!.weight);
-    const [descriptionPosition, setDescriptionPosition] = useState(curretPosition!.description);
-    const [pricePosition, setPricePosition] = useState(curretPosition!.price);
+
+    const nameInput = useInput(curretPosition!.name, {isEmpty: true});
+    const weightInput = useInput(curretPosition!.weight, {isEmpty: true});
+    const descriptionInput = useInput(curretPosition!.description, {});
+    const priceInput = useInput(curretPosition!.price, {isEmpty: true, isNumber: true})
     
 
     function patchPos (evt: any) {
         navigate(-1)
         evt.preventDefault();
-        dispatch(patchPosition({name: namePosition, weight: weightPosition, description: descriptionPosition, price: pricePosition, id: curretPosition!.id}))
+        dispatch(patchPosition({name: nameInput.value, weight: weightInput.value, description: descriptionInput.value, price: Number(priceInput.value), id: curretPosition!.id}))
     }
 
     return (
         <form className={styles.container} noValidate={false}>
             <label className={styles.labelContainer}>
                 название позиции
-                <input className={styles.input} placeholder="наименование" required={true} minLength={3} value={namePosition} onChange={(e) => { setNamePosition(e.target.value) }} />
+                <input className={styles.input} placeholder="наименование" onBlur={e => nameInput.onBlur(e)} value={nameInput.value} onChange={e => nameInput.onChange(e)} />
+                {(nameInput.isDirty && nameInput.isEmpty) && <p className="errorText">Поле не должно быть пустым</p>}
             </label>
 
             <label className={styles.labelContainer}>
                 описание позиции
-                <input className={styles.input} placeholder="описание" required={true} minLength={3} value={descriptionPosition} onChange={(e) => { setDescriptionPosition(e.target.value) }} />
+                <input className={styles.input} placeholder="описание" onBlur={e => descriptionInput.onBlur(e)} value={descriptionInput.value} onChange={e => descriptionInput.onChange(e)} />
             </label>
 
             <label className={styles.labelContainer}>
                 вес
-                <input className={styles.input} placeholder="1 позиции" value={weightPosition} onChange={(e) => { setWeightPosition(e.target.value) }} />
+                <input className={styles.input} placeholder="вес/г" onBlur={e => weightInput.onBlur(e)} value={weightInput.value} onChange={e => weightInput.onChange(e)} />
+                {(weightInput.isDirty && weightInput.isEmpty) && <p className="errorText">Поле не должно быть пустым</p>}
             </label>
 
             <label className={styles.labelContainer}>
                 Цена 1 позиции
-                <input className={styles.input} defaultValue={0} type="number" required={true} value={pricePosition} onChange={(e) => { setPricePosition(Number(e.target.value)) }} />
+                <input className={styles.input} placeholder="цена/руб" onBlur={e => priceInput.onBlur(e)} value={priceInput.value} onChange={e => priceInput.onChange(e)} />
+                {(priceInput.isDirty && priceInput.isEmpty) && <p className="errorText">Поле не должно быть пустым</p>}
+                {(priceInput.isNumberError && priceInput.isDirty) && <p className="errorText">Введите цену числом</p>}
             </label>
-            <button className={styles.submitButton} type='submit' onClick={e => patchPos(e)}>Добавить</button>
+            <button className={nameInput.inputValid && weightInput.inputValid && priceInput.inputValid ? "button" : "buttonDisabled"} disabled={!nameInput.inputValid || !weightInput.inputValid || !priceInput.inputValid} type='submit' onClick={e => patchPos(e)}>Добавить</button>
         </form>
     )
 }
