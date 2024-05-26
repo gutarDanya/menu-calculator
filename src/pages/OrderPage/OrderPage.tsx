@@ -23,14 +23,16 @@ const OrderPage = () => {
     const allDishes: Array<Tposition> = useAppSelector(state => state.OrdersSlice.currentDishes);
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
-
-    const totalPrice = order?.dishes.reduce((acc: any, item: TMenu) => {
-        return acc + item.menu.reduce((acc, menu) => {
-            return acc + menu.positions.reduce((acc, pos) => {
-                return acc + pos.price * pos.count
+    let totalPrice = 0
+    useEffect(() => {
+        totalPrice = order?.dishes.reduce((acc: any, item: TMenu) => {
+            return acc + item.menu.reduce((acc, menu) => {
+                return acc + menu.positions.reduce((acc, pos) => {
+                    return acc + pos.price * pos.count
+                }, 0)
             }, 0)
-        }, 0)
-    }, 0);
+        }, 0);
+    }, [])
 
 
     function createAndSavePdf() {

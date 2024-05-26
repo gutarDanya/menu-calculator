@@ -6,7 +6,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit"; import { changeLo
 type TinitialState = {
     orders: Array<TsendedOrder>;
     currentOrder: any;
-    currentDishes: Array<Tposition>
+    currentDishes: any
 }
 
 const initialState: TinitialState = {
@@ -24,41 +24,63 @@ const OrdersSlice = createSlice({
         },
         increment(state, action: PayloadAction<Tposition>) {
             const SelectedPosition = action.payload
-            state.currentOrder = {...state.currentOrder!, dishes: state.currentOrder!.dishes.map((menu:TMenu) => {return menu.nameMenu === action.payload.menu
-                ? {...menu, menu: menu.menu.map((section) => {return section.name === action.payload.type
-                    ? {...section, positions: section.positions.map((pos) => {return pos.id === action.payload.id
-                        ? {...pos, count: pos.count + 1}
-                        : pos
-                    })}
-                    : section
-                })}
-                : menu
-            })}
+            state.currentOrder = {
+                ...state.currentOrder!, dishes: state.currentOrder!.dishes.map((menu: TMenu) => {
+                    return menu.nameMenu === action.payload.menu
+                        ? {
+                            ...menu, menu: menu.menu.map((section) => {
+                                return section.name === action.payload.type
+                                    ? {
+                                        ...section, positions: section.positions.map((pos) => {
+                                            return pos.id === action.payload.id
+                                                ? { ...pos, count: pos.count + 1 }
+                                                : pos
+                                        })
+                                    }
+                                    : section
+                            })
+                        }
+                        : menu
+                })
+            }
 
-            state.currentDishes = state.currentDishes!.map((pos: Tposition) => {return pos.id !== action.payload.id
-                ?   {...pos, count: pos.count + 1}
-                : pos
+            state.currentDishes = state.currentDishes!.map((pos: Tposition) => {
+                return pos.id !== action.payload.id
+                    ? { ...pos, count: pos.count + 1 }
+                    : pos
             })
             changeLocalCountOfOrder(state.currentOrder.id, SelectedPosition, true)
         },
 
         decrement(state, action: PayloadAction<Tposition>) {
             const SelectedPosition = action.payload
-            state.currentOrder = {...state.currentOrder!, dishes: state.currentOrder!.dishes.map((menu: TMenu) => {return menu.nameMenu === action.payload.menu
-                ? {...menu, menu: menu.menu.map((section) => {return section.name === action.payload.type
-                    ? {...section, positions: section.positions.map((pos) => { return pos.id === action.payload.id
-                        ? pos.count === 1 ? null : {...pos, count: pos.count - 1}
-                        : pos
-                    }).filter((pos) => {return pos !== null})}
-                    : section
-                })}
-                : menu
-            })}
 
-            state.currentOrder = state.currentDishes!.map((pos: Tposition) => {return pos.id === action.payload.id
-                ? pos.count === 1 ? null : {...pos, count: pos.count - 1}
-                : null
-            }).filter((pos) => {return pos !== null})
+            state.currentOrder = {
+                ...state.currentOrder!, dishes: state.currentOrder!.dishes.map((menu: TMenu) => {
+                    return menu.nameMenu === action.payload.menu
+                        ? {
+                            ...menu, menu: menu.menu.map((section) => {
+                                return section.name === action.payload.type
+                                    ? {
+                                        ...section, positions: section.positions.map((pos) => {
+                                            return pos.id === action.payload.id
+                                                ? pos.count === 1 ? null : { ...pos, count: pos.count - 1 }
+                                                : pos
+                                        }).filter((pos) => { return pos !== null })
+                                    }
+                                    : section
+                            })
+                        }
+                        : menu
+                })
+            }
+
+            state.currentDishes = state.currentDishes!.map((pos: Tposition) => {
+                return pos.id === action.payload.id
+                    ? pos.count === 1 ? null : { ...pos, count: pos.count - 1 }
+                    : null
+            }).filter((pos: Tposition) => { return pos !== null })
+
             changeLocalCountOfOrder(state.currentOrder.id, SelectedPosition, false)
         },
 
