@@ -80,7 +80,7 @@ const Basket = () => {
                     </div>
                 </div>
                 <p className={styles.totalKPI}>Общая стоимость: {totalPrice}₽</p>
-                <button className={styles.submitButton} type="submit" onClick={(e) => { submitForm(e) }}>Сохранить</button>
+                <button className={`${positions.length > 0 ? "button" : "buttonDisabled"} ${styles.button}`}disabled={positions.length > 0 ? false : true} type="submit" onClick={(e) => { submitForm(e) }}>Сохранить</button>
             </form>
         </div>
     )

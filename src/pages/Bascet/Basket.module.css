@@ -76,6 +76,10 @@
     margin-bottom: 30px;
 }
 
+.button {
+    max-width: 300px;
+}
+
 .copyButton {
     height: 55px;
     width: 55px;

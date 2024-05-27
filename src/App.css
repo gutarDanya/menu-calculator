@@ -37,6 +37,12 @@
   border-radius: 5px;
   margin-top: 20px;
   color: white;
+  transition: all 250ms linear;
+}
+
+.button:hover {
+  background-color: #3d434e;
+  transition: all 250ms linear;
 }
 
 .buttonDisabled {
