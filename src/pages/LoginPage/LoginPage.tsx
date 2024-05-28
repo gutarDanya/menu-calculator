@@ -17,7 +17,7 @@ const LoginPage = () => {
     const submit = () => {
        if (password == currentPassword && login == currentLogin) {
         dispatch(RightLogin({login: login, password: password}))
-        navigate('/')
+        navigate('/menu-calculator')
        }
     }
     

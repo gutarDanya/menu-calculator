@@ -27,7 +27,7 @@ const Order: React.FC<Props> = ({order}) => {
     async function handleNavigate (evt: any) {
         evt.preventDefault();
         await dispatch(getCurrentOrder({id: order.id, menu: menus}));
-        navigate(`/orders/${order.id}`);
+        navigate(`/menu-calculator/orders/${order.id}`);
     }
 
     return (

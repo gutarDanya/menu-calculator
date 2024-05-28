@@ -40,7 +40,7 @@ const Basket = () => {
 
 
     function navigateAddPosition() {
-        navigate("/basket/add-position", { state: { background: location } })
+        navigate("/menu-calculator/basket/add-position", { state: { background: location } })
     }
 
     const today = new Date();
@@ -53,10 +53,10 @@ const Basket = () => {
         if (getCookie("logined") == "logined") {
             dispatch(saveOrder(dataOfOrder))
             dispatch(addOrder({ data: dataOfOrder, dishes: positions, id: uuid4() }))
-            navigate(`/${menus[0].routing}`)
+            navigate(`/menu-calculator/${menus[0].routing}`)
         } else {
             dispatch(createStringOfOrder(dataOfOrder))
-            navigate("/basket/shifr", { state: { background: location } })
+            navigate("/menu-calculator/basket/shifr", { state: { background: location } })
         }
     }
 

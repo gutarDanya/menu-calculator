@@ -23,7 +23,7 @@ const SettingsButtonsMenu = () => {
             {menus && menus.length > 0 && menus.map((menu) => {
                 return <SettingsButton name={menu.nameMenu} routing={menu.routing} handleRemove={removeMenu} hadnleClick={() => {handleClick(menu.routing)}}/>
             })}
-            <AddButton text="Добавить меню" routing="/settings/add-menu"/>
+            <AddButton text="Добавить меню" routing="/menu-calculator/settings/add-menu"/>
         </div>
     )
 }

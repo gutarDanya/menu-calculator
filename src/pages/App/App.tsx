@@ -59,43 +59,43 @@ function App() {
         <Shirm />
         <main className={styles.main}>
           <Routes location={backgroundLocation || location}>
-            <Route path='/:id' element={<MenuPage />} />
-            <Route path='/orders' element={<OrdersPage orders={orders} />} />
-            <Route path="orders/:id" element={<OrderPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/bascket" element={<Basket />} />
+            <Route path='/menu-calculator/:id' element={<MenuPage />} />
+            <Route path='/menu-calculator/orders' element={<OrdersPage orders={orders} />} />
+            <Route path="/menu-calculator/orders/:id" element={<OrderPage />} />
+            <Route path="/menu-calculator/login" element={<LoginPage />} />
+            <Route path="/menu-calculator/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
-            <Route path="/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} />
-            <Route path='/settings/:sectionId' element={<SettingPage><SettingsButtonsSection /></SettingPage>} />
-            <Route path="/settings/:sectionId/:id" element={<SettingPage><SettingsButtonsPositions /></SettingPage>} />
+            <Route path="/menu-calculator/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} />
+            <Route path='/menu-calculator/settings/:sectionId' element={<SettingPage><SettingsButtonsSection /></SettingPage>} />
+            <Route path="/menu-calculator/settings/:sectionId/:id" element={<SettingPage><SettingsButtonsPositions /></SettingPage>} />
           </Routes>
 
           {backgroundLocation && <Routes>
-            <Route path='basket/add-position' element={
+            <Route path='/menu-calculator/basket/add-position' element={
               <Modal title='Добавить позицию' handleClose={closePopup}>
                 <AddPositionPopup />
               </Modal>
             } />
 
-            <Route path="/settings/add-menu" element={
+            <Route path="/menu-calculator/settings/add-menu" element={
               <Modal title="новое меню" handleClose={closePopup}>
                 <AddMenuPopup />
               </Modal>
             } />
 
-            <Route path="/settings/:sectionId/add-section" element={
+            <Route path="/menu-calculator/settings/:sectionId/add-section" element={
               <Modal title="новая секция" handleClose={closePopup}>
                 <AddSectionPopup />
               </Modal>
             } />
 
-            <Route path="/settings/:sectionId/:id/add-position" element={
+            <Route path="/menu-calculator/settings/:sectionId/:id/add-position" element={
               <Modal title="новая позиция" handleClose={closePopup}>
                 <AddPositionToStoragePopup />
               </Modal>
             } />
 
-            <Route path='/settings/:sectionId/:id/patch-position' element={
+            <Route path='/menu-calculator/settings/:sectionId/:id/patch-position' element={
               <Modal title="изменить позицию" handleClose={closePopup}>
                 <PatchPositionPopup />
               </Modal>
@@ -110,21 +110,21 @@ function App() {
         <Shirm />
         <main className={styles.main}>
           <Routes location={backgroundLocation || location}>
-            <Route path='/:id' element={<MenuPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/bascket" element={<Basket />} />
+            <Route path='/menu-calculator/:id' element={<MenuPage />} />
+            <Route path="/menu-calculator/login" element={<LoginPage />} />
+            <Route path="/menu-calculator/bascket" element={<Basket />} />
             <Route path='/menu-calculator' element={<StartAppPage />} />
-            <Route path="/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} />
-            <Route path='/settings/:sectionId' element={<SettingPage><SettingsButtonsSection /></SettingPage>} />
-            <Route path="/settings/:sectionId/:id" element={<SettingPage><SettingsButtonsPositions /></SettingPage>} />
+            <Route path="/menu-calculator/settings" element={<SettingPage ><SettingsButtonsMenu /></SettingPage>} />
+            <Route path='/menu-calculator/settings/:sectionId' element={<SettingPage><SettingsButtonsSection /></SettingPage>} />
+            <Route path="/menu-calculator/settings/:sectionId/:id" element={<SettingPage><SettingsButtonsPositions /></SettingPage>} />
           </Routes>
 
           {backgroundLocation && <Routes>
-            <Route path="/basket/shifr" element={<Modal title='строка заказа' handleClose={closePopup}>
+            <Route path="/menu-calculator/basket/shifr" element={<Modal title='строка заказа' handleClose={closePopup}>
               <ShifrPopup />
             </Modal>} />
 
-            <Route path='basket/add-position' element={
+            <Route path='/menu-calculator/basket/add-position' element={
               <Modal title='Добавить позицию' handleClose={closePopup}>
                 <AddPositionPopup />
               </Modal>

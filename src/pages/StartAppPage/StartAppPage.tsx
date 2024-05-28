@@ -11,7 +11,7 @@ const StartAppPage = () => {
     const menus = useAppSelector(state => state.MenuSlices.menu)
 
     setTimeout(() => {
-        navigate(`/${menus[0]!.routing!}`)
+        navigate(`${menus[0]!.routing!}`)
     }, 300)
 
 

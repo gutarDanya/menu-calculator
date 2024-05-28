@@ -35,7 +35,7 @@ const MenuPage = () => {
 
     const positions = useAppSelector(state => state.MenuSlices.menu)
     const chekOrder = () => {
-        navigate("/bascket");
+        navigate("/menu-calculator/bascket");
     }
 
     return (

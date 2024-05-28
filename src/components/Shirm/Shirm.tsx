@@ -12,7 +12,7 @@ const Shirm = () => {
 
     const handleLogin = () => {
         if (getCookie("logined") != "logined") {
-        navigate('/login')
+        navigate('/menu-calculator/login')
         } else {
             deleteCookie("logined")
         }
@@ -26,11 +26,11 @@ const Shirm = () => {
             <div className={styles.shirmContainer}>
                 <nav className={styles.navContainer}>
                     {menus && menus.length > 0 && menus.map((menu) => {
-                        return <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={`/${menu.routing}`}>{menu.nameMenu}</NavLink>
+                        return <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={`/menu-calculator/${menu.routing}`}>{menu.nameMenu}</NavLink>
                     })}
-                    {getCookie("logined") == "logined" ? <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/orders'}>Заказы</NavLink> : null}
+                    {getCookie("logined") == "logined" ? <NavLink className={({ isActive }) => isActive ? styles.activeLink : styles.inactiveLink} to={'/menu-calculator/orders'}>Заказы</NavLink> : null}
                 </nav>
-                {getCookie("logined") == "logined" ? <Link to="/settings" className={styles.settingsButton}>Настройки</Link> : null}
+                {getCookie("logined") == "logined" ? <Link to="menu-calculator/settings" className={styles.settingsButton}>Настройки</Link> : null}
                 <button className={styles.autohorization} onClick={handleLogin}>{getCookie("logined") == "logined" ? "выйти" : "войти"}</button>
             </div>
             <button className={styles.switchShirm} onClick={() => { setShirmOpened(!shirmOpened) }} type='button' >{shirmOpened ? '<' : '>'}</button>
