@@ -6,8 +6,7 @@ import styles from './App.module.css'
 import Shirm from '../../components/Shirm/Shirm';
 import Basket from '../Bascet/Basket';
 import { useAppDispatch, useAppSelector } from '../../services/store';
-import { getAllMenu } from '../../services/Slices/MenuSlices';
-import { mainPositions } from '../../Utils/Data';
+import { closeShirm, getAllMenu } from '../../services/Slices/MenuSlices';
 import OrdersPage from '../OrdersPage/OrdersPage';
 import { getAllOrders } from '../../services/Slices/OrdersSlice';
 import OrderPage from '../OrderPage/OrderPage';
@@ -53,11 +52,15 @@ function App() {
     dispatch(getAllMenu(localMenu!));
   }, [])
 
+  function handleClickShirm () {
+    dispatch(closeShirm())
+  }
+
   if (getCookie("logined") === "logined") {
     return (
       <div className={styles.root}>
         <Shirm />
-        <main className={styles.main}>
+        <main className={styles.main} onClick={handleClickShirm}>
           <Routes location={backgroundLocation || location}>
             <Route path='/menu-calculator/:id' element={<MenuPage />} />
             <Route path='/menu-calculator/orders' element={<OrdersPage orders={orders} />} />

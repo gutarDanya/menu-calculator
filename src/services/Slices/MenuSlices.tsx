@@ -84,6 +84,9 @@ const MenuSlice = createSlice({
         switchShirm(state) {
             state.shirmOpened = !state.shirmOpened
         },
+        closeShirm(state) {
+            state.shirmOpened = false
+        },
         getCurrentMenu(state, action: PayloadAction<string>) {
             state.currentMenu = state.menu.find((menu) => { return menu.routing === action.payload })!
         },
@@ -202,6 +205,7 @@ export const { getAllMenu,
     addPosition,
     saveOrder,
     switchShirm,
+    closeShirm,
     removePosition,
     decrementPosition,
     createStringOfOrder,
