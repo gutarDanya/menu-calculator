@@ -7,11 +7,11 @@ import MenuContainer from "../../components/MenuContainer/MenuContainer";
 import { jsPDF } from 'jspdf';
 import '../../Utils/fonts/Roboto-Regular-normal';
 import logo from '../../Utils/images/logo.jpg'
+import { useInput } from "../../Utils/hooks";
 
 const OrderPage = () => {
 
-    const dispatch = useAppDispatch()
-
+    const dispatch = useAppDispatch();
     const incrementPosition = async (pos: Tposition) => {
         await dispatch(increment(pos))
     }
@@ -23,14 +23,16 @@ const OrderPage = () => {
     const allDishes: Array<Tposition> = useAppSelector(state => state.OrdersSlice.currentDishes);
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
+    const namePdf = useInput(`${order.name} ${order.date}`, { isEmpty: true })
+    const extraTextPdf = useInput(null, {})
 
-        const totalPrice = order?.dishes.reduce((acc: any, item: TMenu) => {
-            return acc + item.menu.reduce((acc, menu) => {
-                return acc + menu.positions.reduce((acc, pos) => {
-                    return acc + pos.price * pos.count
-                }, 0)
+    const totalPrice = order?.dishes.reduce((acc: any, item: TMenu) => {
+        return acc + item.menu.reduce((acc, menu) => {
+            return acc + menu.positions.reduce((acc, pos) => {
+                return acc + pos.price * pos.count
             }, 0)
-        }, 0);
+        }, 0)
+    }, 0);
 
 
 
@@ -40,7 +42,13 @@ const OrderPage = () => {
         doc.setFontSize(20);
         var img = new Image();
         img.src = logo;
-        doc.addImage(img, "jpg", 80, 0, 50, 50);
+        if (extraTextPdf.value !== null && extraTextPdf.value !== "") {
+            doc.addImage(img, "jpg", 20, 0, 50, 50);
+            doc.setFontSize(12)
+            doc.text(extraTextPdf.value, 80, 15, {maxWidth: 100})
+        } else {
+            doc.addImage(img, "jpg", 80, 0, 50, 50);
+        }
         doc.text("все позиции:", 85, 50);
         doc.setFontSize(9);
         for (let i = 0; i < allDishes.length; i++) {
@@ -48,10 +56,10 @@ const OrderPage = () => {
                 doc.text("1/2", 185, 290)
                 doc.addPage()
             }
-            if ( i < 50) {
+            if (i < 50) {
                 doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 60 + 4 * i)
             } else {
-                doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25,  15 + 4 * (i - 50))
+                doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 15 + 4 * (i - 50))
             }
         }
         doc.setFontSize(20);
@@ -67,7 +75,7 @@ const OrderPage = () => {
             doc.setFontSize(9)
             doc.text("2/2", 185, 290)
         }
-        doc.save("a4.pdf")
+        doc.save(`${namePdf.value}.pdf`)
     }
 
     const removePositionFromOrder = (pos: Tposition) => {
@@ -96,7 +104,16 @@ const OrderPage = () => {
                 <div className={styles.info}>
                     <p className={styles.totalPrice}>итоговая цена: {totalPrice}</p>
                 </div>
-                <button type="button" className={styles.button} onClick={createAndSavePdf}>Сохранить документ</button>
+                <label>
+                    <p className={styles.labelText}>Название пдф-файла</p>
+                    <input className={styles.input} placeholder="Название документа" value={namePdf.value} onBlur={e => namePdf.onBlur(e)} onChange={e => namePdf.onChange(e)} />
+                    {(namePdf.isDirty && namePdf.isEmpty) && <p className="errorText">Поле не должно быть пустым</p>}
+                </label>
+                <label>
+                    <p className={styles.labelText}>Текст примечания</p>
+                    <input className={styles.input} placeholder="текст примечания" value={extraTextPdf.value} onBlur={e => extraTextPdf.onBlur(e)} onChange={e => extraTextPdf.onChange(e)}/>
+                </label>
+                <button type="button" className={styles.button} disabled={!namePdf.inputValid} onClick={createAndSavePdf}>Сохранить документ</button>
             </div>
             )
             : null

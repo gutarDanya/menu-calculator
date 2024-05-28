@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./SettingPage.module.css";
-import { useAppSelector } from "../../services/store";
-import { useNavigate } from "react-router-dom";
 
 const SettingPage: React.FC<Props> = ({children}) => {
     return (

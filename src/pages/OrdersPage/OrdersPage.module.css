@@ -29,10 +29,19 @@
     border: none;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .15), inset 0 1px 0 0 hsla(0, 0%, 100%, 0);
     transition: background-color 150ms linear;
+    border-bottom: rgb(207, 207, 207);
+}
+
+.buttonInactive {
+    font-size: 27px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .15), inset 0 1px 0 0 hsla(0, 0%, 100%, 0);
+    transition: background-color 150ms linear;
 }
 
 .button:hover {
-    background-color: darkgray;
+    background-color: rgb(169, 169, 169);
 }
 
 @media (max-width: 600px) {

@@ -111,6 +111,9 @@ const OrdersSlice = createSlice({
                 description2: data.description2,
             }]
         },
+        addOrderFromString(state, action: PayloadAction<TsendedOrder>) {
+            state.orders = [...state.orders, action.payload]
+        },
         getAllDishes(state) {
             const menu = state.currentOrder.dishes;
             let arr: any = [];
@@ -172,5 +175,5 @@ const OrdersSlice = createSlice({
     }
 })
 
-export const { getAllOrders, getCurrentOrder, increment, decrement, deleteOrder, addOrder, deletePosFromOrder, getAllDishes } = OrdersSlice.actions
+export const { getAllOrders, getCurrentOrder, increment, decrement, deleteOrder, addOrder, deletePosFromOrder, getAllDishes, addOrderFromString } = OrdersSlice.actions
 export default OrdersSlice.reducer
