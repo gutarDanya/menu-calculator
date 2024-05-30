@@ -20,7 +20,12 @@ const OrderPage = () => {
         await dispatch(decrement(pos))
     }
 
-    const allDishes: Array<Tposition> = useAppSelector(state => state.OrdersSlice.currentDishes);
+    const allDishes: Array<Tposition> = useAppSelector(state => state.OrdersSlice.currentDishes).map((pos: Tposition) => {return pos.name.length > 55
+        ? {...pos, name: `${pos.name.substring(0, 50)}...`}
+        : pos
+    });
+
+    console.log(allDishes)
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
     const namePdf = useInput(`${order.name} ${order.date}`, { isEmpty: true })
@@ -45,28 +50,60 @@ const OrderPage = () => {
         if (extraTextPdf.value !== null && extraTextPdf.value !== "") {
             doc.addImage(img, "jpg", 20, 0, 50, 50);
             doc.setFontSize(12)
-            doc.text(extraTextPdf.value, 80, 15, {maxWidth: 100})
+            doc.text(extraTextPdf.value, 80, 15, { maxWidth: 100 })
         } else {
             doc.addImage(img, "jpg", 80, 0, 50, 50);
         }
         doc.text("все позиции:", 85, 50);
-        doc.setFontSize(9);
+        doc.setFontSize(14);
+
+        doc.text("ID", 10, 60);
+        doc.text("наименование", 20, 60);
+        doc.text("вес г/мл", 123, 60);
+        doc.text("Цена", 148, 60);
+        doc.text("Кол", 162, 60);
+        doc.text("стоим", 175, 60);
+        doc.text("__________________________________________________________________________________", 9, 61);
+        doc.setFontSize(12);
         for (let i = 0; i < allDishes.length; i++) {
-            if (i === 50) {
+            if (i === 37) {
                 doc.text("1/2", 185, 290)
                 doc.addPage()
             }
-            if (i < 50) {
-                doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 60 + 4 * i)
+            if (i < 37) {
+                doc.text(JSON.stringify(i + 1), 10, 66 + 6 * i);
+                doc.setFontSize(10)
+                doc.text(allDishes[i].name.toLowerCase(), 16, 66 + 6 * i);
+                doc.text(JSON.stringify(allDishes[i].weight), 123, 66 + 6 *i);
+                doc.setFontSize(12);
+                doc.text(JSON.stringify(allDishes[i].price), 147, 66 + 6 * i);
+                doc.text(JSON.stringify(allDishes[i].count), 162, 66 + 6 * i);
+                doc.text(JSON.stringify(allDishes[i].price * allDishes[i].count), 172, 66 + 6 * i);
+                doc.text("_______________________________________________________________________________________________", 9, 67 + 6 * i);
+                doc.setFontSize(19);
+                doc.text("|   |                                                               |             |         |     |          |", 8, 66 + 6 * i);
+                doc.setFontSize(12);
             } else {
-                doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 15 + 4 * (i - 50))
+                // doc.text(`${allDishes[i].name}    ${JSON.stringify(allDishes[i].price)} * ${JSON.stringify(allDishes[i].count)} = ${JSON.stringify(allDishes[i].price * allDishes[i].count)}`, 25, 15 + 4 * (i - 50))
+                doc.text(JSON.stringify(i + 1), 10, 15 + 6 * (i - 37));
+                doc.setFontSize(10)
+                doc.text(allDishes[i].name.toLowerCase(), 16, 15 + 6 * (i - 37));
+                doc.text(JSON.stringify(allDishes[i].weight), 123, 15 + 6 * (i - 37));
+                doc.setFontSize(12)
+                doc.text(JSON.stringify(allDishes[i].price), 147, 15 + 6 * (i - 37));
+                doc.text(JSON.stringify(allDishes[i].count), 162, 15 + 6 * (i - 37));
+                doc.text(JSON.stringify(allDishes[i].price * allDishes[i].count), 172, 15 + 6 * (i - 37));
+                doc.text("_______________________________________________________________________________________________", 9, 16 + 6 * (i - 37));
+                doc.setFontSize(19);
+                doc.text("|   |                                                               |             |         |     |          |", 8, 15 + 6 * (i - 37));
+                doc.setFontSize(12);
             }
         }
         doc.setFontSize(20);
-        if (allDishes.length > 49) {
-            doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 25 + 4 * (allDishes.length - 50));
+        if (allDishes.length > 37) {
+            doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 35 + 6 * (allDishes.length - 37));
         } else {
-            doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 70 + 4 * allDishes.length)
+            doc.text(`Итого: ${JSON.stringify(totalPrice)}`, 120, 80 + 6 * allDishes.length)
         }
         doc.setFontSize(12)
         doc.text("Исполнитель________", 10, 275);
@@ -111,7 +148,7 @@ const OrderPage = () => {
                 </label>
                 <label>
                     <p className={styles.labelText}>Текст примечания</p>
-                    <input className={styles.input} placeholder="текст примечания" value={extraTextPdf.value} onBlur={e => extraTextPdf.onBlur(e)} onChange={e => extraTextPdf.onChange(e)}/>
+                    <input className={styles.input} placeholder="текст примечания" value={extraTextPdf.value} onBlur={e => extraTextPdf.onBlur(e)} onChange={e => extraTextPdf.onChange(e)} />
                 </label>
                 <button type="button" className={styles.button} disabled={!namePdf.inputValid} onClick={createAndSavePdf}>Сохранить документ</button>
             </div>
