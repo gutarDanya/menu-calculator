@@ -12,13 +12,11 @@
     height: 40px;
 }
 
-.copyButton {
-    background-color: white;
-    transition: all 100ms linear;
-}
 
 .copyButtonClicked {
     background-color: rgba(79, 212, 79, 0.7);
+    width: 40px;
+    height: 40px;
 }
 
 .cipher {
