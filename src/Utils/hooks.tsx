@@ -47,7 +47,11 @@ export const useInput = (initialValue: any, validations: any) => {
     const valid = useValidation(value, validations)
 
     const onChange = (e: any) => {
-        setValue(e.target.value)
+        if (typeof e === "number") {
+            setValue(e)
+        } else {
+            setValue(e.target.value)
+        }
     }
 
     const onBlur = (e: any) => {

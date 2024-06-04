@@ -1,6 +1,7 @@
 import React from "react";
 import { TLocalDishes, TLocalMenu, TMenu, Torder, Tposition, TsendedOrder } from "../../Utils/Types";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"; import { changeLocalCountOfOrder, handleChangeCountMenu, removePosFromOrder } from "../../Utils/scripts";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+ import { changeLocalCountOfOrder, removePosFromOrder } from "../../Utils/scripts";
 ;
 
 type TinitialState = {
@@ -22,18 +23,19 @@ const OrdersSlice = createSlice({
         getAllOrders(state, action: PayloadAction<string>) {
             state.orders = JSON.parse(action.payload)
         },
-        increment(state, action: PayloadAction<Tposition>) {
-            const SelectedPosition = action.payload
+        increment(state, action: PayloadAction<{pos: Tposition, count?: number}>) {
+            const {pos, count} = action.payload
+            const SelectedPosition = pos
             state.currentOrder = {
                 ...state.currentOrder!, dishes: state.currentOrder!.dishes.map((menu: TMenu) => {
-                    return menu.nameMenu === action.payload.menu
+                    return menu.nameMenu === pos.menu
                         ? {
                             ...menu, menu: menu.menu.map((section) => {
-                                return section.name === action.payload.type
+                                return section.name === pos.type
                                     ? {
                                         ...section, positions: section.positions.map((pos) => {
-                                            return pos.id === action.payload.id
-                                                ? { ...pos, count: pos.count + 1 }
+                                            return pos.id === pos.id
+                                                ? { ...pos, count: count || count === 0 ? count : pos.count + 1 }
                                                 : pos
                                         })
                                     }
@@ -45,8 +47,8 @@ const OrdersSlice = createSlice({
             }
 
             state.currentDishes = state.currentDishes!.map((pos: Tposition) => {
-                return pos.id !== action.payload.id
-                    ? { ...pos, count: pos.count + 1 }
+                return pos.id === pos.id
+                    ? { ...pos, count: count || count === 0 ? count : pos.count + 1 }
                     : pos
             })
             changeLocalCountOfOrder(state.currentOrder.id, SelectedPosition, true)
@@ -69,10 +71,10 @@ const OrdersSlice = createSlice({
                                         }).filter((pos) => { return pos !== null })
                                     }
                                     : section
-                            })
+                            }).filter((section) => {return section !== null})
                         }
                         : menu
-                })
+                }).filter((menu: TMenu) => menu !== null)
             }
 
             state.currentDishes = state.currentDishes!.map((pos: Tposition) => {
@@ -85,7 +87,27 @@ const OrdersSlice = createSlice({
         },
 
         deletePosFromOrder(state, action: PayloadAction<Tposition>) {
+            const pos = action.payload
             removePosFromOrder(state.currentOrder.id, action.payload)
+
+            state.currentOrder = {...state.currentOrder!, dishes: state.currentOrder!.dishes.map((menu: TMenu) => {return menu.nameMenu === pos.menu
+                ? {...menu, menu: menu.menu.map((section) => {return section.name === pos.type
+                    ? {...section, positions: section.positions.map((position) => {return position.id === pos.id
+                        ? null
+                        : position
+                    }).filter(pos => pos !== null)}
+                    : section
+                }).filter(section => section !== null)}
+                : menu
+            }).filter((menu:TMenu) => {return menu !== null})}
+
+            state.orders = state.orders.map((order: TsendedOrder) => {return order === state.currentOrder.id
+                ? {...order, dishes: order.dishes.map((dish: TLocalDishes) => {return dish.id !== pos.id
+                    ? dish
+                    :null
+                 }).filter((dish) => {return dish !== null})}
+                : order
+            })
         },
 
         deleteOrder(state, action: PayloadAction<string>) {

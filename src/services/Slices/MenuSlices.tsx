@@ -41,9 +41,17 @@ const MenuSlice = createSlice({
             state.menu = action.payload != null ? JSON.parse(action.payload) : []
         },
 
-        addPosition(state, action: PayloadAction<Tposition>) {
-            state.menu = handleChangeCountMenu(state.menu, action.payload, true)
-            state.currentPositions = handleChangeCountCurrentMenu(state.currentPositions, action.payload, true)
+        addPosition(state, action: PayloadAction<{pos: Tposition, count?: number}>) {
+
+            const {pos, count} = action.payload
+
+            if (count || count === 0) {
+                state.menu = handleChangeCountMenu(state.menu, pos, true, count)
+                state.currentPositions = handleChangeCountCurrentMenu(state.currentPositions, pos, true, count)
+            } else {
+            state.menu = handleChangeCountMenu(state.menu, pos, true)
+            state.currentPositions = handleChangeCountCurrentMenu(state.currentPositions, pos, true)
+            }
         },
 
         addExtraPosition(state, action: PayloadAction<{ name: string, weight: string | number, id: string, count: number, price: number }>) {

@@ -2,7 +2,6 @@ import React from "react";
 import styles from './MenuPage.module.css';
 
 import DishTypeContainer from "../../components/DishTypeContainer/DishTypeContainer";
-import { checkDish } from "../../Utils/scripts";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../services/store";
 import { TMenu, Tposition } from "../../Utils/Types";
@@ -21,12 +20,12 @@ const MenuPage = () => {
     const positionsInBusket = useAppSelector(state => state.MenuSlices.currentPositions);
 
     const CheckPos = (pos: Tposition) => {
-        dispatch(addPosition(pos))
+        dispatch(addPosition({pos: pos}))
     }
 
 
     const incrementPosition = (pos: Tposition) => {
-        dispatch(addPosition(pos))
+        dispatch(addPosition({pos: pos}))
     }
 
     const decrementPosition = (pos: Tposition) => {
@@ -38,6 +37,10 @@ const MenuPage = () => {
         navigate("/menu-calculator/bascket");
     }
 
+    const manyPositions = (pos: Tposition, count: number) => {
+        dispatch(addPosition({pos, count}))
+    }
+
     return (
         <div className={styles.page}>
             <h1 className={styles.headers}>{menu?.nameMenu}</h1>
@@ -45,7 +48,7 @@ const MenuPage = () => {
             {menu?.menu && menu?.menu.length > 0 && menu?.menu.map((section) => {
                 return <DishTypeContainer title={section.name}>
                 {section.positions && section.positions.length > 0 && section.positions.map((dish) => {
-                    return <Dish dish={dish} removedPos={false} handleClick={CheckPos} incrementPosition={incrementPosition} decrementPosition={decrementPosition} />
+                    return <Dish dish={dish} removedPos={false} handleClick={CheckPos} incrementPosition={incrementPosition} decrementPosition={decrementPosition} manyPositions={manyPositions}/>
                 })}
             </DishTypeContainer>
             })}

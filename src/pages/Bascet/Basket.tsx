@@ -32,8 +32,11 @@ const Basket = () => {
     }
 
     const increment = (pos: Tposition) => {
-        dispatch(addPosition(pos))
-        debugger
+        dispatch(addPosition({pos: pos}))
+    }
+
+    const blurValue = (pos: Tposition, count: number) => {
+        dispatch(addPosition({pos, count}))
     }
 
     const [dataOfOrder, setDataOfOrder] = useState({ date: "27.04.08", name: "", description1: "", description2: "" })
@@ -66,7 +69,7 @@ const Basket = () => {
             <h1 className={styles.header}>Корзина</h1>
             <form className={styles.positionsContainer}>
                 {positions && positions.length > 0 && positions.map((dish) => {
-                    return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} removePosition={removeFromOrder} /> : null
+                    return dish.count! > 0 ? <Dish removedPos={true} dish={dish} handleClick={removeFromOrder} incrementPosition={increment} decrementPosition={decrement} removePosition={removeFromOrder} manyPositions={blurValue}/> : null
                 })}
                 <button type="button" className={styles.addPositionButton} onClick={navigateAddPosition}>Добавить позицию в заказ</button>
                 <div className={styles.inputs}>

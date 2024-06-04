@@ -13,7 +13,7 @@ const OrderPage = () => {
 
     const dispatch = useAppDispatch();
     const incrementPosition = async (pos: Tposition) => {
-        await dispatch(increment(pos))
+        await dispatch(increment({pos}))
     }
 
     const decrementPosition = async (pos: Tposition) => {
@@ -25,19 +25,17 @@ const OrderPage = () => {
         : pos
     });
 
-    console.log(allDishes)
 
     const order = useAppSelector(state => state.OrdersSlice.currentOrder);
     const namePdf = useInput(`${order.name} ${order.date}`, { isEmpty: true })
     const extraTextPdf = useInput(null, {})
 
-    const totalPrice = order?.dishes.reduce((acc: any, item: TMenu) => {
-        return acc + item.menu.reduce((acc, menu) => {
-            return acc + menu.positions.reduce((acc, pos) => {
-                return acc + pos.price * pos.count
-            }, 0)
-        }, 0)
-    }, 0);
+    const totalPrice = allDishes.reduce((acc, item) => {
+        if (typeof item.count !== "number" || item.count <= 0) {
+            return acc
+        }
+        return acc + item.price * item.count
+    }, 0)
 
 
 
@@ -119,13 +117,17 @@ const OrderPage = () => {
         dispatch(deletePosFromOrder(pos))
     }
 
+    const manyPositions = (pos: Tposition, count: number) => {
+        dispatch(increment({pos, count}))
+    }
+
     return (
         order
             ? (<div className={styles.page}>
                 <h1 className={styles.header}>Заказ: {order.name}</h1>
                 <div className={styles.dishesContainer}>
                     {order.dishes && order.dishes.length > 0 && order.dishes.map((menu: TMenu) => {
-                        return <MenuContainer menu={menu} removedPos={true} incrementPos={incrementPosition} decrementPos={decrementPosition} handleClick={incrementPosition} removePosition={removePositionFromOrder} />
+                        return <MenuContainer menu={menu} removedPos={true} incrementPos={incrementPosition} decrementPos={decrementPosition} handleClick={incrementPosition} removePosition={removePositionFromOrder} manyPositions={manyPositions}/>
                     })}
                     <div className={styles.descriptions}>
                         <div className={styles.descriptionContainer}>

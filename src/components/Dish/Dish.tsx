@@ -1,11 +1,23 @@
 import React from "react";
 import styles from './Dish.module.css';
 import { Tposition } from "../../Utils/Types";
-import { useAppDispatch } from "../../services/store";
-import { addPosition } from "../../services/Slices/MenuSlices";
 import trash from '../../Utils/images/Trash_font_awesome.svg.png'
+import { useInput } from "../../Utils/hooks";
 
-const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition, removePosition }) => {
+const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPosition, decrementPosition, removePosition, manyPositions }) => {
+
+    const numberOfInput = useInput(dish.count === 0 ? 1 : dish.count, {isNumber: true, isEmpty: true});
+
+    function blurInput (e: any) {
+        numberOfInput.onBlur(e);
+        if (numberOfInput.value === 0 || numberOfInput.value === "" ) {
+            manyPositions(dish, 0)
+        }
+        else {
+            manyPositions(dish, Number(numberOfInput.value))
+        }
+    }
+
     return (
         <button type='button' className={styles.container} onClick={() => { !removedPos ? handleClick(dish) : console.log('') }}>
             <div className={styles.infoContainer}>
@@ -14,10 +26,10 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
             </div>
             {
                 dish.count && dish.count > 0 ? (<div className={styles.countContainer}>
-                    <p className={styles.count}>{dish.count}</p>
+                    <input value={numberOfInput.value} className={styles.input} onChange={e => numberOfInput.onChange(e)} onBlur={e => blurInput(e)} />
                     <div className={styles.calculationContainer}>
-                        <button className={styles.calculation} onClick={(e) => { e.preventDefault(); e.stopPropagation(); incrementPosition(dish) }}>▲</button>
-                        <button className={styles.calculation} onClick={(e) => { e.preventDefault(); e.stopPropagation(); decrementPosition(dish) }}>▼</button>
+                        <button className={styles.calculation} onClick={(e) => {numberOfInput.onChange(Number(numberOfInput.value) + 1); e.preventDefault(); e.stopPropagation(); incrementPosition(dish) }}>▲</button>
+                        <button className={styles.calculation} onClick={(e) => {numberOfInput.onChange(Number(numberOfInput.value) - 1); e.preventDefault(); e.stopPropagation(); decrementPosition(dish) }}>▼</button>
                     </div>
                 </div>) : null
             }
@@ -37,6 +49,7 @@ type Props = {
     incrementPosition: (arg: Tposition) => any;
     decrementPosition: (arg: Tposition) => any;
     removePosition?: (arg: Tposition) => any; 
+    manyPositions: any
 }
 
 export default Dish
