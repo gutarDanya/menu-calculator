@@ -31,7 +31,7 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
             </div>
             {
                 dish.count && dish.count > 0 ? (<div className={styles.countContainer}>
-                    <input value={numberOfInput.value} className={styles.input} onChange={e => numberOfInput.onChange(e)} onBlur={e => blurInput(e)} />
+                    <input value={numberOfInput.value} className={styles.input} type="number" onChange={e => numberOfInput.onChange(e)} onBlur={e => blurInput(e)} />
                     <div className={styles.calculationContainer}>
                         <button className={styles.calculation} onClick={(e) => {numberOfInput.onChange(Number(numberOfInput.value) + 1); e.preventDefault(); e.stopPropagation(); incrementPosition(dish) }}>▲</button>
                         <button className={styles.calculation} onClick={(e) => {numberOfInput.onChange(Number(numberOfInput.value) - 1); e.preventDefault(); e.stopPropagation(); decrementPosition(dish) }}>▼</button>
