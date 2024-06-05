@@ -1736,7 +1736,7 @@ export const mainPositions: TMenu = {
             {
                 "name": "Профитроли с патэ из курицы с вяленой клюквой и свежей голубикой",
                 "price": 80,
-                "id": "171",
+                "id": "240",
                 "weight": 50,
                 "description": "",
                 "type": "НОВИНКИ",

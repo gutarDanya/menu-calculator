@@ -63,12 +63,12 @@ export function handleChangeCountCurrentMenu(positions: Array<Tposition>, positi
         : [...positions, { ...position, count: count || count === 0 ? count : position.count + 1 }]
 }
 
-export function changeLocalCountOfOrder(id: string, position: Tposition, increment: boolean) {
+export function changeLocalCountOfOrder(id: string, position: Tposition, increment: boolean, count?: number) {
     localStorage.setItem("orders", JSON.stringify(JSON.parse(localStorage.getItem("orders")!).map((order: TsendedOrder) => {
         return order.id === id ? {
             ...order, dishes: order.dishes.map((dish: TLocalDishes) => {
                 return dish.id === position.id
-                    ? { ...dish, count: increment ? dish.count + 1 : dish.count === 1 ? null : dish.count - 1 }
+                    ? { ...dish, count: count || count === 0 ? count : increment ? dish.count + 1 : dish.count === 1 ? null : dish.count - 1 }
                     : dish
             }).filter((dish) => { return dish.count !== null })
         } : order

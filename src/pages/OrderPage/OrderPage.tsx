@@ -31,10 +31,8 @@ const OrderPage = () => {
     const extraTextPdf = useInput(null, {})
 
     const totalPrice = allDishes.reduce((acc, item) => {
-        if (typeof item.count !== "number" || item.count <= 0) {
-            return acc
-        }
-        return acc + item.price * item.count
+        console.log(item.name, acc, item.price, item.count)
+        return acc + item.price * item.count!
     }, 0)
 
 
