@@ -18,8 +18,13 @@ const Dish: React.FC<Props> = ({ dish, removedPos, handleClick, incrementPositio
         }
     }
 
+    function clickContainer () {
+        handleClick(dish);
+        numberOfInput.onChange(dish.count === 0 ? 1 : dish.count + 1)
+    }
+
     return (
-        <button type='button' className={styles.container} onClick={() => { !removedPos ? handleClick(dish) : console.log('') }}>
+        <button type='button' className={styles.container} onClick={() => { !removedPos ? clickContainer() : console.log('') }}>
             <div className={styles.infoContainer}>
                 <h3 className={styles.name}>{dish.name}</h3>
                 <p className={styles.description}>{dish.description}</p>
